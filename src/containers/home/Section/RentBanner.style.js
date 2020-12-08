@@ -3,19 +3,20 @@ const RentBannerStyle = {
         display:'flex',
         justifyContent: 'center',
         position:"relative",
+        margin: '30px 0',
     },
-    rentBanner__image:{
-        
+    rentBannerImage:{
+
         width: '80%',
         height: '300px',
-        marginTop: 30,
+        
         '& img':{
             width: '100%',
             height: '100%',
             borderRadius: '5px',
         }
     },
-    rentBanner__title:{
+    rentBannerTitle:{
         position:"absolute",
         top: '13%',
         left: '50%',
@@ -28,7 +29,7 @@ const RentBannerStyle = {
             marginTop: '10px',
         }
     },
-    rentBanner__button:{
+    rentBannerButton:{
         position:"absolute",
         bottom: '10%',
         left: '50%',

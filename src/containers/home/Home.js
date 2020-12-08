@@ -14,12 +14,12 @@ export default function Home(){
     const classes = useStyles();
     return (
         <Box>
-            {/* <Header />
+            <Header />
             <Box className={classes.home}>
                 <SlideSection />
                 <RentBannder />
             </Box>
-            <Footer /> */}
+            <Footer />
         </Box>
     )
 }
