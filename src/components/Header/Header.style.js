@@ -9,14 +9,14 @@ const HeaderStyle = {
         background: 'white',
         zIndex: 100,
     },
-    header__logo:{
+    headerLogo:{
         padding: 20,
         '& img':{
             width: 150,
             height: 32.25
         }      
     },
-    header__account:{
+    headerAccount:{
         padding: 20,
         display: "flex",
         alignItems: 'center',
