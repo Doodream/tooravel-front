@@ -37,7 +37,11 @@ const LoginStyle = {
     },loginInput:{
         margin: '50px 0 20px 0',
         width: '100%',
-    },loginFinder:{
+    },
+    loginInputErrmsg:{
+        color: 'white',
+    },
+    loginFinder:{
         margin: '20px 0',
         color: 'black',
         textDecoration: 'none',
@@ -58,6 +62,7 @@ const LoginStyle = {
         '&>:nth-child(1)':{
             opacity: '0.5'
         },
+        // & button 으로 하면 css 몇개 안먹음
         '&>:nth-child(2)':{
             width: '100px',
             color: 'white',
@@ -66,7 +71,9 @@ const LoginStyle = {
             borderRadius: '5px',
             background: '#5E5E5E',
         }
-    },
+    },loginPassword:{
+        margin: '20px 0 20px 0',
+    }
 
     
 }
