@@ -14,6 +14,7 @@ export default function Login(){
     const passwordFormCheck = useRef(null);
     const passwordValue = useRef(null);
 
+    // 이메일 형식 검사, 비밀번호 형식 검사
     const formCheck = () => {
         if(emailValue.current.value === '');
             emailFormCheck.current.style.color = 'red';
@@ -50,7 +51,7 @@ export default function Login(){
                     <Box className={classes.loginSignup}>
                         <Typography variant='h8'>아직 Tooravel의 회원이 아니신가요? 지금 바로 가입하세요~</Typography>
                         {/* button href를 넣으면 css가 달라짐 inspect 하면서 볼 것 */}
-                        <Button href='/login'>가입하기</Button>
+                        <Button href='/signup'>가입하기</Button>
                     </Box>
                 </Box>
             </Box>

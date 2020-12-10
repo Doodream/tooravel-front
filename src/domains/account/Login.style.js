@@ -1,5 +1,3 @@
-import { SignalWifi1BarLockSharp } from "@material-ui/icons";
-
 const LoginStyle = {
     login:{
         display:'flex',
@@ -12,13 +10,11 @@ const LoginStyle = {
         justifyContent: 'center',
         margin: '50px 0',
         width: '65%',
-        height: '600px',
         background: 'white',
     },
     loginSection2:{
         display: 'flex',
-        flexDirection: 'column',
-        
+        flexDirection: 'column',    
         width: '50%',
     },
     loginFacebook:{
@@ -34,7 +30,8 @@ const LoginStyle = {
     loginDivider:{
         width: '100%',
         border: '0.01px solid #EFEFEF',
-    },loginInput:{
+    },
+    loginInput:{
         margin: '50px 0 20px 0',
         width: '100%',
     },
@@ -45,7 +42,8 @@ const LoginStyle = {
         margin: '20px 0',
         color: 'black',
         textDecoration: 'none',
-    },loginSummit:{
+    },
+    loginSummit:{
         width: '100%',
         color: 'white',
         fontSize: '20px',
@@ -53,7 +51,8 @@ const LoginStyle = {
         borderRadius: '5px',
         background: '#F0583A',
         marginBottom: '20px', 
-    },loginSignup:{
+    },
+    loginSignup:{
         margin: '20px 0',
         display: 'flex',
         justifyContent: 'space-between',
@@ -71,8 +70,19 @@ const LoginStyle = {
             borderRadius: '5px',
             background: '#5E5E5E',
         }
-    },loginPassword:{
+    },
+    loginPassword:{
         margin: '20px 0 20px 0',
+    },
+    loginGuideMsg:{
+        fontSize: '13px',
+        color: 'black',
+        '& a':{
+            fontSize: '15px',
+            color: '#F0583A',
+            textDecoration: 'none',
+            fontWeight: '600',
+        }
     }
 
     
