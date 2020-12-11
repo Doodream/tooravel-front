@@ -17,7 +17,11 @@ const SlideSectionStyle = {
         textAlign: 'center',
         flexDirection: 'column',
         color: 'white',
-        '& h5':{
+        '& h3':{
+            fontWeight: '900',
+        },
+        '& h4':{
+            fontWeight: '600',
             marginTop: '30px',
         }
     }

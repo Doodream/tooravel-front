@@ -31,7 +31,7 @@ export default function SlideSection(){
             </Box>
             <Box className={classes.title}>
                 <Typography variant='h3'>세상의 모든 자유여행 상품 비교</Typography>
-                <Typography variant='h5'>더 쉽게, 더 즐겁게 떠나는 자유여행</Typography>
+                <Typography variant='h4'>더 쉽게, 더 즐겁게 떠나는 자유여행</Typography>
             </Box>
         </Box>
     )

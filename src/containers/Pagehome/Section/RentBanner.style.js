@@ -25,12 +25,18 @@ const RentBannerStyle = {
         textAlign: 'center',
         flexDirection: 'column',
         color: 'white',
-        '& h3':{
+        '&>:nth-child(1)':{
+            fontWeight: '600'
+        },
+        '&>:nth-child(2)':{
             marginTop: '10px',
+            fontWeight: '900',
         }
+        
     },
     rentBannerButton:{
-        position:"absolute",
+        padding: '10px 30px',
+        position: 'absolute',
         bottom: '10%',
         left: '50%',
         transform: 'translateX(-50%)',
@@ -38,7 +44,11 @@ const RentBannerStyle = {
         textAlign: 'center',
         color: 'white',
         background: '#E84D3C',
-        borderRadius: 30    
+        borderRadius: '20px',
+        '& p':{
+            fontWeight: '800',
+            fontSize: '20px'
+        }    
     }
 }
 export default RentBannerStyle;

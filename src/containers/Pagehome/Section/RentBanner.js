@@ -15,10 +15,10 @@ export default function SlideSection(){
             </Box>
             <Box className={classes.rentBannerTitle}>
                 <Typography variant='h5'>하루 대여료 최저가 5900원</Typography>
-                <Typography variant='h3'>고프로 빌려서 여행가자!</Typography>
+                <Typography variant='h2'>고프로 빌려서 여행가자!</Typography>
             </Box>
             <Button className={classes.rentBannerButton}>
-                <Typography >고프로 대여하기</Typography>
+                <Typography>고프로 대여하기</Typography>
             </Button>
         </Box>
     )
