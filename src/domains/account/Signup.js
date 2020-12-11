@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(styles);
 
-export default function Signup(){
+export default function Signup({ history }){
     const classes = useStyles();
 
     const emailFormCheck = useRef(null);
@@ -25,8 +25,10 @@ export default function Signup(){
     return (
         <Box className={classes.login}>
             <Box className={classes.loginSection}>
-                <Box className={classes.loginSection2}>
-                    <Button className={classes.loginFacebook} href='/login' >FaceBook으로 간편하게 가입하기</Button>
+                <Box className={classes.loginSectionInner}>
+                    <Button className={classes.loginFacebook} onClick={() => {
+                        history.push('/signup')
+                    }}>FaceBook으로 간편하게 가입하기</Button>
                     <Divider  className={classes.loginDivider}></Divider>
                     <TextField 
                         className={classes.loginInput} 
@@ -47,7 +49,7 @@ export default function Signup(){
                         type='password'/>
                     <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 입력해주세요 </Typography>
                     <Button 
-                        className={classes.loginSummit} 
+                        className={classes.loginSummitButton} 
                         onClick={formCheck}
                         type='submit'
                         >가입하기</Button>
@@ -58,7 +60,9 @@ export default function Signup(){
                     <Box className={classes.loginSignup}>
                         <Typography variant='h8'>이미 Tooravel의 회원이신가요?</Typography>
                         {/* button href를 넣으면 css가 달라짐 inspect 하면서 볼 것 */}
-                        <Button href='/login'>로그인</Button>
+                        <Button onClick={()=>{
+                            history.push('/login')
+                        }}>로그인</Button>
                     </Box>
                 </Box>
             </Box>

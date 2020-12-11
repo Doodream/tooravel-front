@@ -12,7 +12,7 @@ const LoginStyle = {
         width: '65%',
         background: 'white',
     },
-    loginSection2:{
+    loginSectionInner:{
         display: 'flex',
         flexDirection: 'column',    
         width: '50%',
@@ -43,7 +43,7 @@ const LoginStyle = {
         color: 'black',
         textDecoration: 'none',
     },
-    loginSummit:{
+    loginSummitButton:{
         width: '100%',
         color: 'white',
         fontSize: '20px',

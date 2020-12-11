@@ -2,14 +2,13 @@ import React from 'react';
 import {Box} from '@material-ui/core';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Signup from '../../domains/account/Signup';
+import Login from '../../domains/account/Login';
 
-
-export default function SignupPage(){
+export default function LoginPage({history}){
     return (
         <Box>
             <Header />
-            <Signup />
+            <Login history={history}/>
             <Footer />
         </Box>
     )
