@@ -3,7 +3,7 @@ const RentBannerStyle = {
         display:'flex',
         justifyContent: 'center',
         position:"relative",
-        margin: '30px 0',
+        margin: '40px 0',
     },
     rentBannerImage:{
 

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Home from './containers/home/Home';
-import LoginPage from './containers/loginPage/LoginPage';
-import SignupPage from './containers/loginPage/SignupPage';
+import Home from './containers/Pagehome/Home';
+import LoginPage from './containers/Pagelogin/LoginPage';
+import SignupPage from './containers/Pagelogin/SignupPage';
 
 ReactDOM.render(
   <React.StrictMode>

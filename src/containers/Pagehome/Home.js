@@ -2,8 +2,8 @@ import React from 'react';
 import {Box} from '@material-ui/core';
 import {makeStyles} from "@material-ui/core/styles";
 import styles from './Home.style.js';
-import SlideSection from '../home/Section/SlideSection';
-import RentBannder from '../home/Section/RentBanner';
+import SlideSection from './Section/SlideSection';
+import RentBannder from './Section/RentBanner';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 

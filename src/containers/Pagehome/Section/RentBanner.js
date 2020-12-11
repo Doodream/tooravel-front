@@ -18,7 +18,7 @@ export default function SlideSection(){
                 <Typography variant='h3'>고프로 빌려서 여행가자!</Typography>
             </Box>
             <Button className={classes.rentBannerButton}>
-                <Typography vari>고프로 대여하기</Typography>
+                <Typography >고프로 대여하기</Typography>
             </Button>
         </Box>
     )

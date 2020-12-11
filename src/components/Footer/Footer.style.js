@@ -8,19 +8,19 @@ const FooterStyle = {
         width: '100%',
         background: '#5E5E5E',
     },
-    footer__section:{
+    footerSection:{
         width: '80%',
         height: '100%',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
     },
-    footer__menu:{
+    footerMenu:{
         display: 'flex',
         width: '100%',
         justifyContent: 'center',
     },
-    footer__menu_list:{
+    footerMenuList:{
         flexGrow: '1',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -32,25 +32,25 @@ const FooterStyle = {
             padding: 10,
         }
     },
-    footer__menu_title:{
+    footerMenuTitle:{
         textAlign: 'center',
         color: 'white',
     },
-    footer__menu_divider:{
+    footerMenuDivider:{
         background: 'white',  
     },
-    footer__snsList:{
+    footerSnsList:{
         justifyContent: 'center',
         '& a':{
             margin: 15, 
         }
     },
-    footer__info:{
+    footerInfo:{
         display: 'flex',
         flexDirection: 'column',
         
     },
-    footer__info_text:{
+    footerInfoText:{
         color: 'white',
         marginTop: 5,
     }
