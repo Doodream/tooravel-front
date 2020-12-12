@@ -4,7 +4,7 @@ const AboutMenuStyle = {
         height: '60px',
         width: '100%',
         justifyContent: 'center',
-        borderBottom: '2px solid #5E5E5E',
+        borderBottom: '1px solid #a4b0be',
     },
     menuSection:{
         display:'flex',
@@ -13,18 +13,21 @@ const AboutMenuStyle = {
         padding: 0,
     },
     menuItem:{
-        margin: '0 5px',
+        margin: '0px 10px',
         padding: 0,
         display:'flex',
         height: '100%',
         flexGrow: '1',
         justifyContent: 'center',
         alignItems: 'center',
+        fontSize: 20,
+        textDecoration: 'none',
+        color: '#1e272e',
         '& a':{
             fontSize: 20,
+            fontWeight: '500',
             textDecoration: 'none',
             color: '#1e272e',
-            
         },
     },
 

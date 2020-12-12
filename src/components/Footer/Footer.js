@@ -20,7 +20,7 @@ export default function Footer(){
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Partnerships</Typography>
                         <Divider className={classes.footerMenuDivider}></Divider>
-                        <Link to='/'>제휴문의</Link>
+                        <Link to='/about/partnershipInquiry'>제휴문의</Link>
                     </Box>
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Terms of use</Typography>
@@ -32,8 +32,8 @@ export default function Footer(){
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Contact</Typography>
                         <Divider className={classes.footerMenuDivider}></Divider>
-                        <Link to='/'>찾아오기</Link>
-                        <Link to='/'>tooravel@gmail.com</Link>
+                        <Link to='/about/contact'>찾아오기</Link>
+                        <a href='mailto:tooravel@gmail.com'>tooravel@gmail.com</a>
                         <Link>운영시간 평일 10:00 ~ 19:00</Link>
                     </Box>
                 </List>
