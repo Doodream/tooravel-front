@@ -15,7 +15,7 @@ export default function Footer(){
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>About</Typography>
                         <Divider className={classes.footerMenuDivider}></Divider>
-                        <Link to='/'>Tooravel 소개</Link>
+                        <Link to='/about/intro'>Tooravel 소개</Link>
                     </Box>
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Partnerships</Typography>
@@ -38,9 +38,9 @@ export default function Footer(){
                     </Box>
                 </List>
                 <List className={classes.footerSnsList}>
-                    <Link to='/'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='페이스북'></img></Link>
-                    <Link to='/'><img src='https://www.tooravel.net/static/common/img/icon_insta.png' alt='인스타'></img></Link>
-                    <Link to='/'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='네이버'></img></Link>
+                    <a href='https://www.facebook.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='페이스북'></img></a>
+                    <a href='https://www.instagram.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_insta.png' alt='인스타'></img></a>
+                    <a href='https://blog.naver.com/tooravel' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='네이버'></img></a>
                 </List>
                 <List className={classes.footerInfo}>
                     <Typography className={classes.footerInfoText} variant='h7'>상호명 : 투레벨(Tooravel)  |  대표 : 성주엽</Typography>
