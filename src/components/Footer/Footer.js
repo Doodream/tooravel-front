@@ -40,7 +40,7 @@ export default function Footer(){
                 <List className={classes.footerSnsList}>
                     <a href='https://www.facebook.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='페이스북'></img></a>
                     <a href='https://www.instagram.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_insta.png' alt='인스타'></img></a>
-                    <a href='https://blog.naver.com/tooravel' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='네이버'></img></a>
+                    <a href='https://blog.naver.com/tooravel' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_naver.png' alt='네이버'></img></a>
                 </List>
                 <List className={classes.footerInfo}>
                     <Typography className={classes.footerInfoText} variant='h7'>상호명 : 투레벨(Tooravel)  |  대표 : 성주엽</Typography>
