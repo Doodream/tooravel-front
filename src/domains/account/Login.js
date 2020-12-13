@@ -79,9 +79,9 @@ export default function Login({history}){
                         />
                     <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
                     <TextField className={classes.loginInput, classes.loginPassword} 
-                        ref={passwordValue} 
+                        ref={passwordValue}
+                        onChange={(e)=>{validatePassword(e.target.value)}} 
                         label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
-                        onChange={(e)=>{validatePassword(e.target.value)}}
                         variant='outlined' 
                         type='password'/>
                     <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 입력해주세요 </Typography>
