@@ -1,13 +1,13 @@
 import React from 'react';
-import {Box} from '@material-ui/core';
-import {makeStyles} from "@material-ui/core/styles";
+import { Box } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
 import styles from './AboutImage.style.js';
 
 
-const useStyles=makeStyles(styles);
+const useStyles = makeStyles(styles);
 
-export default function AboutImage(){
-    const classes=useStyles();
+export default function AboutImage() {
+    const classes = useStyles();
     return (
         <Box>
             <Box className={classes.imageSection}>

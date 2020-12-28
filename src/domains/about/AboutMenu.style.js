@@ -1,21 +1,21 @@
 const AboutMenuStyle = {
-    menu:{
+    menu: {
         display: 'flex',
         height: '60px',
         width: '100%',
         justifyContent: 'center',
         borderBottom: '1px solid #a4b0be',
     },
-    menuSection:{
-        display:'flex',
+    menuSection: {
+        display: 'flex',
         width: '60%',
         height: '100%',
         padding: 0,
     },
-    menuItem:{
+    menuItem: {
         margin: '0px 10px',
         padding: 0,
-        display:'flex',
+        display: 'flex',
         height: '100%',
         flexGrow: '1',
         justifyContent: 'center',
@@ -23,7 +23,7 @@ const AboutMenuStyle = {
         fontSize: 20,
         textDecoration: 'none',
         color: '#1e272e',
-        '& a':{
+        '& a': {
             fontSize: 20,
             fontWeight: '500',
             textDecoration: 'none',

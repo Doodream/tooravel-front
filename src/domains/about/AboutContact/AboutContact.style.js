@@ -1,16 +1,16 @@
 const AboutContactStyle = {
-        contact:{
+    contact: {
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '50px',
     },
-        contactSection:{
+    contactSection: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         width: '40%',
     },
-        contactTitle:{
+    contactTitle: {
         width: '100%',
         height: '180px',
         display: 'flex',
@@ -18,7 +18,7 @@ const AboutContactStyle = {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        '& h4':{
+        '& h4': {
             fontWeight: '600',
             marginBottom: '15px',
             fontSize: '30px',
@@ -26,6 +26,6 @@ const AboutContactStyle = {
     },
 
 
-    
+
 }
 export default AboutContactStyle;

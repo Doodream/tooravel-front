@@ -1,15 +1,15 @@
 import React from 'react';
-import {Box, List, TextField, Button} from '@material-ui/core';
-import {makeStyles} from "@material-ui/core/styles";
+import { Box, List, TextField, Button } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
 import styles from './AboutContact.style.js';
 import { Typography } from '@material-ui/core';
 import { ListItem } from '@material-ui/core';
 
 
-const useStyles=makeStyles(styles);
+const useStyles = makeStyles(styles);
 
-export default function AboutContact(){
-    const classes=useStyles();
+export default function AboutContact() {
+    const classes = useStyles();
     return (
         <Box className={classes.contact}>
             <List className={classes.contactSection}>
@@ -28,7 +28,7 @@ export default function AboutContact(){
                 </ListItem>
                 <ListItem>
                     <Box>
-                        <img src='' alt='네이버 지도'/>
+                        <img src='' alt='네이버 지도' />
                     </Box>
                 </ListItem>
             </List>

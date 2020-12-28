@@ -1,23 +1,23 @@
 const RentBannerStyle = {
-    rentBanner:{
-        display:'flex',
+    rentBanner: {
+        display: 'flex',
         justifyContent: 'center',
-        position:"relative",
+        position: "relative",
         margin: '40px 0',
     },
-    rentBannerImage:{
+    rentBannerImage: {
 
         width: '80%',
         height: '300px',
-        
-        '& img':{
+
+        '& img': {
             width: '100%',
             height: '100%',
             borderRadius: '5px',
         }
     },
-    rentBannerTitle:{
-        position:"absolute",
+    rentBannerTitle: {
+        position: "absolute",
         top: '13%',
         left: '50%',
         transform: 'translateX(-50%)',
@@ -25,16 +25,16 @@ const RentBannerStyle = {
         textAlign: 'center',
         flexDirection: 'column',
         color: 'white',
-        '&>:nth-child(1)':{
+        '&>:nth-child(1)': {
             fontWeight: '600'
         },
-        '&>:nth-child(2)':{
+        '&>:nth-child(2)': {
             marginTop: '10px',
             fontWeight: '900',
         }
-        
+
     },
-    rentBannerButton:{
+    rentBannerButton: {
         padding: '10px 30px',
         position: 'absolute',
         bottom: '10%',
@@ -45,10 +45,10 @@ const RentBannerStyle = {
         color: 'white',
         background: '#E84D3C',
         borderRadius: '20px',
-        '& p':{
+        '& p': {
             fontWeight: '800',
             fontSize: '20px'
-        }    
+        }
     }
 }
 export default RentBannerStyle;

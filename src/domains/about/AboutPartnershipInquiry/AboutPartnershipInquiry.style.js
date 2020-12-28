@@ -1,16 +1,16 @@
 const AboutPartnershipInquiryStyle = {
-    inquiry:{
+    inquiry: {
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '50px',
     },
-    inquirySection:{
+    inquirySection: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         width: '40%',
     },
-    inquiryTitle:{
+    inquiryTitle: {
         width: '100%',
         height: '180px',
         display: 'flex',
@@ -18,17 +18,17 @@ const AboutPartnershipInquiryStyle = {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        '& h4':{
+        '& h4': {
             fontWeight: '600',
             marginBottom: '15px',
             fontSize: '30px',
         }
     },
-    inquiryForm:{
+    inquiryForm: {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        '& button':{
+        '& button': {
             width: '100%',
             color: 'white',
             fontSize: '20px',
@@ -37,33 +37,33 @@ const AboutPartnershipInquiryStyle = {
             background: '#5E5E5E',
         }
     },
-    inquiryInput:{
-        display: 'flex', 
+    inquiryInput: {
+        display: 'flex',
         width: '100%',
     },
-    inquiryIdentify:{
+    inquiryIdentify: {
         flexGrow: 1,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        '& div':{
+        '& div': {
             width: '100%',
         },
-        '&>:nth-child(3)':{
+        '&>:nth-child(3)': {
             marginBottom: '0',
         }
     },
-    inquiryContent:{
+    inquiryContent: {
         flexGrow: 1,
         display: 'flex',
-        '& div':{
+        '& div': {
             width: '100%',
             height: '100%',
         }
-        
+
     },
 
 
-    
+
 }
 export default AboutPartnershipInquiryStyle;

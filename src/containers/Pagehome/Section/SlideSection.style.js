@@ -1,15 +1,15 @@
 const SlideSectionStyle = {
-    imageSection:{
+    imageSection: {
         position: 'relative',
         display: 'flex',
         width: '100%',
         height: '490px',
-        '& img':{
+        '& img': {
             width: '100%',
             height: '100%',
         }
     },
-    title:{
+    title: {
         position: 'absolute',
         top: '30%',
         left: '30%',
@@ -17,10 +17,10 @@ const SlideSectionStyle = {
         textAlign: 'center',
         flexDirection: 'column',
         color: 'white',
-        '& h3':{
+        '& h3': {
             fontWeight: '900',
         },
-        '& h4':{
+        '& h4': {
             fontWeight: '600',
             marginTop: '30px',
         }

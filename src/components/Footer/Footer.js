@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link, } from 'react-router-dom';
-import {Box, Container, Typography, List, Divider} from '@material-ui/core';
-import {makeStyles} from "@material-ui/core/styles";
+import { Link, } from 'react-router-dom';
+import { Box, Container, Typography, List, Divider } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
 import styles from './Footer.style.js';
 
 const useStyles = makeStyles(styles);
 
-export default function Footer(){
+export default function Footer() {
     const classes = useStyles();
     return (
         <Box className={classes.footer}>

@@ -1,23 +1,23 @@
 const LoginStyle = {
-    login:{
-        display:'flex',
-        justifyContent:'center',
-        paddingTop:77.25,
+    login: {
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: 77.25,
         background: '#EFEFEF',
     },
-    loginSection:{
+    loginSection: {
         display: 'flex',
         justifyContent: 'center',
         margin: '50px 0',
         width: '65%',
         background: 'white',
     },
-    loginSectionInner:{
+    loginSectionInner: {
         display: 'flex',
-        flexDirection: 'column',    
+        flexDirection: 'column',
         width: '50%',
     },
-    loginFacebook:{
+    loginFacebook: {
         width: '100%',
         color: 'white',
         fontSize: '20px',
@@ -27,42 +27,42 @@ const LoginStyle = {
         marginTop: '50px',
         marginBottom: '20px',
     },
-    loginDivider:{
+    loginDivider: {
         width: '100%',
         border: '0.01px solid #EFEFEF',
     },
-    loginInput:{
+    loginInput: {
         margin: '50px 0 20px 0',
         width: '100%',
     },
-    loginInputErrmsg:{
+    loginInputErrmsg: {
         color: 'white',
     },
-    loginFinder:{
+    loginFinder: {
         margin: '20px 0',
         color: 'black',
         textDecoration: 'none',
     },
-    loginSummitButton:{
+    loginSummitButton: {
         width: '100%',
         color: 'white',
         fontSize: '20px',
         textAlign: 'center',
         borderRadius: '5px',
         background: '#F0583A',
-        marginBottom: '20px', 
+        marginBottom: '20px',
     },
-    loginSignup:{
+    loginSignup: {
         margin: '20px 0',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         background: 'white',
-        '&>:nth-child(1)':{
+        '&>:nth-child(1)': {
             opacity: '0.5'
         },
         // & button 으로 하면 css 몇개 안먹음
-        '&>:nth-child(2)':{
+        '&>:nth-child(2)': {
             width: '100px',
             color: 'white',
             fontSize: '20px',
@@ -71,13 +71,13 @@ const LoginStyle = {
             background: '#5E5E5E',
         }
     },
-    loginPassword:{
+    loginPassword: {
         margin: '20px 0 20px 0',
     },
-    loginGuideMsg:{
+    loginGuideMsg: {
         fontSize: '13px',
         color: 'black',
-        '& a':{
+        '& a': {
             fontSize: '15px',
             color: '#F0583A',
             textDecoration: 'none',
@@ -85,6 +85,6 @@ const LoginStyle = {
         }
     }
 
-    
+
 }
 export default LoginStyle;

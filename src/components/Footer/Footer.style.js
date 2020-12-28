@@ -1,5 +1,5 @@
 const FooterStyle = {
-    footer:{
+    footer: {
         display: 'flex',
         justifyContent: 'center',
         position: 'relative',
@@ -8,23 +8,23 @@ const FooterStyle = {
         width: '100%',
         background: '#5E5E5E',
     },
-    footerSection:{
+    footerSection: {
         width: '80%',
         height: '100%',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
     },
-    footerMenu:{
+    footerMenu: {
         display: 'flex',
         width: '100%',
         justifyContent: 'center',
     },
-    footerMenuList:{
+    footerMenuList: {
         flexGrow: '1',
         justifyContent: 'center',
         flexDirection: 'column',
-        '& a':{
+        '& a': {
             display: 'flex',
             textDecoration: 'none',
             color: 'white',
@@ -32,28 +32,28 @@ const FooterStyle = {
             padding: 10,
         }
     },
-    footerMenuTitle:{
+    footerMenuTitle: {
         textAlign: 'center',
         color: 'white',
     },
-    footerMenuDivider:{
-        background: 'white',  
+    footerMenuDivider: {
+        background: 'white',
     },
-    footerSnsList:{
+    footerSnsList: {
         justifyContent: 'center',
-        '& a':{
-            margin: 15, 
+        '& a': {
+            margin: 15,
         }
     },
-    footerInfo:{
+    footerInfo: {
         display: 'flex',
         flexDirection: 'column',
-        
+
     },
-    footerInfoText:{
+    footerInfoText: {
         color: 'white',
         marginTop: 5,
     }
-   
+
 }
 export default FooterStyle;

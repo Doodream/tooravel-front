@@ -1,42 +1,42 @@
 const AboutIntroStyle = {
-    intro:{
-        display:'flex',
+    intro: {
+        display: 'flex',
         justifyContent: 'center',
     },
-    introSection:{
+    introSection: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         width: '80%',
     },
-    introTitle:{
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
+    introTitle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
         height: '180px',
-        '& p':{
+        '& p': {
             fontWeight: '600',
             fontSize: 30,
 
         }
     },
-    introItem:{
-        display:'flex',
-        justifyContent:'center',
+    introItem: {
+        display: 'flex',
+        justifyContent: 'center',
         margin: '30px 0',
         height: '390px',
         width: '100%',
     },
-    introItemImage:{
-        display:'flex',
+    introItemImage: {
+        display: 'flex',
         flexGrow: 1,
         width: '100%',
-        '& img':{
+        '& img': {
             width: '100%',
         }
     },
-    introItemExplain:{
+    introItemExplain: {
         padding: '0 30px',
         width: '100%',
         flexGrow: 1,
@@ -45,11 +45,11 @@ const AboutIntroStyle = {
         justifyContent: 'center',
         alignItems: 'center',
         color: '#333333',
-        '& h5':{
+        '& h5': {
             fontSize: '25px',
             marginBottom: '20px',
         },
-        '& h7':{
+        '& h7': {
             fontSize: '15px',
         },
     }

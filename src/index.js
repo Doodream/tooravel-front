@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './containers/PageHome/Home';
 import PageLogin from './containers/PageLogin/PageLogin';
 import PageSignup from './containers/PageLogin/PageSignup';
