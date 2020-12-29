@@ -1,12 +1,14 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './Home.style.js';
+
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+
 import SlideSection from './Section/SlideSection';
 import RentBannder from './Section/RentBanner';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 
+import styles from './PageHome.style.js';
 
 const useStyles = makeStyles(styles);
 
