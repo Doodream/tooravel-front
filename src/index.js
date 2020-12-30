@@ -8,10 +8,13 @@ import PageIntro from './containers/PageAbout/PageIntro';
 import PagePartnershipInquiry from './containers/PageAbout/PagePartnershipInquiry';
 import PageContact from './containers/PageAbout/PageContact';
 
-import PageLogin from './domains/account/Login';
-import PageSignup from './domains/account/Signup';
 import PageTos from './containers/PageTou/PageTos';
 import PagePrivacy from './containers/PageTou/PagePrivacy';
+import PageRentRule from './containers/PageTou/PageRentRule';
+
+import PageLogin from './domains/account/Login';
+import PageSignup from './domains/account/Signup';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,6 +29,7 @@ ReactDOM.render(
         <Route exact path='/about/contact' component={PageContact} />
         <Route exact path='/tou/tos' component={PageTos} />
         <Route exact path='/tou/privacy' component={PagePrivacy} />
+        <Route exact path='/tou/rentRule' component={PageRentRule} />
       </Switch>
     </Router>
   </React.StrictMode>,
