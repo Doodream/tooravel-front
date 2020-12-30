@@ -25,9 +25,9 @@ export default function Footer() {
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Terms of use</Typography>
                         <Divider className={classes.footerMenuDivider}></Divider>
-                        <Link to='/'>서비스 이용약관</Link>
-                        <Link to='/'>개인정보 취급방침</Link>
-                        <Link to='/'>대여서비스 취급방침</Link>
+                        <Link to='/tou/tos'>서비스 이용약관</Link>
+                        <Link to='/tou/privacy'>개인정보 취급방침</Link>
+                        <Link to='/tou/rentRule'>대여서비스 취급방침</Link>
                     </Box>
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Contact</Typography>
