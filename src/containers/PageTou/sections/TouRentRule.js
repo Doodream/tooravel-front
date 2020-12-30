@@ -13,7 +13,6 @@ export default function TosRentRule() {
     return (
         <div className={classes.intro}>
             <div className={classes.introSection}>
-
                 <div>
                     <h5>1조 (목적)</h5>
                     <p>이 약관은 투레벨(Tooravel)(이하 “회사”)과 임차인 사이의 대여제품 임대차계약 (이하 “대여계약”)상의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>

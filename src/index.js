@@ -15,6 +15,8 @@ import PageRentRule from './containers/PageTou/PageRentRule';
 import PageLogin from './domains/account/Login';
 import PageSignup from './domains/account/Signup';
 
+import SettingAccount from './domains/myPage/SettingAccount';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,12 +26,17 @@ ReactDOM.render(
         <Route exact path='/' component={PageHome} />
         <Route exact path='/login' component={PageLogin} />
         <Route exact path='/signup' component={PageSignup} />
+
         <Route exact path='/about/intro' component={PageIntro} />
         <Route exact path='/about/partnershipInquiry' component={PagePartnershipInquiry} />
         <Route exact path='/about/contact' component={PageContact} />
+
         <Route exact path='/tou/tos' component={PageTos} />
         <Route exact path='/tou/privacy' component={PagePrivacy} />
         <Route exact path='/tou/rentRule' component={PageRentRule} />
+
+        <Route exact path='/mypage/settingAccount' component={SettingAccount} />
+        
       </Switch>
     </Router>
   </React.StrictMode>,

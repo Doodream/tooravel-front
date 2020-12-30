@@ -1,3 +1,5 @@
+import { PlayCircleFilledWhite } from "@material-ui/icons";
+
 const HeaderStyle = {
     header: {
         opacity: '0.8',
@@ -20,18 +22,46 @@ const HeaderStyle = {
         padding: 20,
         display: "flex",
         alignItems: 'center',
-        '& div': {
-            height: 20,
-            borderRight: '1.5px solid black',
-            margin: '0px 5px',
-        },
         '& a': {
             textDecoration: 'none',
             color: 'black',
         },
+    },
+    headerDivider: {
+        height: 20,
+        borderRight: '1.5px solid black',
+        margin: '0px 5px',
+    },
+    headerUserImage: {
+        width: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        '& img': {
+            width: '30px',
+            height: '30px',
+            borderRadius: '50%'
 
+        }
+    },
+    headerList: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'fixed',
+        right: '5px',
+        top: '80px',
+        width: '15%',
+        background: 'white',
+        borderRadius: '10px',
+        '& a': {
+            display: 'flex',
+            textDecoration: 'none',
+            padding: '10px 0',
+            color: 'black',
+            '& h5': {
+                paddingLeft: 10,
+                fontSize: 20
+            }
+        },
     }
-
-
 }
 export default HeaderStyle;

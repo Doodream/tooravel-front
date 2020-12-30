@@ -9,7 +9,7 @@ import { ListItem } from '@material-ui/core';
 const useStyles = makeStyles(styles);
 
 export default function TouTos() {
-    const classes = useStyles(styles);
+    const classes = useStyles();
     return (
         <div className={classes.intro}>
             <div className={classes.introSection}>

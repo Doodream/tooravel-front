@@ -15,7 +15,7 @@ export default function Header() {
             </Box>
             <Box className={classes.headerAccount}>
                 <Link to='/login'><Typography variant="h6">로그인</Typography></Link>
-                <Box></Box>
+                <Box className={classes.headerDivider}></Box>
                 <Link to='/signup'><Typography variant="h6">회원가입</Typography></Link>
             </Box>
         </Box>
