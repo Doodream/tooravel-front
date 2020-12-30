@@ -1,4 +1,4 @@
-const TouTosStyle = {
+const TouPrivacyStyle = {
     intro: {
         display: 'flex',
         justifyContent: 'center',
@@ -8,6 +8,6 @@ const TouTosStyle = {
         flexDirection: 'column',
         justifyContent: 'center',
         width: '60%',
-    },
+    }
 }
-export default TouTosStyle;
+export default TouPrivacyStyle;

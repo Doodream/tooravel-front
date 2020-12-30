@@ -10,8 +10,8 @@ import PageContact from './containers/PageAbout/PageContact';
 
 import PageLogin from './domains/account/Login';
 import PageSignup from './domains/account/Signup';
-
 import PageTos from './containers/PageTou/PageTos';
+import PagePrivacy from './containers/PageTou/PagePrivacy';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path='/about/partnershipInquiry' component={PagePartnershipInquiry} />
         <Route exact path='/about/contact' component={PageContact} />
         <Route exact path='/tou/tos' component={PageTos} />
+        <Route exact path='/tou/privacy' component={PagePrivacy} />
       </Switch>
     </Router>
   </React.StrictMode>,
