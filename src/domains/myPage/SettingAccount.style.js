@@ -6,9 +6,10 @@ const SettingAccountStyle = {
         paddingTop: 77.25
     },
     settingAccountSection: {
+        margin: '80px 0',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+
         border: '1px solid rgba(0, 0, 0, 0.3)',
         background: 'white',
     },
@@ -16,26 +17,31 @@ const SettingAccountStyle = {
         display: 'flex',
         width: '300px',
         flexDirection: 'column',
-        '&>:nth-child(3)': {
+        '&>:nth-child(2)': {
             display: 'flex',
             '& a': {
+                paddingTop: '10px',
+                paddingBottom: '10px',
                 paddingLeft: '20px',
                 textDecoration: 'none',
                 color: 'black',
                 fontSize: 15,
-
+                fontWeight: '500'
             },
             '& a:hover': {
                 textDecoration: 'none',
             }
         },
-        '&>:nth-child(2)': {
+        '&>:nth-child(3)': {
             display: 'flex',
             '& a': {
+                paddingTop: '10px',
+                paddingBottom: '10px',
                 paddingLeft: '20px',
                 textDecoration: 'none',
                 color: 'black',
                 fontSize: 15,
+                fontWeight: '500'
             },
             '& a:hover': {
                 textDecoration: 'none',
@@ -44,15 +50,16 @@ const SettingAccountStyle = {
 
     },
     settingAccountSelectItem: {
-
         display: 'flex',
         borderLeft: '5px solid tomato',
         '& a': {
+            paddingTop: '10px',
+            paddingBottom: '10px',
             paddingLeft: '15px',
             textDecoration: 'none',
             color: 'tomato',
             fontSize: 15,
-
+            fontWeight: '500'
         },
         '& a:hover': {
             textDecoration: 'none',
@@ -67,16 +74,42 @@ const SettingAccountStyle = {
         paddingLeft: '15px',
         color: 'black',
         fontSize: 15,
+        fontWeight: '500'
     },
+    settingAccountListDivider: {
+        width: '95%',
+        margin: 'auto',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.3)'
+    }
+    ,
     settingAccountUsetImage: {
-        paddingLeft: '15px',
+        padding: '50px',
         '& img': {
             borderRadius: '50%',
             height: '80px',
             widht: '80px',
         }
-
+    },
+    settingAccountUserInfo: {
+        display: 'flex',
+        alignItems: 'start',
+        flexDirection: 'column',
+        '& p': {
+            fontWeight: '500',
+        },
+    },
+    formControl: {
+        width: 80
+    },
+    settingAccountSaveButton: {
+        width: '80px',
+        color: 'white',
+        fontSize: '20px',
+        textAlign: 'center',
+        borderRadius: '5px',
+        background: 'tomato',
     }
+
 
 
 
