@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, List } from '@material-ui/core';
+import { Box, Divider, List } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './SettingAccount.style.js';
 import { Typography } from '@material-ui/core';
@@ -14,18 +14,37 @@ export default function SettingAccount() {
         <Box className={classes.settingAccount}>
             <Box className={classes.settingAccountSection}>
                 <List className={classes.settingAccountList}>
+                    <ListItem className={classes.settingAccountSelectItem}>
+                        <Link>계정설정</Link>
+                    </ListItem>
+                    <ListItem></ListItem>
                     <ListItem>
-                        <Link><Typography>계정설정</Typography></Link>
+                        <Link>위시리스트</Link>
+                    </ListItem>
+                    <ListItem>
+                        <Link>로그아웃</Link>
                     </ListItem>
                 </List>
-                <Box>
-                    <Box>
+                <List className={classes.settingAccountMain}>
+                    <ListItem className={classes.settingAccountTitle}>
+                        계정설정
+                    </ListItem>
+                    <ListItem className={classes.settingAccountUsetImage}>
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg" alt="계정 이미지"></img>
+                    </ListItem>
+                    <ListItem>
 
-                    </Box>
-                    <Box>
+                    </ListItem>
+                    <ListItem>
 
-                    </Box>
-                </Box>
+                    </ListItem>
+                    <ListItem>
+
+                    </ListItem>
+                    <ListItem>
+
+                    </ListItem>
+                </List>
             </Box>
         </Box>
 
