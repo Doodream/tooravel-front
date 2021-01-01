@@ -44,7 +44,7 @@ export default function HeaderLogin() {
 
             >
                 <ListItem button>
-                    <Link to='/'>
+                    <Link to='/mypage/settingAccount'>
                         <PermIdentityOutlinedIcon />
                         <Typography variant='h5'>내 정보</Typography>
                     </Link>

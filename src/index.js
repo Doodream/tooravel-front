@@ -15,7 +15,7 @@ import PageRentRule from './containers/PageTou/PageRentRule';
 import PageLogin from './domains/account/Login';
 import PageSignup from './domains/account/Signup';
 
-import SettingAccount from './domains/myPage/SettingAccount';
+import PageSettingAccount from './containers/PageMyInfo/PageSettingAccount'
 
 
 ReactDOM.render(
@@ -35,8 +35,8 @@ ReactDOM.render(
         <Route exact path='/tou/privacy' component={PagePrivacy} />
         <Route exact path='/tou/rentRule' component={PageRentRule} />
 
-        <Route exact path='/mypage/settingAccount' component={SettingAccount} />
-        
+        <Route exact path='/mypage/settingAccount' component={PageSettingAccount} />
+
       </Switch>
     </Router>
   </React.StrictMode>,
