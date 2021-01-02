@@ -19,11 +19,11 @@ export default function HeaderLogin() {
     const hoverListStatus = () => {
         if (ishoverList === false) {
             setIshoverList(true);
-            console.log(ishoverList);
+            //console.log(ishoverList);
             hoverList.current.style.visibility = 'visible';
         } else {
             setIshoverList(false);
-            console.log(ishoverList);
+            //console.log(ishoverList);
             hoverList.current.style.visibility = 'hidden';
         }
     }
@@ -47,21 +47,21 @@ export default function HeaderLogin() {
                 className={classes.headerList}
                 ref={hoverList}>
                 <ListItem button>
-                    <Link to='/mypage/settingAccount'>
+                    <Link to='/mypage/settingAccount/myInfo'>
                         <PermIdentityOutlinedIcon />
                         <Typography variant='h5'>내 정보</Typography>
                     </Link>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <Link>
+                    <Link to='/mypage/settingAccount/wishList'>
                         <FavoriteBorderOutlinedIcon />
                         <Typography variant='h5'>위시리스트</Typography>
                     </Link>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <Link>
+                    <Link to='/'>
                         <PowerSettingsNewOutlinedIcon />
                         <Typography variant='h5'>로그아웃</Typography>
                     </Link>

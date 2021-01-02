@@ -1,13 +1,13 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import Page from '../../components/Page/Page';
+import SettingAccount from './SettingAccount';
+import WishList from './WishList';
 
-import SettingAccount from './SettingAccount'
-
-export default function PageSettingAccount({ location }) {
+export default function PageSettingAccount({ match }) {
+    const pages = match.params.page;
     return (
         <Page>
-            <SettingAccount />
+            {pages === 'myInfo' ? <SettingAccount /> : <WishList />},
         </Page>
     )
 }

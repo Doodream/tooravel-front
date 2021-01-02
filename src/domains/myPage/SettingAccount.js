@@ -18,13 +18,16 @@ export default function SettingAccount() {
     const nationalityChange = (e) => {
         setNationality(e.target.value)
     };
+    const tabChange = () => {
+
+    }
 
     return (
         <Box className={classes.settingAccount}>
             <Box className={classes.settingAccountSection}>
                 <List className={classes.settingAccountList}>
                     <ListItem className={classes.settingAccountSelectItem}>
-                        <Link>계정설정</Link>
+                        <Link onClick={() => { }}>계정설정</Link>
                     </ListItem>
                     <ListItem>
                         <Link>위시리스트</Link>

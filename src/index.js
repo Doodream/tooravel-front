@@ -35,7 +35,7 @@ ReactDOM.render(
         <Route exact path='/tou/privacy' component={PagePrivacy} />
         <Route exact path='/tou/rentRule' component={PageRentRule} />
 
-        <Route exact path='/mypage/settingAccount' component={PageSettingAccount} />
+        <Route exact path='/mypage/settingAccount/:page' component={PageSettingAccount} />
 
       </Switch>
     </Router>
