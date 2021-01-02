@@ -5,7 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Page from '../../components/Page/Page';
 
-import styles from './Login.style.js'
+import { useForm } from 'react-hook-form';
+import AuthContext from '../../contexts/Auth/AuthContext';
+
+import styles from './Login.style.js';
 
 const useStyles = makeStyles(styles);
 
@@ -23,6 +26,19 @@ export default function Signup({ history }) {
     const [passwordEntered, setPasswordEntered] = useState('');
     const [isPasswordValid, setIsPasswordValid] = useState(false);
     const [isReEnterPasswordValid, setIsReEnterPasswordValid] = useState(false);
+
+    const { signUp, isAuthenticated } = React.useContext(AuthContext)
+
+    const { handleSubmit } = useForm({
+        reValidateMode: 'onBlur'
+    });
+
+    React.useEffect(() => {
+        if (isAuthenticated) {
+            alert('로그인 상태입니다.')
+            history.push('/')
+        }
+    }, []);
 
     // 이메일 형식 검사, 비밀번호 형식 검사
     const validateEmail = (emailEntered) => {
@@ -88,32 +104,34 @@ export default function Signup({ history }) {
                             history.push('/signup')
                         }}>FaceBook으로 간편하게 가입하기</Button>
                         <Divider className={classes.loginDivider}></Divider>
-                        <TextField
-                            className={classes.loginInput}
-                            onChange={(e) => { validateEmail(e.target.value) }}
-                            label='Email : abc@gmail.com'
-                            autoComplete='email'
-                            variant='outlined' type='email' />
-                        <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
-                        <TextField className={classes.loginInput, classes.loginPassword}
-                            ref={passwordValue}
-                            label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
-                            onChange={(e) => { validatePassword(e.target.value) }}
-                            variant='outlined'
-                            type='password' />
-                        <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 형식에 맞게 입력해주세요 </Typography>
-                        <TextField className={classes.loginInput, classes.loginPassword}
-                            ref={passwordValue}
-                            label='Re-enter Password'
-                            onChange={(e) => { validateReEnterPassword(e.target.value) }}
-                            variant='outlined'
-                            type='password' />
-                        <Typography className={classes.loginInputErrmsg} ref={reEnterPasswordFormCheck}> 같은 비밀번호를 입력해주세요 </Typography>
-                        <Button
-                            className={classes.loginSummitButton}
-                            onClick={formCheck}
-                            type='submit'
-                        >가입하기</Button>
+                        <form onSubmit={handleSubmit(signUp)}>
+                            <TextField
+                                className={classes.loginInput}
+                                onChange={(e) => { validateEmail(e.target.value) }}
+                                label='Email : abc@gmail.com'
+                                autoComplete='email'
+                                variant='outlined' type='email' />
+                            <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
+                            <TextField className={classes.loginInput, classes.loginPassword}
+                                ref={passwordValue}
+                                label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
+                                onChange={(e) => { validatePassword(e.target.value) }}
+                                variant='outlined'
+                                type='password' />
+                            <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 형식에 맞게 입력해주세요 </Typography>
+                            <TextField className={classes.loginInput, classes.loginPassword}
+                                ref={passwordValue}
+                                label='Re-enter Password'
+                                onChange={(e) => { validateReEnterPassword(e.target.value) }}
+                                variant='outlined'
+                                type='password' />
+                            <Typography className={classes.loginInputErrmsg} ref={reEnterPasswordFormCheck}> 같은 비밀번호를 입력해주세요 </Typography>
+                            <Button
+                                className={classes.loginSummitButton}
+                                onClick={formCheck}
+                                type='submit'>가입하기
+                            </Button>
+                        </form>
                         <Typography className={classes.loginGuideMsg}>이메일 또는 Facebook으로 가입시,
                             <Link>이용약관</Link>에 동의 한 것으로 간주합니다.
                         </Typography>

@@ -73,6 +73,7 @@ const LoginStyle = {
     },
     loginPassword: {
         margin: '20px 0 20px 0',
+        width: '100%',
     },
     loginGuideMsg: {
         fontSize: '13px',

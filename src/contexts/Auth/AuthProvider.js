@@ -16,8 +16,8 @@ const AuthProvider = ({ children, history }) => {
         setPrevAuthUser(newAuthUser)
         // setValue({...copyObject(value), authUser: newAuthUser, isAuthenticated: 'token' in newAuthUser})
     }
-    const login = ({ username, password }) => Fetch.post('/api/login/', {
-        'username': username,
+    const login = ({ email, password }) => Fetch.post('/api/login/', {
+        'email': email,
         'password': password,
     }).then(saveUserInfo).then(homeRedirect);
 
@@ -37,7 +37,7 @@ const AuthProvider = ({ children, history }) => {
         window.localStorage.clear()
         history.push('/')
     };
-    const signUp = data => Fetch.post('/api/signup/', data).then(res => history.push('/login'));
+    const signUp = data => Fetch.post('/api/signup/',).then(res => history.push('/login'));
 
     //state초기화 객체 입니다.
     const initialState = {

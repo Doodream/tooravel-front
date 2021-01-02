@@ -6,8 +6,8 @@ import HeaderLogin from 'components/Header/HeaderLogin'
 export default function Page({ children }) {
     return (
         <React.Fragment>
-            <HeaderLogin />
-            {/* <Header /> */}
+            {/* <HeaderLogin /> */}
+            <Header />
             {children}
             <Footer />
         </React.Fragment>
