@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import PageHome from './containers/PageHome/PageHome';
-import PageIntro from './containers/PageAbout/PageIntro';
-import PagePartnershipInquiry from './containers/PageAbout/PagePartnershipInquiry';
-import PageContact from './containers/PageAbout/PageContact';
+import PageHome from './domains/home/PageHome';
+import PageIntro from './domains/introduce/PageAbout/PageIntro';
+import PagePartnershipInquiry from './domains/introduce/PageAbout/PagePartnershipInquiry';
+import PageContact from './domains/introduce/PageAbout/PageContact';
 
-import PageTos from './containers/PageTou/PageTos';
-import PagePrivacy from './containers/PageTou/PagePrivacy';
-import PageRentRule from './containers/PageTou/PageRentRule';
+import PageTos from './domains/introduce/PageTou/PageTos';
+import PagePrivacy from './domains/introduce/PageTou/PagePrivacy';
+import PageRentRule from './domains/introduce/PageTou/PageRentRule';
 
 import PageLogin from './domains/account/Login';
 import PageSignup from './domains/account/Signup';
 
-import PageSettingAccount from './containers/PageMyInfo/PageSettingAccount'
+import PageSettingAccount from './domains/myPage/PageSettingAccount'
 
 
 ReactDOM.render(
@@ -35,7 +35,7 @@ ReactDOM.render(
         <Route exact path='/tou/privacy' component={PagePrivacy} />
         <Route exact path='/tou/rentRule' component={PageRentRule} />
 
-        <Route exact path='/mypage/settingAccount' component={PageSettingAccount} />
+        <Route exact path='/mypage/settingAccount/:page' component={PageSettingAccount} />
 
       </Switch>
     </Router>

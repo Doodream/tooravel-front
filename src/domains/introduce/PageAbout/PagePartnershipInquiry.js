@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Page from 'containers/Page/Page';
+import Page from '../../../components/Page/Page';
 
 import AboutImage from './sections/AboutImage';
 import AboutMenu from './sections/AboutMenu';
-import AboutContact from './sections/AboutContact';
+import AboutPartnershipInquiry from './sections/AboutPartnershipInquiry';
 
-export default function PageContact({ location }) {
+export default function PagePartnershipInquiry({ location }) {
     return (
         <Page>
             <AboutImage />
             <AboutMenu location={location} />
-            <AboutContact />
+            <AboutPartnershipInquiry />
         </Page>
     )
 }

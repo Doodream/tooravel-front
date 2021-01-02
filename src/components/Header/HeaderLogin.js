@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Typography, List, ListItem, Divider } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,15 +13,20 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLogin() {
     const classes = useStyles();
+    const hoverList = useRef(null);
+    const [ishoverList, setIshoverList] = useState(false);
 
-    // const hoverEnter = (event) => {
-    //     let hoverItem = event.target;
-    //     hoverItem.style.borderBottom = '2px solid #F0583A';
-    // }
-    // const hoverLeave = (event) => {
-    //     let hoverItem = event.target;
-    //     hoverItem.style.borderBottom = 'none';
-    // }
+    const hoverListStatus = () => {
+        if (ishoverList === false) {
+            setIshoverList(true);
+            //console.log(ishoverList);
+            hoverList.current.style.visibility = 'visible';
+        } else {
+            setIshoverList(false);
+            //console.log(ishoverList);
+            hoverList.current.style.visibility = 'hidden';
+        }
+    }
 
     return (
         <Box className={classes.header}>
@@ -34,31 +39,29 @@ export default function HeaderLogin() {
                 {/* 나의 계정에서 설정할 이미지 */}
                 <Link
                     className={classes.headerUserImage}
-                // onMouseEnter={(e) => hover}
-                >
+                    onClick={() => hoverListStatus()}>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg" alt="계정 이미지"></img>
                 </Link>
             </Box>
             <List
                 className={classes.headerList}
-
-            >
+                ref={hoverList}>
                 <ListItem button>
-                    <Link to='/mypage/settingAccount'>
+                    <Link to='/mypage/settingAccount/myInfo'>
                         <PermIdentityOutlinedIcon />
                         <Typography variant='h5'>내 정보</Typography>
                     </Link>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <Link>
+                    <Link to='/mypage/settingAccount/wishList'>
                         <FavoriteBorderOutlinedIcon />
                         <Typography variant='h5'>위시리스트</Typography>
                     </Link>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <Link>
+                    <Link to='/'>
                         <PowerSettingsNewOutlinedIcon />
                         <Typography variant='h5'>로그아웃</Typography>
                     </Link>

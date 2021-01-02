@@ -2,9 +2,7 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
-import Header from 'components/Header/Header';
-import Footer from 'components/Footer/Footer';
-
+import Page from '../../components/Page/Page';
 import SlideSection from './Section/SlideSection';
 import RentBannder from './Section/RentBanner';
 
@@ -15,13 +13,11 @@ const useStyles = makeStyles(styles);
 export default function Home() {
     const classes = useStyles();
     return (
-        <Box>
-            <Header />
+        <Page>
             <Box className={classes.home}>
                 <SlideSection />
                 <RentBannder />
             </Box>
-            <Footer />
-        </Box>
+        </Page>
     )
 }

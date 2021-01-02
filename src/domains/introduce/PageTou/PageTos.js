@@ -1,19 +1,18 @@
 import React from 'react';
 
-import Page from '../Page/Page';
+import Page from '../../../components/Page/Page';
 
 import AboutImage from '../PageAbout/sections/AboutImage';
 
 import TouMenu from './sections/TouMenu';
-import TouPrivacy from './sections/TouPrivacy';
+import TouTos from './sections/TouTos';
 
-
-export default function PagePrivacy({ location }) {
+export default function PageTos({ location }) {
     return (
         <Page>
             <AboutImage />
             <TouMenu location={location} />
-            <TouPrivacy />
+            <TouTos />
         </Page>
     )
 }

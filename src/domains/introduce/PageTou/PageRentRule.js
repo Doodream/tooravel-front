@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Page from '../Page/Page';
+import Page from '../../../components/Page/Page';
 
 import AboutImage from '../PageAbout/sections/AboutImage';
 
