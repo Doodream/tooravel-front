@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Page from '../Page/Page';
+import Page from '../../components/Page/Page';
 
-import SettingAccount from '../../domains/myPage/SettingAccount'
+import SettingAccount from './SettingAccount'
 
 export default function PageSettingAccount({ location }) {
     return (

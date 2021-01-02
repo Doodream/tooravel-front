@@ -43,6 +43,7 @@ const HeaderStyle = {
         }
     },
     headerList: {
+        visibility: 'hidden',
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',
