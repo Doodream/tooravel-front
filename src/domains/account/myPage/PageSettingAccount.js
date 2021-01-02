@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Page from '../../components/Page/Page';
+import Page from '../../../components/Page/Page';
 import SettingAccount from './SettingAccount';
 import WishList from './WishList';
 

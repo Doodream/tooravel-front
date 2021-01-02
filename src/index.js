@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import PageHome from './domains/home/PageHome';
-import PageIntro from './domains/introduce/PageAbout/PageIntro';
-import PagePartnershipInquiry from './domains/introduce/PageAbout/PagePartnershipInquiry';
-import PageContact from './domains/introduce/PageAbout/PageContact';
+import PageHome from './domains/informing/PageHome/PageHome';
+import PageIntro from './domains/informing/PageAbout/PageIntro';
+import PagePartnershipInquiry from './domains/informing/PageAbout/PagePartnershipInquiry';
+import PageContact from './domains/informing/PageAbout/PageContact';
 
-import PageTos from './domains/introduce/PageTou/PageTos';
-import PagePrivacy from './domains/introduce/PageTou/PagePrivacy';
-import PageRentRule from './domains/introduce/PageTou/PageRentRule';
+import PageTos from './domains/informing/PageTou/PageTos';
+import PagePrivacy from './domains/informing/PageTou/PagePrivacy';
+import PageRentRule from './domains/informing/PageTou/PageRentRule';
 
 import PageLogin from './domains/account/Login';
 import PageSignup from './domains/account/Signup';
 
-import PageSettingAccount from './domains/myPage/PageSettingAccount'
+import PageSettingAccount from './domains/account/myPage/PageSettingAccount'
 
 
 ReactDOM.render(

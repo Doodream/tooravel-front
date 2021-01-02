@@ -2,9 +2,9 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
-import Page from '../../components/Page/Page';
-import SlideSection from './Section/SlideSection';
-import RentBannder from './Section/RentBanner';
+import Page from '../../../components/Page/Page';
+import SlideSection from './section/SlideSection';
+import RentBannder from './section/RentBanner';
 
 import styles from './PageHome.style.js';
 
