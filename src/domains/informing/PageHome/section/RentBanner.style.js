@@ -47,7 +47,8 @@ const RentBannerStyle = {
         borderRadius: '20px',
         '& p': {
             fontWeight: '800',
-            fontSize: '20px'
+            fontSize: '20px',
+
         }
     }
 }

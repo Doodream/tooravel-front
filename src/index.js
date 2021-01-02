@@ -17,6 +17,8 @@ import PageSignup from './domains/account/Signup';
 
 import PageSettingAccount from './domains/account/myPage/PageSettingAccount'
 
+import PageProduct from './domains/product/PageProduct';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -36,6 +38,8 @@ ReactDOM.render(
         <Route exact path='/tou/rentRule' component={PageRentRule} />
 
         <Route exact path='/mypage/settingAccount/:page' component={PageSettingAccount} />
+
+        <Route exact path='/product' component={PageProduct} />
 
       </Switch>
     </Router>
