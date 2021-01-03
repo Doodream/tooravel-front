@@ -5,11 +5,37 @@ const PageProductStyle = {
         paddingTop: 77.25,
         width: '80%',
         display: 'flex',
+        paddingBottom: 77.25,
     },
     productMain: {
         width: '60%',
         marginRight: '30px',
+        '& h3': {
+            fontSize: 30,
+            fontWeight: '800',
+            padding: '10px 0',
+
+        },
+        '& h5': {
+            fontSize: 25,
+            fontWeight: '500',
+            padding: '10px 0',
+        },
+        '& img': {
+            marginTop: 20,
+            marginBottom: 20,
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            border: '0.2px solid rgba(0,0,0, 0.1)',
+            borderRadius: '3px',
+        }
     },
+    productGuideBook: {
+        width: 300,
+        height: 400,
+    }
+    ,
     productImage: {
         padding: '10px 0',
         '& img': {
@@ -33,15 +59,171 @@ const PageProductStyle = {
 
     },
     productRatingStar: {
-        '& span': {
-            fontSize: 20
+        '& p': {
+            fontSize: 20,
+            padding: '10px 0',
         }
     },
     productSubtitle: {
+        '& p': {
+            fontSize: 22,
+            color: 'tomato',
+            fontWeight: '600',
+        },
+        '& svg': {
+            color: 'tomato',
+
+        },
         '& div': {
             display: 'flex',
             alignItems: 'center',
         }
+    },
+    productTooravelLogoTitle: {
+        display: 'flex',
+        alignItems: 'center',
+        '& img': {
+            margin: 0,
+            marginRight: 10,
+            width: 30,
+            height: 30,
+            border: 'none',
+        }
+    },
+    productDivider: {
+        border: '0.5px solid rgba(0,0,0, 0.1)',
+    },
+    text: {
+        fontSize: 16,
+        lineHeight: '2em',
+        '& dt': {
+            fontSize: 18,
+            fontWeight: 600,
+        }
+    },
+    productViewMoreButton: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+        '& button': {
+            color: 'tomato',
+            '& svg': {
+                color: 'tomato',
+            }
+        }
+
+    },
+    productReview: {
+        '&>:nth-child(3)': {
+            width: '100%',
+        },
+        '&>:nth-child(4)': {
+            width: '100%',
+            color: 'white',
+            fontSize: '20px',
+            textAlign: 'center',
+            borderRadius: '5px',
+            background: '#F0583A',
+            margin: '20px 0',
+        }
+    },
+    productUserReview: {
+        display: 'flex',
+    },
+    productUserReviewCard: {
+        display: 'flex',
+    },
+    productUserImage: {
+        '& img': {
+            width: 70,
+            height: 70,
+            borderRadius: '50%',
+            border: 'none',
+        }
+    },
+    productUserReviewContent: {
+        '&>:nth-child(1)': {
+            display: 'flex',
+            alignItems: 'center',
+            '& h5': {
+                fontSize: 15,
+                fontWeight: 800,
+            },
+            '& p': {
+                fontSize: 13,
+                fontWeight: 600,
+                color: 'rgba(0, 0, 0, 0.3)',
+                padding: '0 15px',
+            }
+        },
+    },
+    productUserRating: {
+        padding: '0',
+        display: 'flex',
+        alignItems: 'center',
+        '& fieldset': {
+            margin: 0,
+            padding: 0,
+            border: 'none',
+            '& svg': {
+                width: 20,
+                height: 20,
+            },
+        }
+    },
+    productUserReviewTitle: {
+        margin: '20px 0',
+    },
+    productBooking: {
+        width: '30%',
+        position: 'fixed',
+        top: 105,
+        right: 150,
+        marginBottom: 77.25,
+        zIndex: 100,
+
+    },
+    productBookingCard: {
+        display: 'flex',
+        flexDirection: 'column',
+
+
+        background: '#F5F5F5',
+        '&>:nth-child(1)': {
+            display: 'flex',
+            alignItems: 'start',
+            '& h3': {
+                fontSize: 30,
+                fontWeight: 600,
+                '& del': {
+                    fontWeight: 400,
+                    fontSize: 20,
+                    color: 'rgba(0, 0, 0, 0.3)'
+                }
+            }
+        },
+        '&>:nth-child(3)': {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            '&>:nth-child(1)': {
+                paddingTop: 10,
+                width: '90%',
+                '& p': {
+                    color: 'tomato',
+
+                }
+            },
+        }
+    },
+    productReviewButton: {
+        width: '100%',
+        color: 'white',
+        fontSize: '20px',
+        textAlign: 'center',
+        borderRadius: '5px',
+        background: '#F0583A',
+        margin: '20px 0',
     }
 
 }
