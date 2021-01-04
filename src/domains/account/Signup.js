@@ -106,6 +106,7 @@ export default function Signup({ history }) {
                         <Divider className={classes.loginDivider}></Divider>
                         <form onSubmit={handleSubmit(signUp)}>
                             <TextField
+                                name='email'
                                 className={classes.loginInput}
                                 onChange={(e) => { validateEmail(e.target.value) }}
                                 label='Email : abc@gmail.com'
@@ -113,6 +114,7 @@ export default function Signup({ history }) {
                                 variant='outlined' type='email' />
                             <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginInput, classes.loginPassword}
+                                name='password'
                                 ref={passwordValue}
                                 label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
                                 onChange={(e) => { validatePassword(e.target.value) }}
@@ -120,6 +122,7 @@ export default function Signup({ history }) {
                                 type='password' />
                             <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginInput, classes.loginPassword}
+                                name='password_confirm'
                                 ref={passwordValue}
                                 label='Re-enter Password'
                                 onChange={(e) => { validateReEnterPassword(e.target.value) }}

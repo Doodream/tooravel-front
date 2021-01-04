@@ -1,10 +1,18 @@
 
 
 const PageProductStyle = {
+    section: {
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        width: '80%',
+        margin: '0 auto',
+    },
     product: {
         paddingTop: 77.25,
-        width: '80%',
+        width: '100%',
         display: 'flex',
+        justifyContent: 'space-between',
         paddingBottom: 77.25,
     },
     productMain: {
@@ -116,6 +124,7 @@ const PageProductStyle = {
     productReview: {
         '&>:nth-child(3)': {
             width: '100%',
+            background: 'white',
         },
         '&>:nth-child(4)': {
             width: '100%',
@@ -175,19 +184,18 @@ const PageProductStyle = {
         margin: '20px 0',
     },
     productBooking: {
-        width: '30%',
-        position: 'fixed',
+        padding: 0,
+        width: '100%',
+        position: 'absolute',
         top: 105,
-        right: 150,
-        marginBottom: 77.25,
-        zIndex: 100,
-
+        left: 0,
+        right: 0,
     },
     productBookingCard: {
+        width: '30%',
+        marginLeft: 'auto',
         display: 'flex',
         flexDirection: 'column',
-
-
         background: '#F5F5F5',
         '&>:nth-child(1)': {
             display: 'flex',
@@ -224,6 +232,36 @@ const PageProductStyle = {
         borderRadius: '5px',
         background: '#F0583A',
         margin: '20px 0',
+    },
+    productSlideImage: {
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        height: 400,
+        '& img': {
+            margin: 0,
+            width: '100%',
+            height: '100%',
+        }
+    },
+    productSlideImageWrap: {
+        width: '100%',
+        height: '100%',
+        top: 0,
+        left: 0,
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        '& button': {
+            height: '100%',
+            '& svg': {
+                color: 'white',
+                height: 70,
+                width: 70,
+            }
+        }
+
     }
 
 }

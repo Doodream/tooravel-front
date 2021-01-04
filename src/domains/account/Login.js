@@ -89,7 +89,7 @@ export default function Login({ history }) {
                         <Divider className={classes.loginDivider} />
                         <form onSubmit={handleSubmit(login)}>
                             <TextField
-                                name='username'
+                                name='email'
                                 className={classes.loginInput}
                                 ref={emailValue}
                                 onChange={(e) => { validateEmail(e.target.value) }}
