@@ -12,15 +12,11 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard'
+import VideoTest from '../../components/VideoCard/VideoTest'
 
 //import { google } from 'googleapis';
 
-
-//export const ytPlayList = `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${epListID}&part=snippet,id&order=date&maxResults=10&channelID=${channelID}&key=${KEY}`;
-// data&maxResults 다음에 쓰는 숫자를 이용해 원하는 만큼 불러올 수 있음
-
 const useStyles = makeStyles(styles);
-//const service = google.youtube('v3');
 
 const slideProducts = [
     {
@@ -177,15 +173,16 @@ export default function PageProduct() {
                             <strong>{slideProducts[count].title}</strong><br />
                             {slideProducts[count].description}
                         </p>
-                        {/* <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
-                    <Link >더보기</Link> */}
                         <Box className={classes.productTip}>
                             <Box className={classes.productTipTitle}>
                                 <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
+                                <Box>
+                                    <VideoCard videoID='pGx8ySVp4aA' />
+
+                                </Box>
                                 <Link to='/goProTip'><LinkIcon />더 보기</Link>
                             </Box>
                             <Box>
-
                                 <iframe width="300" height="200" src="https://www.youtube.com/embed/4CSK--QFR-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <img src='https://img.youtube.com/vi/4CSK--QFR-A/mqdefault.jpg'></img>
                             </Box>
