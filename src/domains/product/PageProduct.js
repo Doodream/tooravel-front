@@ -4,16 +4,19 @@ import Page from '../../components/Page/Page';
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './PageProduct.style.js';
-import { Container, Box, Typography, Button, TextField, Card, CardContent, CardActions } from '@material-ui/core';
+import { Container, Box, Typography, Button, TextField, Card, CardContent, CardActions, Link } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import LinkIcon from '@material-ui/icons/Link';
+import VideoCard from '../../components/VideoCard/VideoCard'
 
 const useStyles = makeStyles(styles);
 
 export default function PageProduct() {
+    const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y'
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
@@ -38,6 +41,7 @@ export default function PageProduct() {
     const slideRightImage = () => {
         setCount((count + images.length + 1) % images.length);
     }
+    // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
     useEffect(() => {
         const imageTimer = setTimeout(() => {
             if (!isImageHover) {
@@ -97,6 +101,20 @@ export default function PageProduct() {
                             <li> 대여 중에도 문의 응답 및 AS</li>
                         </ul>
                         <Typography variant='h5'>불포함 사항</Typography>
+
+                        <Box className={classes.productTip}>
+                            <Box className={classes.productTipTitle}>
+                                <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
+                                <Link to='/goProTip'><LinkIcon />더 보기</Link>
+                            </Box>
+                            <Box>
+                                <Link to='https://www.youtube.com/watch?v=4CSK--QFR-A&rel=0&autoplay=1'>
+                                    아아ㅏ
+                                </Link>
+                                <iframe width="300" height="200" src="https://www.youtube.com/embed/4CSK--QFR-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <img src='https://img.youtube.com/vi/4CSK--QFR-A/mqdefault.jpg'></img>
+                            </Box>
+                        </Box>
                         <ul className={classes.text}>
                             <li>기타 액세서리는 옵션으로 선택</li>
                         </ul>

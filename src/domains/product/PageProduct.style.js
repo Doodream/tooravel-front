@@ -261,6 +261,25 @@ const PageProductStyle = {
                 width: 70,
             }
         }
+    },
+    productTip: {
+
+    },
+    productTipTitle: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        '& h5': {
+            fontSize: 25,
+            fontWeight: '500',
+            padding: '10px 0',
+        },
+        '& a': {
+            display: 'flex',
+            alignItems: 'center',
+            textDecoration: 'none',
+            color: 'tomato',
+        }
 
     }
 
