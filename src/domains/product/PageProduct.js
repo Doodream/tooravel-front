@@ -13,20 +13,78 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard'
 
+//import { google } from 'googleapis';
+
+
+//export const ytPlayList = `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${epListID}&part=snippet,id&order=date&maxResults=10&channelID=${channelID}&key=${KEY}`;
+// data&maxResults 다음에 쓰는 숫자를 이용해 원하는 만큼 불러올 수 있음
+
 const useStyles = makeStyles(styles);
+//const service = google.youtube('v3');
+
+const slideProducts = [
+    {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_4.png',
+        title: '헤드스트랩',
+        description: '머리에 장착하여 내가 원하는 가장 완벽한 각도로 촬영해보세요. 내부 실리콘 재질은 미끄럼을 방지해준답니다.'
+    },
+    {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_6.png',
+        title: '체스트 스트랩',
+        description: '서핑이나 사이클을 탈 때 가슴에 고프로를 장착하고 그 순간을 스릴있게 담아보세요.'
+    },
+    {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_3.png',
+        title: '죠스 클램프',
+        description: '자유자재로 각도를 조절할 수 있는 몸체와 1cm-5cm의 물체에 장착 가능한 죠스클램프 마운트로 편리하게 거치하세요.'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_12.png',
+        title: '넥스트 랩(목걸이)',
+        description: '평상시 자유롭게 다니다가 바로바로 촬영을 하고 싶다면 고프로만 목에 딱 지니고 다녀보세요.'
+    }, {
+        image: 'http://img.danawa.com/prod_img/500000/510/534/img/4534510_1.jpg?shrink=500:500&_v=20180718174145',
+        title: '배터리 추가제공',
+        description: '고프로 추가 배터리입니다.'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_11.png',
+        title: '클라우드 데이터 다운로드 링크 제공',
+        description: '바쁘거나 여러명이 한꺼번에 데이터를 공유하기를 원하시면 저희가 최대 3일 내에 동기화하여 다운로드 링크를 제공해드려요!'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_1.jpg',
+        title: '3-Way 그립',
+        description: '3-way 그립은 3단계로 길이 조절을 해 셀카 촬영에도 최적화되었지만 삼각대로도 편리하게 사용할 수 있어요.'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_10.png',
+        title: '리모뷰 폴 110cm',
+        description: '최소 38cm에서 110cm까지 조절 가능한데 무게는 겨우 148g. 셀카봉으로 최적이지요!'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_2.png',
+        title: '다이브 하우징',
+        description: '수중 촬영도 다이브하우징이 있다면 안심! 심해 60m까지 방수가 되는 탁월할 내구성을 자랑합니다.'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_7.png',
+        title: '부력봉',
+        description: '물 속에서 부력봉으로 쉽게 수중 촬영을 해보세요. 장비를 놓치더라도 물 위에 떠오르게 설계되어 있어요!'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_9.png',
+        title: '레드필터(다이브하우징 착용)',
+        description: '바다속에서 잃어버린 색을 되찾아주는 레드필터! 이 제품은 다이브하우징에 착용 가능합니다.'
+    }, {
+        image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_5.png',
+        title: '손목 360도 스트랩',
+        description: '손이나 팔목, 다리에까지 자유롭게 장착 가능한 손목스트랩은 360도로 회전해 쉽게 촬영이 가능해요.'
+    }
+];
+
 
 export default function PageProduct() {
-    const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y'
+    // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
+    // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
+    // const playListID = 'PLXF3I__fEhlkpXQOktSk7j_ndEBCDaRXE';
+
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
-
-    const images = [
-        'https://i.pinimg.com/564x/12/1d/0a/121d0a67f61b86e5d3094e099c5de939.jpg',
-        'https://t1.daumcdn.net/cfile/tistory/131A95204B36CDC76B',
-        'https://t1.daumcdn.net/cfile/tistory/196457224B36CDDE67?original',
-    ];
-
     const [isImageHover, setIsImageHover] = useState(false);
     const [count, setCount] = useState(0);
     const viewMoreQA = () => {
@@ -36,16 +94,16 @@ export default function PageProduct() {
         setIsImageHover((prev) => !prev);
     };
     const slideLeftImage = () => {
-        setCount((count + images.length + images.length - 1) % images.length);
+        setCount((count + slideProducts.length * 2 - 1) % slideProducts.length);
     }
     const slideRightImage = () => {
-        setCount((count + images.length + 1) % images.length);
+        setCount((count + slideProducts.length + 1) % slideProducts.length);
     }
     // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
     useEffect(() => {
         const imageTimer = setTimeout(() => {
             if (!isImageHover) {
-                setCount((count + images.length + 1) % images.length);
+                setCount((count + slideProducts.length + 1) % slideProducts.length);
             } else {
                 clearTimeout(imageTimer);
             }
@@ -101,20 +159,6 @@ export default function PageProduct() {
                             <li> 대여 중에도 문의 응답 및 AS</li>
                         </ul>
                         <Typography variant='h5'>불포함 사항</Typography>
-
-                        <Box className={classes.productTip}>
-                            <Box className={classes.productTipTitle}>
-                                <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
-                                <Link to='/goProTip'><LinkIcon />더 보기</Link>
-                            </Box>
-                            <Box>
-                                <Link to='https://www.youtube.com/watch?v=4CSK--QFR-A&rel=0&autoplay=1'>
-                                    아아ㅏ
-                                </Link>
-                                <iframe width="300" height="200" src="https://www.youtube.com/embed/4CSK--QFR-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img src='https://img.youtube.com/vi/4CSK--QFR-A/mqdefault.jpg'></img>
-                            </Box>
-                        </Box>
                         <ul className={classes.text}>
                             <li>기타 액세서리는 옵션으로 선택</li>
                         </ul>
@@ -122,18 +166,30 @@ export default function PageProduct() {
                             className={classes.productSlideImage}
                             onMouseEnter={() => stopImage()}
                             onMouseLeave={() => stopImage()}>
-                            <img src={images[count]} alt='고프로 제품 이미지들'></img>
+                            <img src={slideProducts[count].image} alt='고프로 제품 이미지들'></img>
                             <Box className={classes.productSlideImageWrap}>
                                 <Button onClick={() => slideLeftImage()}><KeyboardArrowLeftIcon /></Button>
+                                <Typography>{slideProducts[count].title}</Typography>
                                 <Button onClick={() => slideRightImage()}><KeyboardArrowRightIcon /></Button>
                             </Box>
                         </Box>
                         <p className={classes.text}>
-                            <strong>손목 360도 스트랩</strong><br />
-                        손이나 팔목, 다리에까지 자유롭게 장착 가능한 손목스트랩은 360도로 회전해 쉽게 촬영이 가능해요.
-                    </p>
+                            <strong>{slideProducts[count].title}</strong><br />
+                            {slideProducts[count].description}
+                        </p>
                         {/* <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
                     <Link >더보기</Link> */}
+                        <Box className={classes.productTip}>
+                            <Box className={classes.productTipTitle}>
+                                <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
+                                <Link to='/goProTip'><LinkIcon />더 보기</Link>
+                            </Box>
+                            <Box>
+
+                                <iframe width="300" height="200" src="https://www.youtube.com/embed/4CSK--QFR-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <img src='https://img.youtube.com/vi/4CSK--QFR-A/mqdefault.jpg'></img>
+                            </Box>
+                        </Box>
                         <Typography variant='h3'>사용방법</Typography>
                         <Typography variant='h5'>예약 / 사용 안내</Typography>
                         <ul className={classes.text}>

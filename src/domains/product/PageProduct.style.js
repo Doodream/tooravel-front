@@ -236,16 +236,16 @@ const PageProductStyle = {
     productSlideImage: {
         position: 'relative',
         display: 'flex',
-        justifyContent: 'center',
-        height: 400,
+
+        height: 300,
         '& img': {
             margin: 0,
-            width: '100%',
+            width: '50%',
             height: '100%',
         }
     },
     productSlideImageWrap: {
-        width: '100%',
+        width: '50%',
         height: '100%',
         top: 0,
         left: 0,
@@ -253,9 +253,17 @@ const PageProductStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        textAlign: 'center',
+        '& p': {
+            textShadow: '1px 3px 3px black',
+            fontSize: 20,
+            fontWeight: 800,
+            color: 'white'
+        },
         '& button': {
             height: '100%',
             '& svg': {
+                filter: 'drop-shadow( 3px 3px 2px rgba(0, 0, 0, 0.7))',
                 color: 'white',
                 height: 70,
                 width: 70,
