@@ -184,9 +184,10 @@ const PageProductStyle = {
         margin: '20px 0',
     },
     productBooking: {
+        zIndex: -100,
         padding: 0,
         width: '100%',
-        position: 'absolute',
+        position: 'fixed',
         top: 105,
         left: 0,
         right: 0,
@@ -271,7 +272,7 @@ const PageProductStyle = {
         }
     },
     productTip: {
-
+        margin: '40px 0',
     },
     productTipTitle: {
         display: 'flex',
@@ -288,7 +289,15 @@ const PageProductStyle = {
             textDecoration: 'none',
             color: 'tomato',
         }
-
+    },
+    productTipVideo: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '100%',
+        alignItems: 'start',
+        '& div': {
+            flex: 1
+        }
     }
 
 }

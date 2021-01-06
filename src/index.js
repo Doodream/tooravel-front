@@ -18,6 +18,8 @@ import PageSignup from './domains/account/Signup';
 import PageSettingAccount from './domains/account/myPage/PageSettingAccount'
 
 import PageProduct from './domains/product/PageProduct';
+import PageProductTip from './domains/product/PageProductTip/PageProductTip';
+import PageVideoClip from './domains/product/PageVideoClip/PageVideoClip';
 
 
 ReactDOM.render(
@@ -40,6 +42,8 @@ ReactDOM.render(
         <Route exact path='/mypage/settingAccount/:page' component={PageSettingAccount} />
 
         <Route exact path='/product' component={PageProduct} />
+        <Route exact path='/product/goProTips' component={PageProductTip} />
+        <Route exact path='/product/goProVideos' component={PageVideoClip} />
 
       </Switch>
     </Router>

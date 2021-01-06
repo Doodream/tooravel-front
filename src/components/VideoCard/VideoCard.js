@@ -47,23 +47,23 @@ export default function VideoCard({ videoID }) {
 
     return (
         <Box>
-            <Modal
+            <Modal className={classes.videoModal}
                 open={open}
                 onClose={handleClose}>
                 <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoID}`} frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen='true'></iframe>
             </Modal>
-            <Button onClick={() => handleOpen()}>
-                <Card className={classes.videoCard}>
+            <Button className={classes.videoCard} onClick={() => handleOpen()}>
+                <Card className={classes.videoCardSection}>
                     <CardActions classeName={classes.videoCardImage}>
-                        <img src={thumbnail} alt='썸네일'></img>
-                        <Box>
+                        <img className={classes.videoCardThumbnail} src={thumbnail} alt='썸네일'></img>
+                        {/* <Box className={classes.videoCardLogo}>
                             <img src='https://www.tooravel.net/static/common/img/icon_ytb.png' alt='youtube로고'></img>
-                        </Box>
+                        </Box> */}
                     </CardActions>
                     <CardContent className={classes.videoCardContent}>
-                        <Typography className={classes.videoCardContentInfo}>조회수 {viewRecount}회 · {publishedAt}</Typography>
-                        <Typography className={classes.videoCardContentChannelTitle}>by {channelTitle}</Typography>
-                        <Typography className={classes.videoCardContentTitle}>{title}</Typography>
+                        <Typography >조회수 {viewRecount}회 · {publishedAt}</Typography>
+                        <Typography >by {channelTitle}</Typography>
+                        <Typography >{title}</Typography>
                     </CardContent>
                 </Card>
             </Button>

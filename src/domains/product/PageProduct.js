@@ -176,15 +176,21 @@ export default function PageProduct() {
                         <Box className={classes.productTip}>
                             <Box className={classes.productTipTitle}>
                                 <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
-                                <Box>
-                                    <VideoCard videoID='pGx8ySVp4aA' />
-
-                                </Box>
-                                <Link to='/goProTip'><LinkIcon />더 보기</Link>
+                                <a href='/product/goProTips'><LinkIcon />더 보기</a>
                             </Box>
-                            <Box>
-                                <iframe width="300" height="200" src="https://www.youtube.com/embed/4CSK--QFR-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img src='https://img.youtube.com/vi/4CSK--QFR-A/mqdefault.jpg'></img>
+                            <Box className={classes.productTipVideo}>
+                                <VideoCard videoID='pGx8ySVp4aA' />
+                                <VideoCard videoID='J3XTohm5Lbg' />
+                            </Box>
+                        </Box>
+                        <Box className={classes.productTip}>
+                            <Box className={classes.productTipTitle}>
+                                <Typography variant='h5'>고프로로 담아온 영상</Typography>
+                                <Link href='/product/goProVideos'><LinkIcon />더 보기</Link>
+                            </Box>
+                            <Box className={classes.productTipVideo}>
+                                <VideoCard videoID='7o6mGQ2uY2Y' />
+                                <VideoCard videoID='D2PN_cg-1Nk' />
                             </Box>
                         </Box>
                         <Typography variant='h3'>사용방법</Typography>
