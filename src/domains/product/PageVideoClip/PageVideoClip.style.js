@@ -13,6 +13,7 @@ const PageVideoClipStyle = {
     },
     videos: {
         display: 'flex',
+        flexDirection: 'column',
         '& div': {
             flex: 1
         }

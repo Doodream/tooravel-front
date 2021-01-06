@@ -13,6 +13,7 @@ const PageProductTipStyle = {
     },
     videos: {
         display: 'flex',
+        flexDirection: 'column',
         '& div': {
             flex: 1
         }
