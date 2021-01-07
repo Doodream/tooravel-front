@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import Page from '../../components/Page/Page';
 
@@ -73,6 +73,7 @@ const slideProducts = [
 ];
 
 
+
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
@@ -81,13 +82,15 @@ export default function PageProduct() {
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
-    const [isImageHover, setIsImageHover] = useState(false);
+    //const [isImageHover, setIsImageHover] = useState(false);
     const [count, setCount] = useState(0);
+    const isImageHover = useRef(false);
+
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
     };
     const stopImage = () => {
-        setIsImageHover((prev) => !prev);
+        return (isImageHover.current ? isImageHover.current = false : isImageHover.current = true)
     };
     const slideLeftImage = () => {
         return (count < 0 ? setCount(slideProducts.length - 1) : setCount(count - 1));
@@ -98,7 +101,7 @@ export default function PageProduct() {
     // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
     useEffect(() => {
         const imageTimer = setTimeout(() => {
-            if (!isImageHover) {
+            if (!isImageHover.current) {
                 setCount((count + slideProducts.length + 1) % slideProducts.length);
             } else {
                 clearTimeout(imageTimer);
