@@ -93,7 +93,7 @@ export default function PageProduct() {
         setCount((count + slideProducts.length * 2 - 1) % slideProducts.length);
     }
     const slideRightImage = () => {
-        setCount((count + slideProducts.length + 1) % slideProducts.length);
+        setCount((count + 1) % slideProducts.length);
     }
     // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
     useEffect(() => {
