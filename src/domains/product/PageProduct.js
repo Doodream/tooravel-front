@@ -90,7 +90,7 @@ export default function PageProduct() {
         setIsImageHover((prev) => !prev);
     };
     const slideLeftImage = () => {
-        setCount((count + slideProducts.length * 2 - 1) % slideProducts.length);
+        return (count < 0 ? setCount(slideProducts.length - 1) : setCount(count - 1));
     }
     const slideRightImage = () => {
         setCount((count + 1) % slideProducts.length);
