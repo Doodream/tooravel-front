@@ -20,7 +20,7 @@ export default function FirstPost() {
                     <Link href='/'><a>홈으로 가기</a></Link>
                 </div>
 
-                <Card>
+                <Card className={classes.imageCard}>
                     <CardMedia
                         className={classes.image}
                         image="https://miro.medium.com/max/2400/1*pxzqOAZXhA0ch05Mzlsi5A.jpeg"
