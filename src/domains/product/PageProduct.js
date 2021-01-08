@@ -74,6 +74,8 @@ const slideProducts = [
 
 
 
+
+
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
@@ -84,12 +86,15 @@ export default function PageProduct() {
     const [isHiddenQA, setIsHiddenQA] = useState(false);
     //const [isImageHover, setIsImageHover] = useState(false);
     const [count, setCount] = useState(0);
+    const [reRendering, setReRendering] = useState(false);
     const isImageHover = useRef(false);
+
 
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
     };
     const stopImage = () => {
+        setReRendering((prev) => !prev);
         return (isImageHover.current ? isImageHover.current = false : isImageHover.current = true)
     };
     const slideLeftImage = () => {
@@ -98,15 +103,19 @@ export default function PageProduct() {
     const slideRightImage = () => {
         setCount((count + 1) % slideProducts.length);
     }
+
     // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
     useEffect(() => {
+
         const imageTimer = setTimeout(() => {
-            if (!isImageHover.current) {
+            if (!isImageHover.current && !reRendering) {
                 setCount((count + slideProducts.length + 1) % slideProducts.length);
             } else {
                 clearTimeout(imageTimer);
+
             }
         }, 2000);
+
     })
 
     return (
@@ -162,11 +171,11 @@ export default function PageProduct() {
                             <li>기타 액세서리는 옵션으로 선택</li>
                         </ul>
                         <Box
-                            className={classes.productSlideImage}
-                            onMouseEnter={() => stopImage()}
-                            onMouseLeave={() => stopImage()}>
+                            className={classes.productSlideImage}>
                             <img src={slideProducts[count].image} alt='고프로 제품 이미지들'></img>
-                            <Box className={classes.productSlideImageWrap}>
+                            <Box className={classes.productSlideImageWrap}
+                                onMouseEnter={() => stopImage()}
+                                onMouseLeave={() => stopImage()}>
                                 <Button onClick={() => slideLeftImage()}><KeyboardArrowLeftIcon /></Button>
                                 <Typography>{slideProducts[count].title}</Typography>
                                 <Button onClick={() => slideRightImage()}><KeyboardArrowRightIcon /></Button>
@@ -353,6 +362,6 @@ export default function PageProduct() {
                     </Card>
                 </Container>
             </Box>
-        </Page>
+        </Page >
     )
 } 
