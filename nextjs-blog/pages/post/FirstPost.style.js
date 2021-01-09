@@ -1,6 +1,6 @@
 const FirstPostStyle = {
     body: {
-        background: 'sky',
+        background: 'blue',
     },
     image: {
         height: 150,
