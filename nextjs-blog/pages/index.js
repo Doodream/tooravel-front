@@ -7,15 +7,9 @@ import SlideSection from './home/section/SlideSection';
 export default function Home() {
 
   return (
-    <div className="container">
-      <Head>
-        <title>Tooravel</title>
-        <link rel="icon" href="https://tooravel.s3.ap-northeast-2.amazonaws.com/media/company/small/TOORAVEL.jpg" />
-      </Head>
-      <Page>
-        <SlideSection />
-        <RentBanner />
-      </Page>
-    </div>
+    <Page>
+      <SlideSection />
+      <RentBanner />
+    </Page>
   )
 }
