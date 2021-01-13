@@ -10,14 +10,12 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Tooravel</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://tooravel.s3.ap-northeast-2.amazonaws.com/media/company/small/TOORAVEL.jpg" />
       </Head>
 
       <Page>
 
       </Page>
-
-
     </div>
   )
 }
