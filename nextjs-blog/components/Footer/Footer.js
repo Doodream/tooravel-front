@@ -27,7 +27,7 @@ export default function Footer() {
                         <Divider className={classes.footerMenuDivider}></Divider>
                         <Link href='/tou/tos'><a>서비스 이용약관</a></Link>
                         <Link href='/tou/privacy'><a>개인정보 취급방침</a></Link>
-                        <Link href='/tou/rentRule'><a>대여서비스 취급방침</a></Link>
+                        <Link href='/tou/rent-rule'><a>대여서비스 취급방침</a></Link>
                     </Box>
                     <Box className={classes.footerMenuList}>
                         <Typography className={classes.footerMenuTitle} variant='h6'>Contact</Typography>
