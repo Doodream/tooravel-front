@@ -41,7 +41,7 @@ export default function HeaderLogin() {
             <Grow in={ishoverList}>
                 <List className={classes.headerList}>
                     <ListItem button>
-                        <Link href='/mypage/settingAccount/myInfo'>
+                        <Link href='/account/mypage/myinfo'>
                             <a>
                                 <PermIdentityOutlinedIcon />
                                 <Typography variant='h5'>내 정보</Typography>
@@ -50,7 +50,7 @@ export default function HeaderLogin() {
                     </ListItem>
                     <Divider />
                     <ListItem button>
-                        <Link href='/mypage/settingAccount/wishList'>
+                        <Link href='/account/mypage/wishlist'>
                             <a>
                                 <FavoriteBorderOutlinedIcon />
                                 <Typography variant='h5'>위시리스트</Typography>

@@ -5,7 +5,7 @@ import HeaderLogin from '../Header/HeaderLogin'
 import Head from 'next/head';
 
 export default function Page({ children }) {
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
     return (
         <div className="container">
             <Head>
