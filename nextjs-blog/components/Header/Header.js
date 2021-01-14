@@ -14,11 +14,11 @@ export default function Header() {
                 <a className={classes.headerLogo}><img src="https://www.tooravel.net/static/common/img/text_logo_200.png" alt="투레벨 로고"></img></a>
             </Link>
             <Box className={classes.headerAccount}>
-                <Link href='/login'>
+                <Link href='/account/login'>
                     <a><Typography variant="h6">로그인</Typography></a>
                 </Link>
                 <Box className={classes.headerDivider}></Box>
-                <Link href='/signup'>
+                <Link href='/account/signup'>
                     <a><Typography variant="h6">회원가입</Typography></a>
                 </Link>
             </Box>
