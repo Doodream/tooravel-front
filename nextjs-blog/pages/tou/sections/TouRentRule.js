@@ -3,11 +3,9 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './TouRentRule.style.js';
 
-
-
 const useStyles = makeStyles(styles);
 
-export default function TosRentRule() {
+export default function TouRentRule() {
     const classes = useStyles();
     return (
         <div className={classes.intro}>
