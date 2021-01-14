@@ -26,9 +26,9 @@ export default function AboutContact() {
                         <p><abbr title="Hours">H</abbr> : 24 Hours, Anytime</p>
                     </div>
                 </ListItem>
-                <ListItem>
+                <ListItem className={classes.contactMap}>
                     <Box>
-                        <img src='' alt='네이버 지도' />
+                        <iframe src='http://naver.me/FjoB3AcE' alt='네이버 지도' />
                     </Box>
                 </ListItem>
             </List>

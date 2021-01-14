@@ -24,6 +24,18 @@ const AboutContactStyle = {
             fontSize: '30px',
         }
     },
+    contactMap: {
+        '& div': {
+            width: '100%',
+            height: '40vh',
+            '& iframe': {
+                width: '100%',
+                height: '100%',
+                border: 'none',
+            }
+        }
+
+    }
 
 
 
