@@ -99,7 +99,7 @@ const SettingAccountStyle = {
         },
     },
     formControl: {
-        width: 80
+        width: 200
     },
     settingAccountSaveButton: {
         width: '80px',

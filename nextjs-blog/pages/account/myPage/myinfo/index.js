@@ -28,13 +28,13 @@ export default function SettingAccount() {
                 <Box className={classes.settingAccountSection}>
                     <List className={classes.settingAccountList}>
                         <ListItem className={classes.settingAccountSelectItem}>
-                            <a>계정설정</a>
+                            <Link href='/account/mypage/myinfo'><a>계정설정</a></Link>
                         </ListItem>
                         <ListItem>
-                            <a>위시리스트</a>
+                            <Link href='/account/mypage/wishlist'><a>위시리스트</a></Link>
                         </ListItem>
                         <ListItem>
-                            <a>로그아웃</a>
+                            <Link href='/'><a>로그아웃</a></Link>
                         </ListItem>
                     </List>
                     <List className={classes.settingAccountMain}>
