@@ -14,6 +14,8 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard';
+import { useForm } from 'react-hook-form';
+import ReviewComment from './components/ReviewComment';
 
 
 //import { google } from 'googleapis';
@@ -75,11 +77,12 @@ const slideProducts = [
 ];
 
 
-
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
     // const playListID = 'PLXF3I__fEhlkpXQOktSk7j_ndEBCDaRXE';
+
+    const { register, handleSubmit, reset } = useForm();
 
     const classes = useStyles();
     const [rating, setRating] = useState(0);
@@ -87,10 +90,34 @@ export default function PageProduct() {
     const [reRendering, setReRendering] = useState(false);
     const [count, setCount] = useState(0);
     const isImageHover = useRef(false);
+    const [reviews, setReviews] = useState([])
+
+    const addReview = data => {
+        //userName, userImage를 context에서 
+
+        setReviews(reviews.concat({
+            userName: '노두현',
+            userImage: 'https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg',
+            date: date(),
+            rating: rating,
+            comment: JSON.stringify(data.comment),
+        }))
+        reset();
+        setRating(0);
+    }
+
+    const date = () => {
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+        let date = today.getDate();
+
+        return (year + '-' + month + '-' + date);
+    }
 
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
-    };
+    }
     const stopImage = () => {
         setReRendering((prev) => !prev);
         return (isImageHover.current ? isImageHover.current = false : isImageHover.current = true)
@@ -164,7 +191,8 @@ export default function PageProduct() {
                         <ul className={classes.text}>
                             <li>기타 액세서리는 옵션으로 선택</li>
                         </ul>
-                        <Box className={classes.productSlideImage}>
+                        <Box
+                            className={classes.productSlideImage}>
                             <img src={slideProducts[count].image} alt='고프로 제품 이미지들'></img>
                             <Box
                                 className={classes.productSlideImageWrap}
@@ -273,36 +301,28 @@ export default function PageProduct() {
                             </Box>
                         }
                         <Box className={classes.productDivider}></Box>
-                        <Typography className={classes.productUserReviewTitle} variant='h3'>후기 ? 개</Typography>
-                        <Box className={classes.productUserReview}>
-                            <Card className={classes.productUserReviewCard}>
-                                <CardContent className={classes.productUserImage}>
-                                    <img src="https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg" alt="계정 이미지"></img>
-                                </CardContent>
-                                <CardContent className={classes.productUserReviewContent}>
-                                    <Box>
-                                        <Typography variant='h5'>김설림</Typography>
-                                        <Typography>2020-02-26</Typography>
-                                    </Box>
-                                    <Box className={classes.productUserRating}>
-                                        <Box component="fieldset" mb={3} borderColor="transparent">
-                                            <Rating name="read-only" value={5} readOnly />
-                                        </Box>
-                                    </Box>
-                                    <Box>
-                                        <Typography>발리로 여행가면서 5일 대여했는데 합리적인 가격에 아주 만족하였습니다!! 고프로 처음 써보는데 여행 전날 미리 받아볼 수 있었기 때문에 찬찬히 알아볼 수 있었어서 사용법이나 조립방법에서 별로 애먹지 않았구요 ㅎㅎ 비행기 티켓 첨부하면 딱 여행기간만큼만 지불하면 된다는 점이 아주아주 마음에 들었습니다~ 카톡 문의 답변도 신속하구요! 다음에 물놀이하는 해외여행 가게된다면 재구매 이용 100000%입니다~~ ㅎㅎㅎ</Typography>
-                                    </Box>
-
-
-
-                                </CardContent>
-                            </Card>
-                            <Box className={classes.productDivider}></Box>
-                        </Box>
+                        <Typography className={classes.productUserReviewTitle} variant='h3'>후기 {reviews.length}개</Typography>
+                        {
+                            reviews.map((review) => {
+                                if (review) {
+                                    return (
+                                        <ReviewComment
+                                            userName={review.userName}
+                                            userImage={review.userImage}
+                                            date={review.date}
+                                            rating={review.rating}
+                                            comment={review.comment}
+                                        />
+                                    )
+                                }
+                            })
+                        }
                         <Box className={classes.productViewMoreButton}>
                             <Button><KeyboardArrowDownIcon /> 더보기</Button>
                         </Box>
-                        <form className={classes.productReview}>
+                        <form
+                            onSubmit={handleSubmit(addReview)}
+                            className={classes.productReview}>
                             <span>이미 사용해 보셨나요? 리뷰를 남겨주세요!</span>
                             <Box className={classes.productRatingReview}>
                                 <Box
@@ -317,15 +337,17 @@ export default function PageProduct() {
                                     />
                                 </Box>
                             </Box>
-
                             <TextField
-                                name='review'
+                                inputRef={register}
+                                name='comment'
                                 id="outlined-multiline-static"
                                 multiline
                                 rows={3}
                                 variant="outlined"
                             />
-                            <Button type='submit'>리뷰 제출 하기</Button>
+                            <Button
+                                type='submit'
+                            >리뷰 제출 하기</Button>
                         </form>
                     </Box>
                 </Container>
@@ -348,7 +370,6 @@ export default function PageProduct() {
                                     <Typography>총 0원</Typography>
                                 </Box>
                                 <Button
-                                    type='submit'
                                     className={classes.productReviewButton}>예약하기
                                 </Button>
                             </Box>

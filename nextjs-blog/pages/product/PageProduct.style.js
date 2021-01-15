@@ -1,6 +1,4 @@
-
-
-const PageProductStyle = {
+const ReviewCommentStyle = {
     section: {
         position: 'relative',
         display: 'flex',
@@ -302,4 +300,4 @@ const PageProductStyle = {
 
 }
 
-export default PageProductStyle;
+export default ReviewCommentStyle;
