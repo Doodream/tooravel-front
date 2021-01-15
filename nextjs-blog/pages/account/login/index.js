@@ -15,9 +15,7 @@ export default function Login({ history }) {
     const classes = useStyles();
 
     const emailFormCheck = useRef(null);
-    const emailValue = useRef(null);
     const passwordFormCheck = useRef(null);
-    const passwordValue = useRef(null);
 
     const [emailEntered, setEmailEntered] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(false);
@@ -26,9 +24,11 @@ export default function Login({ history }) {
 
 
     const { login, kakaoLogin, isAuthenticated } = React.useContext(AuthContext)
-    const { handleSubmit } = useForm({
+    const { handleSubmit, register } = useForm({
         reValidateMode: 'onBlur'
     });
+
+    const onSubmit = (data) => alert(JSON.stringify(data))
 
     React.useEffect(() => {
         if (isAuthenticated) {
@@ -36,6 +36,8 @@ export default function Login({ history }) {
             history.push('/')
         }
     }, []);
+
+
 
     const validateEmail = (emailEntered) => {
         const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -88,11 +90,12 @@ export default function Login({ history }) {
                             </a>
                         </Link>
                         <Divider className={classes.loginDivider} />
-                        <form onSubmit={handleSubmit(login)}>
+                        {/* //handleSubmit(login) */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <TextField
                                 name='email'
                                 className={classes.loginInput}
-                                ref={emailValue}
+                                inputRef={register}
                                 onChange={(e) => { validateEmail(e.target.value) }}
                                 label='Email : abc@gmail.com'
                                 autoComplete='email'
@@ -100,7 +103,7 @@ export default function Login({ history }) {
                             <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginPassword}
                                 name='password'
-                                ref={passwordValue}
+                                inputRef={register}
                                 onChange={(e) => { validatePassword(e.target.value) }}
                                 label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
                                 variant='outlined'

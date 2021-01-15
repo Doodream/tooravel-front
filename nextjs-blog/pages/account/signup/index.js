@@ -16,9 +16,7 @@ export default function Signup({ history }) {
     const classes = useStyles();
 
     const emailFormCheck = useRef(null);
-    const emailValue = useRef(null);
     const passwordFormCheck = useRef(null);
-    const passwordValue = useRef(null);
     const reEnterPasswordFormCheck = useRef(null);
 
     const [emailEntered, setEmailEntered] = useState('');
@@ -28,8 +26,10 @@ export default function Signup({ history }) {
     const [isReEnterPasswordValid, setIsReEnterPasswordValid] = useState(false);
 
     const { signUp, isAuthenticated } = React.useContext(AuthContext)
-
-    const { handleSubmit } = useForm({
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data));
+    }
+    const { handleSubmit, register } = useForm({
         reValidateMode: 'onBlur'
     });
 
@@ -102,13 +102,15 @@ export default function Signup({ history }) {
                     <Box className={classes.loginSectionInner}>
                         <Link href='/account/signup'>
                             <a className={classes.loginFacebook}>
-                                <Button >FaceBook으로 간편하게 가입하기</Button>
+                                <Button>FaceBook으로 간편하게 가입하기</Button>
                             </a>
                         </Link>
                         <Divider className={classes.loginDivider}></Divider>
-                        <form onSubmit={handleSubmit(signUp)}>
+                        {/* handleSubmit(signUp) */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <TextField
                                 name='email'
+                                inputRef={register}
                                 className={classes.loginInput}
                                 onChange={(e) => { validateEmail(e.target.value) }}
                                 label='Email : abc@gmail.com'
@@ -117,7 +119,7 @@ export default function Signup({ history }) {
                             <Typography className={classes.loginInputErrmsg} ref={emailFormCheck}> 이메일을 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginInput, classes.loginPassword}
                                 name='password'
-                                ref={passwordValue}
+                                inputRef={register}
                                 label='Password : 숫자 문자 특수 문자 8 ~ 15 자리 이상'
                                 onChange={(e) => { validatePassword(e.target.value) }}
                                 variant='outlined'
@@ -125,7 +127,7 @@ export default function Signup({ history }) {
                             <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginInput, classes.loginPassword}
                                 name='password_confirm'
-                                ref={passwordValue}
+                                inputRef={register}
                                 label='Re-enter Password'
                                 onChange={(e) => { validateReEnterPassword(e.target.value) }}
                                 variant='outlined'
