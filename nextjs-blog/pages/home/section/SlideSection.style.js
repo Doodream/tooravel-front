@@ -1,4 +1,7 @@
 const SlideSectionStyle = {
+    slideSection: {
+        position: 'relative',
+    },
     imageSection: {
         paddingTop: 81,
         position: 'relative',
@@ -12,6 +15,7 @@ const SlideSectionStyle = {
     },
     title: {
         position: 'absolute',
+        top: 0,
         width: '100%',
         height: '100%',
         display: 'flex',
