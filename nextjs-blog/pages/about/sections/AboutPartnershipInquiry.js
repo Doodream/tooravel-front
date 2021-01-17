@@ -15,7 +15,7 @@ export default function AboutPartnershipInquiry() {
             <List className={classes.inquirySection}>
                 <ListItem className={classes.inquiryTitle}>
                     <Typography variant='h4'>제휴 문의를 보내주세요</Typography>
-                    <Typography variant='h7'>문의주신 내용을 2~3 영업일 이내에 답변드리겠습니다.</Typography>
+                    <Typography>문의주신 내용을 2~3 영업일 이내에 답변드리겠습니다.</Typography>
                 </ListItem>
                 <ListItem className={classes.inquiryForm}>
                     <List className={classes.inquiryInput}>

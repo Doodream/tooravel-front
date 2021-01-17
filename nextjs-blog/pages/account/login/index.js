@@ -118,7 +118,7 @@ export default function Login({ history }) {
                         </form>
                         <Divider className={classes.loginDivider}></Divider>
                         <Box className={classes.loginSignup}>
-                            <Typography variant='h8'>아직 Tooravel의 회원이 아니신가요? 지금 바로 가입하세요~</Typography>
+                            <Typography>아직 Tooravel의 회원이 아니신가요? 지금 바로 가입하세요~</Typography>
                             <Link href='/account/signup'>
                                 <a>
                                     <Button>가입하기</Button>

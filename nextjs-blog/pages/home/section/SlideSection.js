@@ -27,10 +27,10 @@ export default function SlideSection() {
         <Box className={classes.slideSection}>
             <Slider {...sliderSettings}>
                 {
-                    images.map((image) => {
+                    images.map((image, index) => {
                         if (image) {
                             return (
-                                <Box className={classes.imageSection}>
+                                <Box key={index} className={classes.imageSection}>
                                     <img className='backImage' src={image} alt='배경이미지'></img>
                                 </Box>
                             )

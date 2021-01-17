@@ -237,10 +237,10 @@ export default function PageProduct() {
                         <Box>
                             <Slider {...sliderSettings} className={classes.slider}>
                                 {
-                                    slideProducts.map((product) => {
+                                    slideProducts.map((product, index) => {
                                         if (product) {
                                             return (
-                                                <div className={classes.productSlider}>
+                                                <div key={index} className={classes.productSlider}>
                                                     <Box
                                                         className={classes.productSlideImage}>
                                                         <img src={product.image} alt='고프로 제품 이미지들'></img>
@@ -268,10 +268,10 @@ export default function PageProduct() {
                                 <Link href='/product/gopro-tips'><a><LinkIcon />더 보기</a></Link>
                             </Box>
                             <Box className={classes.productTipVideo}>{
-                                tipVideosInfo.map((videoInfo) => {
+                                tipVideosInfo.map((videoInfo, index) => {
                                     if (videoInfo) {
                                         return (
-                                            <VideoCard videoInfo={videoInfo} />
+                                            <VideoCard key={index} videoInfo={videoInfo} />
                                         )
                                     }
                                 })
@@ -284,10 +284,10 @@ export default function PageProduct() {
                                 <Link href='/product/gopro-videos'><a><LinkIcon />더 보기</a></Link>
                             </Box>
                             <Box className={classes.productTipVideo}>{
-                                clipVideosInfo.map((videoInfo) => {
+                                clipVideosInfo.map((videoInfo, index) => {
                                     if (videoInfo) {
                                         return (
-                                            <VideoCard videoInfo={videoInfo} />
+                                            <VideoCard key={index} videoInfo={videoInfo} />
                                         )
                                     }
                                 })

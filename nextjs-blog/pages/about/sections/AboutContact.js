@@ -15,7 +15,7 @@ export default function AboutContact() {
             <List className={classes.contactSection}>
                 <ListItem className={classes.contactTitle}>
                     <Typography variant='h4'>환영 합니다 :)</Typography>
-                    <Typography variant='h7'>커피 한 잔 하러 오세요 ^^</Typography>
+                    <Typography>커피 한 잔 하러 오세요 ^^</Typography>
                 </ListItem>
                 <ListItem>
                     <div>
@@ -27,6 +27,7 @@ export default function AboutContact() {
                     </div>
                 </ListItem>
                 <ListItem className={classes.contactMap}>
+                    {/* 제대로 된 API로 대체할 것 */}
                     <Box>
                         <iframe src='http://naver.me/FjoB3AcE' alt='네이버 지도' />
                     </Box>

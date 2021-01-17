@@ -21,6 +21,7 @@ const tipVideosId = [
     'pGx8ySVp4aA',
     'J3XTohm5Lbg',
 ];
+let count = 0;
 
 const useStyles = makeStyles(styles);
 
@@ -28,10 +29,11 @@ export default function PageProductTip() {
     const classes = useStyles();
     const [tipVideosInfo, setTipVideosInfo] = React.useState([]);
 
-    const getVideoInfo = async (videoId) => {
+    const getVideoInfo = async (videoId, index) => {
         const { data: { items } } = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
 
         setTipVideosInfo(tipVideosInfo.concat({
+            id: index,
             videoId: videoId,
             viewCount: items[0].statistics.viewCount,
             publishedAt: items[0].snippet.publishedAt.substring(0, 10),
@@ -43,8 +45,8 @@ export default function PageProductTip() {
     }
 
     React.useEffect(() => {
-        tipVideosId.map((videoId) => {
-            getVideoInfo(videoId);
+        tipVideosId.map((videoId, index) => {
+            getVideoInfo(videoId, index);
         });
     }, [])
     return (
@@ -56,7 +58,7 @@ export default function PageProductTip() {
                         tipVideosInfo.map((videoInfo) => {
                             if (videoInfo) {
                                 return (
-                                    <VideoCard videoInfo={videoInfo} />
+                                    <VideoCard key={videoInfo.id} videoInfo={videoInfo} />
                                 )
                             }
                         })

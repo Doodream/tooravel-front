@@ -7,7 +7,7 @@ import styles from './VideoCard.style.js';
 const useStyles = makeStyles(styles);
 export default function VideoCard({ videoInfo }) {
     const classes = useStyles();
-    const [open, setOpen] = useState('');
+    const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -32,7 +32,7 @@ export default function VideoCard({ videoInfo }) {
             </Modal>
             <Button className={classes.videoCard} onClick={() => handleOpen()}>
                 <Card className={classes.videoCardSection}>
-                    <CardActions classeName={classes.videoCardImage}>
+                    <CardActions className={classes.videoCardImage}>
                         <img className={classes.videoCardThumbnail} src={videoInfo.thumbnail} alt='썸네일'></img>
                         {/* <Box className={classes.videoCardLogo}>
                             <img src='https://www.tooravel.net/static/common/img/icon_ytb.png' alt='youtube로고'></img>

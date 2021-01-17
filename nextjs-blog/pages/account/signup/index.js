@@ -144,7 +144,7 @@ export default function Signup({ history }) {
                         </Typography>
                         <Divider className={classes.loginDivider}></Divider>
                         <Box className={classes.loginSignup}>
-                            <Typography variant='h8'>이미 Tooravel의 회원이신가요?</Typography>
+                            <Typography>이미 Tooravel의 회원이신가요?</Typography>
                             {/* button href를 넣으면 css가 달라짐 inspect 하면서 볼 것 */}
                             <Link href='/'><a><Button>로그인</Button></a></Link>
                         </Box>
