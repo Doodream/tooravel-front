@@ -92,9 +92,6 @@ export default function PageProduct() {
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
-    const [reRendering, setReRendering] = useState(false);
-    const [count, setCount] = useState(0);
-    const isImageHover = useRef(false);
     const [reviews, setReviews] = useState([])
 
     var sliderSettings = {
@@ -135,27 +132,6 @@ export default function PageProduct() {
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
     }
-    const stopImage = () => {
-        setReRendering((prev) => !prev);
-        return (isImageHover.current ? isImageHover.current = false : isImageHover.current = true)
-    };
-    const slideLeftImage = () => {
-        return (count < 0 ? setCount(slideProducts.length - 1) : setCount(count - 1));
-    }
-    const slideRightImage = () => {
-        setCount((count + 1) % slideProducts.length);
-    }
-    // 호버링 되었을떄 이미지가 바로 멈추는 기능을 모르겠음
-    useEffect(() => {
-        const imageTimer = setTimeout(() => {
-            if (!isImageHover.current && !reRendering) {
-                setCount((count + slideProducts.length + 1) % slideProducts.length);
-            } else {
-                clearTimeout(imageTimer);
-            }
-        }, 2000);
-    })
-
     return (
         <Page>
             <Box className={classes.section}>
