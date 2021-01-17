@@ -13,20 +13,20 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard';
+import axios from 'axios';
+
 import ReviewComment from './components/ReviewComment';
 import { useForm } from 'react-hook-form';
+
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderNextArrow from "./components/Slider/SliderNextArrow";
 import SliderPrevArrow from "./components/Slider/SliderPrevArrow";
 
-
-
-
-//import { google } from 'googleapis';
-
 const useStyles = makeStyles(styles);
+
+const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
 
 const slideProducts = [
     {
@@ -82,17 +82,28 @@ const slideProducts = [
     }
 ];
 
+const tipVideosId = [
+    'pGx8ySVp4aA',
+    'J3XTohm5Lbg',
+];
+
+const clipVideosId = [
+    '7o6mGQ2uY2Y',
+    'D2PN_cg-1Nk',
+];
+
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
     // const playListID = 'PLXF3I__fEhlkpXQOktSk7j_ndEBCDaRXE';
 
     const { register, handleSubmit, reset } = useForm();
-
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
     const [reviews, setReviews] = useState([])
+    const [tipVideosInfo, setTipVideosInfo] = useState([]);
+    const [clipVideosInfo, setClipVideosInfo] = useState([]);
 
     var sliderSettings = {
         dots: true,
@@ -105,6 +116,43 @@ export default function PageProduct() {
         nextArrow: <SliderNextArrow />,
         prevArrow: <SliderPrevArrow />,
     }
+
+    const getVideoInfo = async (videoId, videoType) => {
+        const { data: { items } } = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
+
+        videoType === 'tip' ?
+            setTipVideosInfo(tipVideosInfo.concat({
+                videoId: videoId,
+                viewCount: items[0].statistics.viewCount,
+                publishedAt: items[0].snippet.publishedAt.substring(0, 10),
+                channelTitle: items[0].snippet.channelTitle,
+                title: items[0].snippet.title,
+                thumbnail: items[0].snippet.thumbnails.high.url,
+            })) :
+            setClipVideosInfo(tipVideosInfo.concat({
+                videoId: videoId,
+                viewCount: items[0].statistics.viewCount,
+                publishedAt: items[0].snippet.publishedAt.substring(0, 10),
+                channelTitle: items[0].snippet.channelTitle,
+                title: items[0].snippet.title,
+                thumbnail: items[0].snippet.thumbnails.high.url,
+            }))
+
+    }
+
+
+    useEffect(() => {
+
+        const videoType = 'tip';
+        clipVideosId.map((videoId) => {
+            getVideoInfo(videoId, videoType);
+        });
+
+        tipVideosId.map((videoId) => {
+            getVideoInfo(videoId, videoType);
+        });
+
+    }, [])
 
     const addReview = data => {
         //userName, userImage를 context에서 
@@ -132,6 +180,8 @@ export default function PageProduct() {
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
     }
+
+
     return (
         <Page>
             <Box className={classes.section}>
@@ -217,9 +267,15 @@ export default function PageProduct() {
                                 <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
                                 <Link href='/product/gopro-tips'><a><LinkIcon />더 보기</a></Link>
                             </Box>
-                            <Box className={classes.productTipVideo}>
-                                <VideoCard videoID='pGx8ySVp4aA' />
-                                <VideoCard videoID='J3XTohm5Lbg' />
+                            <Box className={classes.productTipVideo}>{
+                                tipVideosInfo.map((videoInfo) => {
+                                    if (videoInfo) {
+                                        return (
+                                            <VideoCard videoInfo={videoInfo} />
+                                        )
+                                    }
+                                })
+                            }
                             </Box>
                         </Box>
                         <Box className={classes.productTip}>
@@ -227,9 +283,15 @@ export default function PageProduct() {
                                 <Typography variant='h5'>고프로로 담아온 영상</Typography>
                                 <Link href='/product/gopro-videos'><a><LinkIcon />더 보기</a></Link>
                             </Box>
-                            <Box className={classes.productTipVideo}>
-                                <VideoCard videoID='7o6mGQ2uY2Y' />
-                                <VideoCard videoID='D2PN_cg-1Nk' />
+                            <Box className={classes.productTipVideo}>{
+                                clipVideosInfo.map((videoInfo) => {
+                                    if (videoInfo) {
+                                        return (
+                                            <VideoCard videoInfo={videoInfo} />
+                                        )
+                                    }
+                                })
+                            }
                             </Box>
                         </Box>
                         <Typography variant='h3'>사용방법</Typography>
