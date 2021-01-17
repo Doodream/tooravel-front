@@ -9,13 +9,19 @@ import styles from './PageProduct.style.js';
 import { Container, Box, Typography, Button, TextField, Card, CardContent, CardActions } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard';
-import { useForm } from 'react-hook-form';
 import ReviewComment from './components/ReviewComment';
+import { useForm } from 'react-hook-form';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SliderNextArrow from "./components/Slider/SliderNextArrow";
+import SliderPrevArrow from "./components/Slider/SliderPrevArrow";
+
+
 
 
 //import { google } from 'googleapis';
@@ -76,7 +82,6 @@ const slideProducts = [
     }
 ];
 
-
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
@@ -91,6 +96,18 @@ export default function PageProduct() {
     const [count, setCount] = useState(0);
     const isImageHover = useRef(false);
     const [reviews, setReviews] = useState([])
+
+    var sliderSettings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnHover: true,
+        nextArrow: <SliderNextArrow />,
+        prevArrow: <SliderPrevArrow />,
+    }
 
     const addReview = data => {
         //userName, userImage를 context에서 
@@ -191,22 +208,34 @@ export default function PageProduct() {
                         <ul className={classes.text}>
                             <li>기타 액세서리는 옵션으로 선택</li>
                         </ul>
-                        <Box
-                            className={classes.productSlideImage}>
-                            <img src={slideProducts[count].image} alt='고프로 제품 이미지들'></img>
-                            <Box
-                                className={classes.productSlideImageWrap}
-                                onMouseEnter={() => stopImage()}
-                                onMouseLeave={() => stopImage()}>
-                                <Button onClick={() => slideLeftImage()}><KeyboardArrowLeftIcon /></Button>
-                                <Typography>{slideProducts[count].title}</Typography>
-                                <Button onClick={() => slideRightImage()}><KeyboardArrowRightIcon /></Button>
-                            </Box>
+                        <Box>
+                            <Slider {...sliderSettings} className={classes.slider}>
+                                {
+                                    slideProducts.map((product) => {
+                                        if (product) {
+                                            return (
+                                                <div className={classes.productSlider}>
+                                                    <Box
+                                                        className={classes.productSlideImage}>
+                                                        <img src={product.image} alt='고프로 제품 이미지들'></img>
+                                                        <Box className={classes.productSlideImageWrap}>
+                                                            <Typography>{product.title}</Typography>
+                                                        </Box>
+                                                    </Box>
+                                                    <p className={classes.text}>
+                                                        <strong>{product.title}</strong><br />
+                                                        {product.description}
+                                                    </p>
+                                                </div>
+                                            )
+                                        }
+                                    }
+                                    )
+                                }
+                            </Slider>
                         </Box>
-                        <p className={classes.text}>
-                            <strong>{slideProducts[count].title}</strong><br />
-                            {slideProducts[count].description}
-                        </p>
+
+
                         <Box className={classes.productTip}>
                             <Box className={classes.productTipTitle}>
                                 <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>

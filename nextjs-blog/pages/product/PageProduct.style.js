@@ -232,26 +232,37 @@ const ReviewCommentStyle = {
         background: '#F0583A',
         margin: '20px 0',
     },
+    slider: {
+        '& div': {
+            width: '90%',
+            margin: '0px auto',
+            display: 'flex',
+            justifyContent: 'center',
+        }
+    },
+    productSlider: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
     productSlideImage: {
         position: 'relative',
         display: 'flex',
-
+        margin: '0px auto',
         height: 300,
         '& img': {
             margin: 0,
             width: '50%',
             height: '100%',
+            border: 'none',
         }
     },
     productSlideImageWrap: {
         width: '50%',
         height: '100%',
-        top: 0,
-        left: 0,
         position: 'absolute',
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
+        justifyContent: 'center',
         textAlign: 'center',
         '& p': {
             textShadow: '1px 3px 3px black',
