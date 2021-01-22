@@ -28,8 +28,6 @@ export default function Login({ history }) {
         reValidateMode: 'onBlur'
     });
 
-    const onSubmit = (data) => alert(JSON.stringify(data))
-
     React.useEffect(() => {
         if (isAuthenticated) {
             alert('로그인 상태입니다.')
@@ -91,7 +89,7 @@ export default function Login({ history }) {
                         </Link>
                         <Divider className={classes.loginDivider} />
                         {/* //handleSubmit(login) */}
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(login)}>
                             <TextField
                                 name='email'
                                 className={classes.loginInput}

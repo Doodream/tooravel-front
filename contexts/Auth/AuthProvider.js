@@ -1,8 +1,8 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter } from "next/router";
 
 import AuthContext from './AuthContext.js';
-import { Fetch } from '/Fetch.js'
+import { Fetch } from '../../utils/Fetch.js';
 
 const copyObject = obj => ({ ...obj, ...JSON.parse(JSON.stringify(obj)) })
 const AuthProvider = ({ children, history }) => {
@@ -19,7 +19,7 @@ const AuthProvider = ({ children, history }) => {
     const login = ({ email, password }) => Fetch.post('/api/login/', {
         'email': email,
         'password': password,
-    }).then(saveUserInfo).then(homeRedirect);
+    }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
 
     const kakaoLogin = ({ response, profile }) => {
         const data = {
