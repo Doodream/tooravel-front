@@ -33,6 +33,8 @@ export default function Login({ history }) {
             alert('로그인 상태입니다.')
             history.push('/')
         }
+
+        console.log(window.localStorage);
     }, []);
 
 

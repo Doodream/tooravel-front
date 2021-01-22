@@ -1,15 +1,15 @@
 import React from "react";
-import { withRouter } from "next/router";
+import { withRouter, useRouter } from "next/router";
 
 import AuthContext from './AuthContext.js';
 import { Fetch } from '../../utils/Fetch.js';
 
 const copyObject = obj => ({ ...obj, ...JSON.parse(JSON.stringify(obj)) })
-const AuthProvider = ({ children, history }) => {
+const AuthProvider = ({ children, localStorage }) => {
 
-    const [prevAuthUser, setPrevAuthUser] = React.useState(JSON.parse(window.localStorage.getItem('user')) || {})
-
-    const homeRedirect = () => history.push('/')
+    const [prevAuthUser, setPrevAuthUser] = React.useState(localStorage.user || {})
+    const router = useRouter();
+    const homeRedirect = () => router.push('/')
     const saveUserInfo = res => {
         // const newAuthUser = {...copyObject(value.prevAuthUser), ...copyObject(res)}
         const newAuthUser = { ...prevAuthUser, ...res }
@@ -19,7 +19,7 @@ const AuthProvider = ({ children, history }) => {
     const login = ({ email, password }) => Fetch.post('/api/login/', {
         'email': email,
         'password': password,
-    }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
+    }).then(saveUserInfo).then(homeRedirect).catch(err => console.log(err));
 
     const kakaoLogin = ({ response, profile }) => {
         const data = {
@@ -35,9 +35,9 @@ const AuthProvider = ({ children, history }) => {
         alert('로그아웃 되었습니다.')
         setValue({ ...initialState, authUser: {}, isAuthenticated: false })
         window.localStorage.clear()
-        history.push('/')
+        router.push('/')
     };
-    const signUp = data => Fetch.post('/api/signup/',).then(res => history.push('/login'));
+    const signUp = data => Fetch.post('/api/signup/',).then(res => router.push('/login'));
 
     //state초기화 객체 입니다.
     const initialState = {
