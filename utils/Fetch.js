@@ -28,7 +28,7 @@ const Fetch = {
             obj['external'] = false;
 
             if (process.env.NODE_ENV === 'development') {
-                obj['fullUrl'] = 'http://localhost:8000' + url;
+                obj['fullUrl'] = 'http://localhost:4000' + url;
             }
             else if (process.env.NODE_ENV === 'production') {
                 obj['fullUrl'] = 'http://3.35.207.184' + url;

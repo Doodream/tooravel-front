@@ -14,6 +14,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import axios from 'axios';
+import { Fetch } from '../../utils/Fetch';
 
 import ReviewComment from './components/ReviewComment';
 import { useForm } from 'react-hook-form';
@@ -151,6 +152,8 @@ export default function PageProduct() {
         tipVideosId.map((videoId) => {
             getVideoInfo(videoId, videoType);
         });
+
+        Fetch.get('/api/hello').then(res => console.log(res.message));
 
     }, [])
 
