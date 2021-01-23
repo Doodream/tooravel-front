@@ -17,7 +17,7 @@ import axios from 'axios';
 import { Fetch } from '../../utils/Fetch';
 
 import ReviewComment from './components/ReviewComment';
-import { useForm } from 'react-hook-form';
+import { get, useForm } from 'react-hook-form';
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -93,6 +93,7 @@ const clipVideosId = [
     'D2PN_cg-1Nk',
 ];
 
+
 export default function PageProduct() {
     // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
@@ -102,7 +103,7 @@ export default function PageProduct() {
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
 
@@ -118,44 +119,70 @@ export default function PageProduct() {
         prevArrow: <SliderPrevArrow />,
     }
 
-    const getVideoInfo = async (videoId, videoType) => {
-        const { data: { items } } = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
-
-        videoType === 'tip' ?
-            setTipVideosInfo(tipVideosInfo.concat({
-                videoId: videoId,
-                viewCount: items[0].statistics.viewCount,
-                publishedAt: items[0].snippet.publishedAt.substring(0, 10),
-                channelTitle: items[0].snippet.channelTitle,
-                title: items[0].snippet.title,
-                thumbnail: items[0].snippet.thumbnails.high.url,
-            })) :
-            setClipVideosInfo(tipVideosInfo.concat({
-                videoId: videoId,
-                viewCount: items[0].statistics.viewCount,
-                publishedAt: items[0].snippet.publishedAt.substring(0, 10),
-                channelTitle: items[0].snippet.channelTitle,
-                title: items[0].snippet.title,
-                thumbnail: items[0].snippet.thumbnails.high.url,
-            }))
-
+    const getVideoInfo = (videoId) => {
+        return axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
     }
 
-
     useEffect(() => {
+        // var data = null;
 
-        const videoType = 'tip';
-        clipVideosId.map((videoId) => {
-            getVideoInfo(videoId, videoType);
-        });
+        async function setTipVideos() {
+            // RIGHT :: Using Promise.resolve
+            const tipVideos = await tipVideosId.reduce(async (promise, videoId) => {
+                // 누산값 받아오기 (2)
+                let result = await promise.then();
+                // 누산값 변경 (3)
+                const { data: { items } } = await getVideoInfo(videoId);
+                const newVideoInfo = {
+                    videoId: videoId,
+                    viewCount: items[0].statistics.viewCount,
+                    publishedAt: items[0].snippet.publishedAt.substring(0, 10),
+                    channelTitle: items[0].snippet.channelTitle,
+                    title: items[0].snippet.title,
+                    thumbnail: items[0].snippet.thumbnails.high.url,
+                }
 
-        tipVideosId.map((videoId) => {
-            getVideoInfo(videoId, videoType);
-        });
+                return Promise.resolve([...result, newVideoInfo]);
+            }, Promise.resolve([]));
 
-        Fetch.get('/api/hello').then(res => console.log(res.message));
+            setTipVideosInfo(tipVideos)
+        }
+        setTipVideos();
 
     }, [])
+
+    useEffect(() => {
+        // var data = null;
+
+        async function setClipVideos() {
+            // RIGHT :: Using Promise.resolve
+            const clipVideos = await clipVideosId.reduce(async (promise, videoId) => {
+                // 누산값 받아오기 (2)
+                let result = await promise.then();
+                // 누산값 변경 (3)
+                const { data: { items } } = await getVideoInfo(videoId);
+                const newVideoInfo = {
+                    videoId: videoId,
+                    viewCount: items[0].statistics.viewCount,
+                    publishedAt: items[0].snippet.publishedAt.substring(0, 10),
+                    channelTitle: items[0].snippet.channelTitle,
+                    title: items[0].snippet.title,
+                    thumbnail: items[0].snippet.thumbnails.high.url,
+                }
+
+                return Promise.resolve([...result, newVideoInfo]);
+            }, Promise.resolve([]));
+
+            setClipVideosInfo(clipVideos)
+        }
+        setClipVideos();
+
+    }, [])
+
+    useEffect(() => {
+        console.log(tipVideosInfo)
+        console.log(clipVideosInfo);
+    }, [tipVideosInfo, clipVideosInfo])
 
     const addReview = data => {
         //userName, userImage를 context에서 
@@ -174,7 +201,7 @@ export default function PageProduct() {
     const date = () => {
         let today = new Date();
         let year = today.getFullYear();
-        let month = today.getMonth();
+        let month = today.getMonth() + 1;
         let date = today.getDate();
 
         return (year + '-' + month + '-' + date);
@@ -247,9 +274,6 @@ export default function PageProduct() {
                                                     <Box
                                                         className={classes.productSlideImage}>
                                                         <img src={product.image} alt='고프로 제품 이미지들'></img>
-                                                        <Box className={classes.productSlideImageWrap}>
-                                                            <Typography>{product.title}</Typography>
-                                                        </Box>
                                                     </Box>
                                                     <p className={classes.text}>
                                                         <strong>{product.title}</strong><br />
@@ -270,15 +294,8 @@ export default function PageProduct() {
                                 <Typography variant='h5'>고프로를 알차게 사용하는 팁</Typography>
                                 <Link href='/product/gopro-tips'><a><LinkIcon />더 보기</a></Link>
                             </Box>
-                            <Box className={classes.productTipVideo}>{
-                                tipVideosInfo.map((videoInfo, index) => {
-                                    if (videoInfo) {
-                                        return (
-                                            <VideoCard key={index} videoInfo={videoInfo} />
-                                        )
-                                    }
-                                })
-                            }
+                            <Box className={classes.productTipVideo}>
+                                {tipVideosInfo.map((videoInfo, index) => <VideoCard key={index} {...videoInfo} />)}
                             </Box>
                         </Box>
                         <Box className={classes.productTip}>
@@ -286,15 +303,8 @@ export default function PageProduct() {
                                 <Typography variant='h5'>고프로로 담아온 영상</Typography>
                                 <Link href='/product/gopro-videos'><a><LinkIcon />더 보기</a></Link>
                             </Box>
-                            <Box className={classes.productTipVideo}>{
-                                clipVideosInfo.map((videoInfo, index) => {
-                                    if (videoInfo) {
-                                        return (
-                                            <VideoCard key={index} videoInfo={videoInfo} />
-                                        )
-                                    }
-                                })
-                            }
+                            <Box className={classes.productTipVideo}>
+                                {clipVideosInfo.map((videoInfo, index) => <VideoCard key={index} {...videoInfo} />)}
                             </Box>
                         </Box>
                         <Typography variant='h3'>사용방법</Typography>

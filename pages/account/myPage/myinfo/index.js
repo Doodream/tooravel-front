@@ -20,7 +20,7 @@ export default function SettingAccount() {
     const imageUpload = async (e) => {
         setUserImage(e.target.files[0]);
         // 서버의 upload API 호출
-        const res = await Fetch.post("/api/upload", formData);
+        //const res = await Fetch.post("/api/upload", formData);
         console.log(userImage);
     }
     const genderChange = (e) => {

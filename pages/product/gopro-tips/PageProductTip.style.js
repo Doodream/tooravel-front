@@ -7,15 +7,19 @@ const PageProductTipStyle = {
         background: 'white',
     },
     section: {
-        width: '60%',
+        width: '80%',
         background: 'white',
         textAlign: 'center',
     },
     videos: {
+        flexFlow: 'row wrap',
         display: 'flex',
-        flexDirection: 'column',
+        justifyContent: 'center',
+
+        //width: '300px',
         '& div': {
-            flex: 1
+            flexBasis: 400,
+
         }
     }
 }

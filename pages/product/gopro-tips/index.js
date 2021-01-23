@@ -29,40 +29,49 @@ export default function PageProductTip() {
     const classes = useStyles();
     const [tipVideosInfo, setTipVideosInfo] = React.useState([]);
 
-    const getVideoInfo = async (videoId, index) => {
-        const { data: { items } } = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
-
-        setTipVideosInfo(tipVideosInfo.concat({
-            id: index,
-            videoId: videoId,
-            viewCount: items[0].statistics.viewCount,
-            publishedAt: items[0].snippet.publishedAt.substring(0, 10),
-            channelTitle: items[0].snippet.channelTitle,
-            title: items[0].snippet.title,
-            thumbnail: items[0].snippet.thumbnails.high.url,
-        }))
-
+    const getVideoInfo = (videoId) => {
+        return axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
     }
 
     React.useEffect(() => {
-        tipVideosId.map((videoId, index) => {
-            getVideoInfo(videoId, index);
-        });
+        // var data = null;
+
+        async function setTipVideos() {
+            // RIGHT :: Using Promise.resolve
+            const tipVideos = await tipVideosId.reduce(async (promise, videoId) => {
+                // 누산값 받아오기 (2)
+                let result = await promise.then();
+                // 누산값 변경 (3)
+                const { data: { items } } = await getVideoInfo(videoId);
+                const newVideoInfo = {
+                    videoId: videoId,
+                    viewCount: items[0].statistics.viewCount,
+                    publishedAt: items[0].snippet.publishedAt.substring(0, 10),
+                    channelTitle: items[0].snippet.channelTitle,
+                    title: items[0].snippet.title,
+                    thumbnail: items[0].snippet.thumbnails.high.url,
+                }
+
+                return Promise.resolve([...result, newVideoInfo]);
+            }, Promise.resolve([]));
+
+            setTipVideosInfo(tipVideos)
+        }
+        setTipVideos();
+
     }, [])
+
+    React.useEffect(() => {
+        console.log(tipVideosInfo)
+    }, [tipVideosInfo])
+
     return (
         <Page>
             <Box className={classes.productTip}>
                 <Box className={classes.section}>
                     <Typography variant='h4'>고프로를 알차게 사용하는 팁</Typography>
-                    <List className={classes.videos}>{
-                        tipVideosInfo.map((videoInfo) => {
-                            if (videoInfo) {
-                                return (
-                                    <VideoCard key={videoInfo.id} videoInfo={videoInfo} />
-                                )
-                            }
-                        })
-                    }
+                    <List className={classes.videos}>
+                        {tipVideosInfo.map((videoInfo, index) => <VideoCard key={index} {...videoInfo} />)}
                     </List>
                 </Box>
             </Box>

@@ -36,6 +36,7 @@ const VideoCardStyle = {
         textTransform: 'none',
         textAlign: 'start',
         paddingTop: 0,
+
         '&>:nth-child(1)': {
             fontSize: '13px'
         },
@@ -46,6 +47,8 @@ const VideoCardStyle = {
         '&>:nth-child(3)': {
             fontSize: '14px',
             fontWeight: 800,
+            height: '2em',
+
 
         }
     }

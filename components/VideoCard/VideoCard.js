@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from './VideoCard.style.js';
 
 const useStyles = makeStyles(styles);
-export default function VideoCard({ videoInfo }) {
+export default function VideoCard({ viewCount, thumbnail, videoId, title, channelTitle, publishedAt }) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
@@ -16,11 +16,11 @@ export default function VideoCard({ videoInfo }) {
         setOpen(false);
     }
 
-    let viewRecount = String(videoInfo.viewCount);
-    if (videoInfo.viewCount > 10000) {
-        viewRecount = String(parseInt(videoInfo.viewCount / 10000)) + '만';
-    } else if (videoInfo.viewCount > 1000) {
-        viewRecount = String(parseInt(videoInfo.viewCount / 1000)) + '천';
+    let viewRecount = String(viewCount);
+    if (viewCount > 10000) {
+        viewRecount = String(parseInt(viewCount / 10000)) + '만';
+    } else if (viewCount > 1000) {
+        viewRecount = String(parseInt(viewCount / 1000)) + '천';
     }
 
     return (
@@ -28,27 +28,27 @@ export default function VideoCard({ videoInfo }) {
             <Modal className={classes.videoModal}
                 open={open}
                 onClose={handleClose}>
-                <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoInfo.videoId}`} frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen='true'></iframe>
+                <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen='true'></iframe>
             </Modal>
             <Button className={classes.videoCard} onClick={() => handleOpen()}>
                 <Card className={classes.videoCardSection}>
                     <CardActions className={classes.videoCardImage}>
-                        <img className={classes.videoCardThumbnail} src={videoInfo.thumbnail} alt='썸네일'></img>
+                        <img className={classes.videoCardThumbnail} src={thumbnail} alt='썸네일'></img>
                         {/* <Box className={classes.videoCardLogo}>
                             <img src='https://www.tooravel.net/static/common/img/icon_ytb.png' alt='youtube로고'></img>
                         </Box> */}
                     </CardActions>
                     <CardContent className={classes.videoCardContent}>
-                        <Typography >조회수 {viewRecount}회 · {videoInfo.publishedAt}</Typography>
-                        <Typography >by {videoInfo.channelTitle}</Typography>
-                        <Typography >{videoInfo.title}</Typography>
+                        <Typography >조회수 {viewRecount}회 · {publishedAt}</Typography>
+                        <Typography >by {channelTitle}</Typography>
+                        <Typography >{title}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Typography>
                     </CardContent>
                 </Card>
             </Button>
-        </Box>
+        </Box >
     )
 }
 
-VideoCard.propTypes = {
-    videoInfo: PropTypes.object.isRequired,
-};
+// VideoCard.propTypes = {
+//     videoInfo: PropTypes.object.isRequired,
+// };
