@@ -24,7 +24,7 @@ export default function Login({ history }) {
 
 
     const { login, kakaoLogin, isAuthenticated } = React.useContext(AuthContext)
-    const { handleSubmit, register } = useForm({
+    const { handleSubmit, register, reset } = useForm({
         reValidateMode: 'onBlur'
     });
 
@@ -34,10 +34,12 @@ export default function Login({ history }) {
             history.push('/')
         }
 
-        console.log(window.localStorage);
     }, []);
 
-
+    const onSubmit = data => {
+        reset()
+        login(data)
+    }
 
     const validateEmail = (emailEntered) => {
         const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -91,7 +93,7 @@ export default function Login({ history }) {
                         </Link>
                         <Divider className={classes.loginDivider} />
                         {/* //handleSubmit(login) */}
-                        <form onSubmit={handleSubmit(login)}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <TextField
                                 name='email'
                                 className={classes.loginInput}

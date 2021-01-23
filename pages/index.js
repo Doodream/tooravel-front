@@ -6,11 +6,6 @@ import SlideSection from './home/section/SlideSection';
 
 export default function Home() {
 
-  React.useEffect(() => {
-
-    console.log(window.localStorage);
-  })
-
   return (
     <Page>
       <SlideSection />

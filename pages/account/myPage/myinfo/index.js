@@ -4,23 +4,32 @@ import Link from 'next/link';
 import Page from '../../../../components/Layout/Page'
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './SettingAccount.style.js';
-
+import AuthContext from '../../../../contexts/Auth/AuthContext';
 
 const useStyles = makeStyles(styles);
 
 export default function SettingAccount() {
+
+    const { authUser, logout } = React.useContext(AuthContext);
     const classes = useStyles();
     const [gender, setGender] = useState('');
     const [nationality, setNationality] = useState('');
+    const [userImage, setUserImage] = useState("https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg");
+
+
+    const imageUpload = async (e) => {
+        setUserImage(e.target.files[0]);
+        // 서버의 upload API 호출
+        const res = await Fetch.post("/api/upload", formData);
+        console.log(userImage);
+    }
     const genderChange = (e) => {
         setGender(e.target.value)
     };
     const nationalityChange = (e) => {
         setNationality(e.target.value)
     };
-    const tabChange = () => {
 
-    }
 
     return (
         <Page>
@@ -33,8 +42,8 @@ export default function SettingAccount() {
                         <ListItem>
                             <Link href='/account/mypage/wishlist'><a>위시리스트</a></Link>
                         </ListItem>
-                        <ListItem>
-                            <Link href='/'><a>로그아웃</a></Link>
+                        <ListItem button onClick={logout}>
+                            <a>로그아웃</a>
                         </ListItem>
                     </List>
                     <List className={classes.settingAccountMain}>
@@ -43,7 +52,14 @@ export default function SettingAccount() {
                     </ListItem>
                         <ListItem className={classes.settingAccountListDivider}></ListItem>
                         <ListItem className={classes.settingAccountUsetImage}>
-                            <img src="https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg" alt="계정 이미지"></img>
+                            <input
+                                type='file'
+                                onChange={imageUpload}
+                                accept="image/png, image/jpeg"
+                            >
+                            </input><img src={userImage} alt="계정 이미지"></img>
+
+
                         </ListItem>
                         <ListItem className={classes.settingAccountUserInfo}>
                             <p>이메일</p>

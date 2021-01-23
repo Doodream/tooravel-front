@@ -15,6 +15,7 @@ export default function MyApp(props) {
         if (jssStyles) {
             jssStyles.parentElement.removeChild(jssStyles);
         }
+
         localStorage = window.localStorage;
         console.log(localStorage);
     }, []);

@@ -11,15 +11,20 @@ const AuthProvider = ({ children, localStorage }) => {
     const router = useRouter();
     const homeRedirect = () => router.push('/')
     const saveUserInfo = res => {
+
+        if (!res.loginSuccess) {
+            throw new Error("아이디나 비밀번호가 맞지 않습니다.");
+        }
         // const newAuthUser = {...copyObject(value.prevAuthUser), ...copyObject(res)}
         const newAuthUser = { ...prevAuthUser, ...res }
         setPrevAuthUser(newAuthUser)
+        console.log(prevAuthUser);
         // setValue({...copyObject(value), authUser: newAuthUser, isAuthenticated: 'token' in newAuthUser})
     }
     const login = ({ email, password }) => Fetch.post('/api/login/', {
         'email': email,
         'password': password,
-    }).then(saveUserInfo).then(homeRedirect).catch(err => console.log(err));
+    }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
 
     const kakaoLogin = ({ response, profile }) => {
         const data = {
@@ -37,7 +42,7 @@ const AuthProvider = ({ children, localStorage }) => {
         window.localStorage.clear()
         router.push('/')
     };
-    const signUp = data => Fetch.post('/api/signup/',).then(res => router.push('/login'));
+    const signUp = data => Fetch.post('/api/signup/',).then(res => router.push('/account/login'));
 
     //state초기화 객체 입니다.
     const initialState = {
