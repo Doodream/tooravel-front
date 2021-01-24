@@ -25,6 +25,8 @@ import "slick-carousel/slick/slick-theme.css";
 import SliderNextArrow from "./components/Slider/SliderNextArrow";
 import SliderPrevArrow from "./components/Slider/SliderPrevArrow";
 
+import AddToCart from "./components/AddToCart";
+
 const useStyles = makeStyles(styles);
 
 const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
@@ -203,28 +205,15 @@ export default function PageProduct() {
 
     }, [])
 
-    // useEffect(() => {
-    //     console.log(tipVideosInfo)
-    //     console.log(clipVideosInfo);
-    // }, [tipVideosInfo, clipVideosInfo])
-
-    const addToCart = (product, price) => {
-        var newProduct = {
-            title: product,
-            price: price,
-        }
+    const addToCart = (product) => {
+        var newProduct = product;
 
         var newCart = JSON.parse(window.localStorage.getItem('cart'));
-
         newCart ? window.localStorage.setItem('cart', JSON.stringify(newCart.concat([newProduct])))
             : window.localStorage.setItem('cart', JSON.stringify([newProduct]));
-        console.log(JSON.parse(window.localStorage.getItem('cart')));
+        setCart(JSON.parse(window.localStorage.getItem('cart')));
         // setCart([...newCart, newProduct]);
     }
-
-    // useEffect(() => {
-    //     console.log(window.localStorage.getItem('cart'));
-    // }, [cart])
 
     const addReview = data => {
         //userName, userImage를 context에서 
@@ -312,7 +301,7 @@ export default function PageProduct() {
                                     products.map((product, index) => {
                                         if (product) {
                                             return (
-                                                <div onClick={() => addToCart(product.title, product.price)} key={index} className={classes.productSlider}>
+                                                <div onClick={() => addToCart(product)} key={index} className={classes.productSlider}>
                                                     <Box
                                                         className={classes.productSlideImage}>
                                                         <img src={product.image} alt='고프로 제품 이미지들'></img>
@@ -487,7 +476,9 @@ export default function PageProduct() {
                         </CardContent>
                         <Box className={classes.productDivider}></Box>
                         {
-
+                            JSON.parse(window.localStorage.getItem('cart')).map(product => {
+                                <AddToCart {...product} />
+                            })
                         }
                         <CardActions >
                             <Box>

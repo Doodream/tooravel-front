@@ -1,4 +1,4 @@
-const ReviewCommentStyle = {
+const PageProductStyle = {
     section: {
         position: 'relative',
         display: 'flex',
@@ -243,16 +243,18 @@ const ReviewCommentStyle = {
     productSlider: {
         display: 'flex',
         justifyContent: 'center',
+        boxSizing: 'border-box',
     },
     productSlideImage: {
+        cursor: 'pointer',
         position: 'relative',
         display: 'flex',
-        margin: '0px auto',
-        height: 300,
+        margin: '0px',
+        padding: '10px 0',
         '& img': {
             margin: 0,
             width: '50%',
-            height: '100%',
+            height: '70%',
             border: 'none',
         }
     },
@@ -311,4 +313,4 @@ const ReviewCommentStyle = {
 
 }
 
-export default ReviewCommentStyle;
+export default PageProductStyle;
