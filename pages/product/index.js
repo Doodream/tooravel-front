@@ -24,7 +24,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderNextArrow from "./components/Slider/SliderNextArrow";
 import SliderPrevArrow from "./components/Slider/SliderPrevArrow";
-
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import AddToCart from "./components/AddToCart";
 
 const useStyles = makeStyles(styles);
@@ -36,74 +36,85 @@ const products = [
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_4.png',
         title: '헤드스트랩',
         description: '머리에 장착하여 내가 원하는 가장 완벽한 각도로 촬영해보세요. 내부 실리콘 재질은 미끄럼을 방지해준답니다.',
-        price: 1000
+        price: 1000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_6.png',
         title: '체스트 스트랩',
         description: '서핑이나 사이클을 탈 때 가슴에 고프로를 장착하고 그 순간을 스릴있게 담아보세요.',
-        price: 2000
+        price: 2000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_3.png',
         title: '죠스 클램프',
-        description: '자유자재로 각도를 조절할 수 있는 몸체와 1cm-5cm의 물체에 장착 가능한 죠스클램프 마운트로 편리하게 거치하세요.'
-        ,
-        price: 3000
+        description: '자유자재로 각도를 조절할 수 있는 몸체와 1cm-5cm의 물체에 장착 가능한 죠스클램프 마운트로 편리하게 거치하세요.',
+        price: 3000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_12.png',
         title: '넥스트 랩(목걸이)',
         description: '평상시 자유롭게 다니다가 바로바로 촬영을 하고 싶다면 고프로만 목에 딱 지니고 다녀보세요.',
-        price: 4000
+        price: 4000,
+        quantity: 0,
     },
     {
         image: 'http://img.danawa.com/prod_img/500000/510/534/img/4534510_1.jpg?shrink=500:500&_v=20180718174145',
         title: '배터리 추가제공',
         description: '고프로 추가 배터리입니다.',
-        price: 5000
+        price: 5000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_11.png',
         title: '클라우드 데이터 다운로드 링크 제공',
         description: '바쁘거나 여러명이 한꺼번에 데이터를 공유하기를 원하시면 저희가 최대 3일 내에 동기화하여 다운로드 링크를 제공해드려요!',
-        price: 6000
+        price: 6000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_1.jpg',
         title: '3-Way 그립',
         description: '3-way 그립은 3단계로 길이 조절을 해 셀카 촬영에도 최적화되었지만 삼각대로도 편리하게 사용할 수 있어요.',
-        price: 7000
+        price: 7000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_10.png',
         title: '리모뷰 폴 110cm',
         description: '최소 38cm에서 110cm까지 조절 가능한데 무게는 겨우 148g. 셀카봉으로 최적이지요!',
-        price: 8000
+        price: 8000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_2.png',
         title: '다이브 하우징',
         description: '수중 촬영도 다이브하우징이 있다면 안심! 심해 60m까지 방수가 되는 탁월할 내구성을 자랑합니다.',
-        price: 9000
+        price: 9000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_7.png',
         title: '부력봉',
         description: '물 속에서 부력봉으로 쉽게 수중 촬영을 해보세요. 장비를 놓치더라도 물 위에 떠오르게 설계되어 있어요!',
-        price: 10000
+        price: 10000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_9.png',
         title: '레드필터(다이브하우징 착용)',
         description: '바다속에서 잃어버린 색을 되찾아주는 레드필터! 이 제품은 다이브하우징에 착용 가능합니다.',
-        price: 11000
+        price: 11000,
+        quantity: 0,
     },
     {
         image: 'https://s3.ap-northeast-2.amazonaws.com/tooravel/rent/item/rent_gopro_sub_5.png',
         title: '손목 360도 스트랩',
         description: '손이나 팔목, 다리에까지 자유롭게 장착 가능한 손목스트랩은 360도로 회전해 쉽게 촬영이 가능해요.',
-        price: 12000
+        price: 12000,
+        quantity: 0,
     }
 ];
 
@@ -130,7 +141,6 @@ export default function PageProduct() {
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
-
     const [cart, setCart] = useState([]);
 
     var sliderSettings = {
@@ -205,14 +215,40 @@ export default function PageProduct() {
 
     }, [])
 
+    const removeToCart = (title) => {
+        if (cart.length === 1) {
+            setCart([]);
+            window.localStorage.setItem('cart', []);
+            return
+        }
+        setCart(cart.filter(product => product.title !== title));
+        console.log(cart);
+        window.localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
     const addToCart = (product) => {
         var newProduct = product;
-
         var newCart = JSON.parse(window.localStorage.getItem('cart'));
-        newCart ? window.localStorage.setItem('cart', JSON.stringify(newCart.concat([newProduct])))
-            : window.localStorage.setItem('cart', JSON.stringify([newProduct]));
+
+        // 카트가 비었는지 비어있지 않은지 
+        if (newCart) {
+            //카트가 비어있지 않다면 product가 있는지 없는지
+            if (newCart.some(item => item.title === newProduct.title)) {
+                var index = newCart.findIndex(item => item.title === newProduct.title)
+                newCart[index].quantity += 1;
+                window.localStorage.setItem('cart', JSON.stringify(newCart))
+            } else {
+                product.quantity += 1;
+                newCart = newCart.concat(product);
+                window.localStorage.setItem('cart', JSON.stringify(newCart))
+            }
+        } else {
+            newProduct.quantity += 1;
+            window.localStorage.setItem('cart', JSON.stringify([newProduct]));
+        }
+
         setCart(JSON.parse(window.localStorage.getItem('cart')));
-        // setCart([...newCart, newProduct]);
+        //console.log(cart);
     }
 
     const addReview = data => {
@@ -241,7 +277,6 @@ export default function PageProduct() {
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
     }
-
 
     return (
         <Page>
@@ -415,17 +450,15 @@ export default function PageProduct() {
                         <Typography className={classes.productUserReviewTitle} variant='h3'>후기 {reviews.length}개</Typography>
                         {
                             reviews.map((review) => {
-                                if (review) {
-                                    return (
-                                        <ReviewComment
-                                            userName={review.userName}
-                                            userImage={review.userImage}
-                                            date={review.date}
-                                            rating={review.rating}
-                                            comment={review.comment}
-                                        />
-                                    )
-                                }
+                                return (
+                                    <ReviewComment
+                                        userName={review.userName}
+                                        userImage={review.userImage}
+                                        date={review.date}
+                                        rating={review.rating}
+                                        comment={review.comment}
+                                    />
+                                )
                             })
                         }
                         <Box className={classes.productViewMoreButton}>
@@ -476,17 +509,23 @@ export default function PageProduct() {
                         </CardContent>
                         <Box className={classes.productDivider}></Box>
                         {
-                            JSON.parse(window.localStorage.getItem('cart')).map(product => {
-                                <AddToCart {...product} />
+                            cart.map((product, index) => {
+                                return <AddToCart key={index}
+                                    image={product.image}
+                                    title={product.title}
+                                    price={product.price}
+                                    quantity={product.quantity}
+                                    removeToCart={removeToCart}
+                                />
                             })
                         }
-                        <CardActions >
+                        <CardActions className={classes.productPayment}>
                             <Box>
-                                <Box>
+                                <Box className={classes.productPaymentPrice}>
                                     <Typography>총 0원</Typography>
                                 </Box>
                                 <Button
-                                    className={classes.productReviewButton}>결제하기
+                                    className={classes.productPaymentButton}>결제하기
                                 </Button>
                             </Box>
                         </CardActions>

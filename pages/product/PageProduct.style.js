@@ -182,7 +182,7 @@ const PageProductStyle = {
         margin: '20px 0',
     },
     productBooking: {
-        zIndex: -100,
+        zIndex: 100,
         padding: 0,
         width: '100%',
         position: 'fixed',
@@ -191,7 +191,7 @@ const PageProductStyle = {
         right: 0,
     },
     productBookingCard: {
-        width: '30%',
+        width: '35%',
         marginLeft: 'auto',
         display: 'flex',
         flexDirection: 'column',
@@ -209,21 +209,31 @@ const PageProductStyle = {
                 }
             }
         },
-        '&>:nth-child(3)': {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            '&>:nth-child(1)': {
-                paddingTop: 10,
-                width: '90%',
-                '& p': {
-                    color: 'tomato',
+        // '&>:nth-child(3)': {
+        //     display: 'flex',
+        //     flexDirection: 'column',
+        //     justifyContent: 'center',
+        //     '&>:nth-child(1)': {
+        //         paddingTop: 10,
+        //         width: '90%',
+        //         '& p': {
+        //             color: 'tomato',
 
-                }
-            },
+        //         }
+        //     },
+        // }
+    },
+    productPayment: {
+        width: '100%',
+        '& div': {
+            width: '100%',
         }
     },
-    productReviewButton: {
+    productPaymentPrice: {
+        display: 'flex',
+        justifyContent: 'start',
+    },
+    productPaymentButton: {
         width: '100%',
         color: 'white',
         fontSize: '20px',
