@@ -11,6 +11,7 @@ import Rating from '@material-ui/lab/Rating';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LinkIcon from '@material-ui/icons/Link';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import axios from 'axios';
@@ -143,6 +144,8 @@ export default function PageProduct() {
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
     const [cart, setCart] = useState([]);
 
+    var count = 0;
+
     var sliderSettings = {
         dots: true,
         infinite: true,
@@ -262,7 +265,7 @@ export default function PageProduct() {
             comment: JSON.stringify(data.comment),
         }))
         reset();
-        setRating(0);
+        setRating(0)
     }
 
     const date = () => {
@@ -276,6 +279,13 @@ export default function PageProduct() {
 
     const viewMoreQA = () => {
         setIsHiddenQA((prev) => !prev);
+    }
+
+    const getTotalPrice = () => {
+        cart.map(product => {
+            count += product.quantity * product.price
+        })
+        return count;
     }
 
     return (
@@ -497,37 +507,42 @@ export default function PageProduct() {
                 </Container>
                 <Container className={classes.productBooking} >
                     <Card className={classes.productBookingCard}>
-                        <CardContent>
-                            <div>
-                                <h3>
-                                    7,900원
-                                     <small>
-                                        <del>25,000원</del>
-                                    </small>
-                                </h3>
-                            </div>
+                        <CardContent className={classes.productBookingTitle}>
+                            <p>
+                                (액션캠) 고프로 히어로 세트
+                            </p>
                         </CardContent>
                         <Box className={classes.productDivider}></Box>
-                        {
-                            cart.map((product, index) => {
-                                return <AddToCart key={index}
-                                    image={product.image}
-                                    title={product.title}
-                                    price={product.price}
-                                    quantity={product.quantity}
-                                    removeToCart={removeToCart}
-                                />
-                            })
-                        }
+                        <div className={classes.productCart}>
+                            {
+                                cart.length !== 0 ?
+                                    cart.map((product, index) => {
+                                        return <AddToCart key={index}
+                                            image={product.image}
+                                            title={product.title}
+                                            price={product.price}
+                                            quantity={product.quantity}
+                                            removeToCart={removeToCart}
+                                        />
+                                    }) :
+                                    <Box className={classes.productCartTag}>
+                                        <ShoppingCartIcon />
+                                        <span > 장바구니가 비어있습니다.</span>
+                                    </Box>
+
+                            }
+                        </div>
+                        <Box className={classes.productDivider}></Box>
                         <CardActions className={classes.productPayment}>
-                            <Box>
-                                <Box className={classes.productPaymentPrice}>
-                                    <Typography>총 0원</Typography>
-                                </Box>
-                                <Button
-                                    className={classes.productPaymentButton}>결제하기
-                                </Button>
+                            <Box className={classes.productPaymentPrice}>
+                                <p>{
+                                    getTotalPrice()
+                                }원
+                                </p>
                             </Box>
+                            <Button
+                                className={classes.productPaymentButton}>결제하기
+                            </Button>
                         </CardActions>
                     </Card>
                 </Container>

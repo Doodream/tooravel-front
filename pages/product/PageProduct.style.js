@@ -223,15 +223,54 @@ const PageProductStyle = {
         //     },
         // }
     },
+    productBookingTitle: {
+        display: 'flex',
+        justifyContent: 'center',
+        '& p': {
+
+            fontSize: 30,
+            margin: 0,
+            fontWeight: '800',
+        }
+    },
+    productCart: {
+        width: '100%',
+        height: '200px',
+        overflow: 'auto',
+        padding: '10 0',
+    },
+    productCartTag: {
+        height: '100%',
+        fontWeight: '600',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& span': {
+            fontSize: 15,
+        },
+        '& svg': {
+            color: 'rgba(0,0,0,0.4)',
+            fontSize: 80,
+            marginBottom: 20
+        }
+    },
     productPayment: {
         width: '100%',
-        '& div': {
-            width: '100%',
-        }
+        display: 'flex',
+        flexDirection: 'column',
     },
     productPaymentPrice: {
         display: 'flex',
-        justifyContent: 'start',
+        justifyContent: 'left',
+        marginLeft: 'auto',
+        '& p': {
+            display: 'flex',
+            margin: 0,
+            fontSize: 25,
+            fontWeight: 600,
+            color: 'tomato',
+        }
     },
     productPaymentButton: {
         width: '100%',
