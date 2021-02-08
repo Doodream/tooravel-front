@@ -144,6 +144,8 @@ export default function PageProduct() {
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
     const [cart, setCart] = useState([]);
 
+
+
     var count = 0;
 
     var sliderSettings = {
@@ -221,7 +223,7 @@ export default function PageProduct() {
     const removeToCart = (title) => {
         if (cart.length === 1) {
             setCart([]);
-            window.localStorage.setItem('cart', []);
+            window.localStorage.removeItem('cart');
             return
         }
         setCart(cart.filter(product => product.title !== title));
