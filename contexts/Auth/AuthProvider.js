@@ -42,7 +42,10 @@ const AuthProvider = ({ children, localStorage }) => {
         window.localStorage.clear()
         router.push('/')
     };
-    const signUp = data => Fetch.post('/api/signup/',).then(res => router.push('/account/login'));
+    const signUp = ({ email, password }) => Fetch.post('/api/signup/', {
+        'email': email,
+        'password': password,
+    }).then(res => router.push('/account/login'));
 
     //state초기화 객체 입니다.
     const initialState = {

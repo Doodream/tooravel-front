@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import AuthContext from '../../../contexts/Auth/AuthContext';
 
 import styles from '../login/Login.style.js';
+import { resetWarningCache } from 'prop-types';
 
 const useStyles = makeStyles(styles);
 
@@ -27,9 +28,11 @@ export default function Signup({ history }) {
 
     const { signUp, isAuthenticated } = React.useContext(AuthContext)
     const onSubmit = (data) => {
-        alert(JSON.stringify(data));
+        isReEnterPasswordValid ? signUp(data) : null;
+        reset();
+
     }
-    const { handleSubmit, register } = useForm({
+    const { handleSubmit, register, reset } = useForm({
         reValidateMode: 'onBlur'
     });
 
@@ -127,7 +130,6 @@ export default function Signup({ history }) {
                             <Typography className={classes.loginInputErrmsg} ref={passwordFormCheck}> 비밀번호를 형식에 맞게 입력해주세요 </Typography>
                             <TextField className={classes.loginInput, classes.loginPassword}
                                 name='password_confirm'
-                                inputRef={register}
                                 label='Re-enter Password'
                                 onChange={(e) => { validateReEnterPassword(e.target.value) }}
                                 variant='outlined'
@@ -146,7 +148,7 @@ export default function Signup({ history }) {
                         <Box className={classes.loginSignup}>
                             <Typography>이미 Tooravel의 회원이신가요?</Typography>
                             {/* button href를 넣으면 css가 달라짐 inspect 하면서 볼 것 */}
-                            <Link href='/'><a><Button>로그인</Button></a></Link>
+                            <Link href='/account/login'><a><Button>로그인</Button></a></Link>
                         </Box>
                     </Box>
                 </Box>
