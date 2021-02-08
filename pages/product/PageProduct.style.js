@@ -182,7 +182,7 @@ const PageProductStyle = {
         margin: '20px 0',
     },
     productBooking: {
-        //zIndex: 100,
+        zIndex: 100,
         padding: 0,
         width: '35%',
         position: 'fixed',
