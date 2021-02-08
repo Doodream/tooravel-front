@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import AuthContext from '../../contexts/Auth/AuthContext';
 
 import Link from 'next/link';
 
@@ -143,6 +144,8 @@ export default function PageProduct() {
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
     const [cart, setCart] = useState([]);
+
+    const { isAuthenticated } = React.useContext(AuthContext);
 
 
 
@@ -543,7 +546,11 @@ export default function PageProduct() {
                                 </p>
                             </Box>
                             <Button
-                                className={classes.productPaymentButton}>결제하기
+                                onClick={() => {
+                                    isAuthenticated ? alert("결제하기") : alert("로그인을 해주세요.")
+                                }}
+                                className={classes.productPaymentButton}>
+                                결제하기
                             </Button>
                         </CardActions>
                     </Card>
