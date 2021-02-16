@@ -22,7 +22,6 @@ export default function AddToCart({ image, title, price, quantity, removeToCart 
 
     const addProduct = () => {
         newCart[index].quantity += 1;
-
         window.localStorage.setItem('cart', JSON.stringify(newCart))
         setCount(newCart[index].quantity);
     }
@@ -36,7 +35,7 @@ export default function AddToCart({ image, title, price, quantity, removeToCart 
     }
 
     const removeProduct = async () => {
-        await removeToCart(title);
+        await removeToCart(index);
     }
 
     return (

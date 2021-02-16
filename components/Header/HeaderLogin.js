@@ -12,7 +12,7 @@ import styles from './Header.style.js';
 const useStyles = makeStyles(styles);
 
 export default function HeaderLogin() {
-    const { logout, isAuthenticated, homeRedirect } = React.useContext(AuthContext);
+    const { authUser, logout, isAuthenticated, homeRedirect } = React.useContext(AuthContext);
     const classes = useStyles();
     const [ishoverList, setIshoverList] = useState(false);
 
@@ -29,19 +29,22 @@ export default function HeaderLogin() {
             <Box className={classes.header}>
                 <Box className={classes.headerLogo}>
                     <Link href='/'>
-                        <a><img src="https://www.tooravel.net/static/common/img/text_logo_200.png" alt="투레벨 로고"></img></a>
+                        <a className={classes.headerLogo}>
+                            <img src="https://tooravel.s3.ap-northeast-2.amazonaws.com/media/company/small/TOORAVEL.jpg" alt="투레벨 로고"></img>
+                            <h3> Tooravel </h3>
+                        </a>
                     </Link>
                 </Box>
                 <Box className={classes.headerAccount}>
-                    <Link href='/booking/confirm'>
-                        <a><Typography variant="h6">예약확인</Typography></a>
-                    </Link>
+
+                    <a><Typography variant="h6">마이페이지</Typography></a>
+
                     <Box className={classes.headerDivider}></Box>
                     {/* 나의 계정에서 설정할 이미지 */}
                     <Button
                         className={classes.headerUserImage}
                         onClick={() => hoverListStatus()}>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg" alt="계정 이미지"></img>
+                        <img src={authUser.image} alt="계정 이미지"></img>
                     </Button>
                 </Box>
                 <Grow in={ishoverList}>
@@ -55,15 +58,6 @@ export default function HeaderLogin() {
                             </Link>
                         </ListItem>
                         <Divider />
-                        <ListItem button>
-                            <Link href='/account/mypage/wishlist'>
-                                <a>
-                                    <FavoriteBorderOutlinedIcon />
-                                    <Typography variant='h5'>위시리스트</Typography>
-                                </a>
-                            </Link>
-                        </ListItem>
-                        <Divider />
                         <ListItem button onClick={logout}>
                             <a>
                                 <PowerSettingsNewOutlinedIcon />
@@ -72,7 +66,6 @@ export default function HeaderLogin() {
                         </ListItem>
                     </List>
                 </Grow>
-
             </Box> : gohome()
     )
 }

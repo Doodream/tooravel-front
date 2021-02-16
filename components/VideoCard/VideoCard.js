@@ -28,7 +28,7 @@ export default function VideoCard({ viewCount, thumbnail, videoId, title, channe
             <Modal className={classes.videoModal}
                 open={open}
                 onClose={handleClose}>
-                <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen='true'></iframe>
+                <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" autoPlay={1} allow="accelerometer; ; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
             </Modal>
             <Button className={classes.videoCard} onClick={() => handleOpen()}>
                 <Card className={classes.videoCardSection}>
@@ -41,7 +41,7 @@ export default function VideoCard({ viewCount, thumbnail, videoId, title, channe
                     <CardContent className={classes.videoCardContent}>
                         <Typography >조회수 {viewRecount}회 · {publishedAt}</Typography>
                         <Typography >by {channelTitle}</Typography>
-                        <Typography >{title}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Typography>
+                        <Typography >{title}</Typography>
                     </CardContent>
                 </Card>
             </Button>

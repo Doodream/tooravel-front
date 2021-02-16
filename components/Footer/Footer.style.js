@@ -1,10 +1,9 @@
 const FooterStyle = {
     footer: {
-        display: 'flex',
         justifyContent: 'center',
         position: 'relative',
         bottom: 0,
-        height: 473,
+        height: 500,
         width: '100%',
         background: '#5E5E5E',
     },
@@ -40,9 +39,22 @@ const FooterStyle = {
         background: 'white',
     },
     footerSnsList: {
+        display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
+        '& svg': {
+            height: 30,
+            width: 30,
+            color: 'white',
+        },
         '& a': {
             margin: 15,
+            textDecoration: 'none',
+        },
+        '& h3': {
+            margin: 0,
+            fontSize: 30,
+            color: 'white',
         }
     },
     footerInfo: {

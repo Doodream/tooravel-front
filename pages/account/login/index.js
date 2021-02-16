@@ -4,6 +4,8 @@ import { Box, Button, Divider, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useForm } from "react-hook-form";
 import AuthContext from '../../../contexts/Auth/AuthContext'
+import KaKaoLogin from 'react-kakao-login'
+import { FaComment } from 'react-icons/fa';
 
 import Page from '../../../components/Layout/Page';
 
@@ -24,10 +26,27 @@ export default function Login({ history }) {
 
 
     const { login, kakaoLogin, isAuthenticated } = React.useContext(AuthContext)
-    const { handleSubmit, register, reset } = useForm({
-        reValidateMode: 'onBlur'
-    });
+    const { handleSubmit, register, reset } = useForm({ reValidateMode: 'onBlur' });
 
+    const styleKakaoLogin = {
+        cursor: 'pointer',
+        textTransform: 'none',
+        width: '100%',
+        padding: '12px 6px',
+        border: 'none',
+        color: '#35181A',
+        fontSize: '20px',
+        textAlign: 'center',
+        borderRadius: '5px',
+        background: '#FEE100',
+        marginTop: '50px',
+        marginBottom: '20px',
+        '& svg': {
+            width: '1em',
+            height: '1em',
+            marginRight: 5
+        },
+    }
     React.useEffect(() => {
         if (isAuthenticated) {
             alert('로그인 상태입니다.')
@@ -86,11 +105,18 @@ export default function Login({ history }) {
             <Box className={classes.login}>
                 <Box className={classes.loginSection}>
                     <Box className={classes.loginSectionInner}>
-                        <Link href='/account/login'>
-                            <a className={classes.loginFacebook}>
-                                <Button>FaceBook으로 간편하게 로그인</Button>
-                            </a>
-                        </Link>
+                        <KaKaoLogin
+                            //className={classes.loginKakao}
+                            style={styleKakaoLogin}
+                            token='45410d7c270e666ba29cd81f300c735e'
+                            onSuccess={kakaoLogin}
+
+                            onFailure={result => {
+                                alert('로그인이 실패하였습니다.')
+                            }}
+                            getProfile={true}
+                        ><FaComment />카카오톡 로그인</KaKaoLogin>
+
                         <Divider className={classes.loginDivider} />
                         {/* //handleSubmit(login) */}
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -130,6 +156,6 @@ export default function Login({ history }) {
                     </Box>
                 </Box>
             </Box>
-        </Page>
+        </Page >
     )
 }

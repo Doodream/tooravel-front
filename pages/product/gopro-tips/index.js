@@ -61,10 +61,6 @@ export default function PageProductTip() {
 
     }, [])
 
-    React.useEffect(() => {
-        console.log(tipVideosInfo)
-    }, [tipVideosInfo])
-
     return (
         <Page>
             <Box className={classes.productTip}>

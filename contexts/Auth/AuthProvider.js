@@ -3,6 +3,7 @@ import { withRouter, useRouter } from "next/router";
 
 import AuthContext from './AuthContext.js';
 import { Fetch } from '../../utils/Fetch.js';
+import { FormatTextdirectionLToRSharp } from "@material-ui/icons";
 
 const copyObject = obj => ({ ...obj, ...JSON.parse(JSON.stringify(obj)) })
 const AuthProvider = ({ children, localStorage }) => {
@@ -11,6 +12,7 @@ const AuthProvider = ({ children, localStorage }) => {
     const router = useRouter();
     const homeRedirect = () => router.push('/')
     const saveUserInfo = res => {
+        console.log(res)
 
         if (!res.loginSuccess) {
             throw new Error("아이디나 비밀번호가 맞지 않습니다.");
@@ -26,14 +28,11 @@ const AuthProvider = ({ children, localStorage }) => {
         'password': password,
     }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
 
-    const kakaoLogin = ({ response, profile }) => {
+    const kakaoLogin = ({ profile }) => {
+        console.log(profile);
         const data = {
-            kakao_id: profile.id,
-            email: profile.properties?.email,
-            name: profile.properties?.nickname,
-            // tel
+            email: profile.kakao_account.email,
         }
-
         Fetch.post('/api/login/kakao/', data).then(saveUserInfo).then(homeRedirect);
     }
     const logout = () => {
@@ -47,6 +46,28 @@ const AuthProvider = ({ children, localStorage }) => {
         'password': password,
     }).then(res => router.push('/account/login'));
 
+    const kakaoSignUp = ({ profile }) => Fetch.post('/api/signUp/', {
+        'email': profile.kakao_account.email,
+        'name': profile.properties.nickname,
+        'gender': profile.kakao_account.gender,
+        'image': profile.properties.profile_image,
+    }).then(res => {
+        alert(res.message)
+        res.success ? router.push('/account/login') : null;
+    });
+
+    // const kakaoSignUp = ({ profile }) => {
+    //     console.log(profile)
+    // }
+
+    const settingAccount = ({ email, name, gender, nationality, image }) => Fetch.post('/api/account/setting', {
+        'email': email,
+        'name': name,
+        'gender': gender,
+        'nationality': nationality,
+        'image': image
+    }).then(res => alert('회원님의 정보가 저장되었습니다.'))
+
     //state초기화 객체 입니다.
     const initialState = {
         saveUserInfo,
@@ -54,8 +75,11 @@ const AuthProvider = ({ children, localStorage }) => {
         kakaoLogin,
         logout,
         signUp,
+        kakaoSignUp,
+        settingAccount,
         authUser: prevAuthUser,
         isAuthenticated: 'token' in prevAuthUser,
+
     };
     //Hook을 통한 state, setState를 정의합니다.
     const [value, setValue] = React.useState(initialState);

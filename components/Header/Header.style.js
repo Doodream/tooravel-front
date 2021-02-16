@@ -12,10 +12,20 @@ const HeaderStyle = {
         zIndex: 100,
     },
     headerLogo: {
-        padding: 20,
+        display: 'flex',
+        textDecoration: 'none',
+        alignItems: 'center',
+        paddingLeft: 20,
         '& img': {
-            width: 150,
+            width: 32.25,
             height: 32.25
+        },
+        '& h3': {
+            marginTop: 0,
+            marginBottom: 0,
+            marginLeft: 15,
+            fontSize: 30,
+            color: 'tomato',
         }
     },
     headerAccount: {

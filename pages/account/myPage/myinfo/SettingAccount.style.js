@@ -82,12 +82,33 @@ const SettingAccountStyle = {
         borderBottom: '1px solid rgba(0, 0, 0, 0.3)'
     }
     ,
-    settingAccountUsetImage: {
-        padding: '50px',
+    settingAccountUserImage: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'end',
+        paddingTop: 50,
+        '& label': {
+            cursor: 'pointer',
+        },
         '& img': {
             borderRadius: '50%',
-            height: '80px',
-            widht: '80px',
+            height: '180px',
+            width: '180px',
+            marginBottom: 10,
+        },
+        '& input': {
+            margin: '10px 0',
+            position: 'absolute',
+            width: 1,
+            height: 1,
+            padding: 0,
+            margin: -1,
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            border: 0
+        },
+        '& button': {
+            margin: '10px 0'
         }
     },
     settingAccountUserInfo: {
@@ -102,9 +123,9 @@ const SettingAccountStyle = {
         width: 200
     },
     settingAccountSaveButton: {
-        width: '80px',
+        width: '120px',
         color: 'white',
-        fontSize: '20px',
+        fontSize: '17px',
         textAlign: 'center',
         borderRadius: '5px',
         background: 'tomato',

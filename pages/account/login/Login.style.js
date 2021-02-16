@@ -17,21 +17,6 @@ const LoginStyle = {
         flexDirection: 'column',
         width: '50%',
     },
-    loginFacebook: {
-
-        textDecoration: 'none',
-        '& button': {
-            textTransform: 'none',
-            width: '100%',
-            color: 'white',
-            fontSize: '20px',
-            textAlign: 'center',
-            borderRadius: '5px',
-            background: '#476DA3',
-            marginTop: '50px',
-            marginBottom: '20px',
-        }
-    },
     loginDivider: {
         width: '100%',
         border: '0.01px solid #EFEFEF',

@@ -143,11 +143,8 @@ export default function PageProduct() {
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
-    const [cart, setCart] = useState([]);
-
+    const [cart, setCart] = useState(JSON.parse(window.localStorage.getItem('cart')));
     const { isAuthenticated } = React.useContext(AuthContext);
-
-
 
     var count = 0;
 
@@ -223,19 +220,22 @@ export default function PageProduct() {
 
     }, [])
 
-    const removeToCart = (title) => {
+    const removeToCart = (index) => {
         if (cart.length === 1) {
             setCart([]);
             window.localStorage.removeItem('cart');
             return
         }
-        setCart(cart.filter(product => product.title !== title));
+        var newCart = JSON.parse(JSON.stringify(cart));
+        newCart.splice(index, 1)
+        setCart(newCart);
+        window.localStorage.setItem('cart', JSON.stringify(newCart));
         console.log(cart);
-        window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     const addToCart = (product) => {
-        var newProduct = product;
+        if (product.quantity !== 0) { product.quantity = 0 }
+        const newProduct = product;
         var newCart = JSON.parse(window.localStorage.getItem('cart'));
 
         // 카트가 비었는지 비어있지 않은지 
@@ -522,7 +522,8 @@ export default function PageProduct() {
                             {
                                 cart.length !== 0 ?
                                     cart.map((product, index) => {
-                                        return <AddToCart key={index}
+                                        return <AddToCart
+                                            key={index}
                                             image={product.image}
                                             title={product.title}
                                             price={product.price}
@@ -540,10 +541,7 @@ export default function PageProduct() {
                         <Box className={classes.productDivider}></Box>
                         <CardActions className={classes.productPayment}>
                             <Box className={classes.productPaymentPrice}>
-                                <p>{
-                                    getTotalPrice()
-                                }원
-                                </p>
+                                <p>{getTotalPrice()}원</p>
                             </Box>
                             <Button
                                 onClick={() => {

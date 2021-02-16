@@ -11,7 +11,10 @@ export default function Header() {
     return (
         <Box className={classes.header}>
             <Link href='/'>
-                <a className={classes.headerLogo}><img src="https://www.tooravel.net/static/common/img/text_logo_200.png" alt="투레벨 로고"></img></a>
+                <a className={classes.headerLogo}>
+                    <img src="https://tooravel.s3.ap-northeast-2.amazonaws.com/media/company/small/TOORAVEL.jpg" alt="투레벨 로고"></img>
+                    <h3> Tooravel </h3>
+                </a>
             </Link>
             <Box className={classes.headerAccount}>
                 <Link href='/account/login'>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Box, Container, Typography, List, Divider } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './Footer.style.js';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const useStyles = makeStyles(styles);
 
@@ -38,12 +39,12 @@ export default function Footer() {
                     </Box>
                 </List>
                 <List className={classes.footerSnsList}>
-                    <a href='https://www.facebook.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_face.png' alt='페이스북'></img></a>
-                    <a href='https://www.instagram.com/tooravel/' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_insta.png' alt='인스타'></img></a>
-                    <a href='https://blog.naver.com/tooravel' target='_blank'><img src='https://www.tooravel.net/static/common/img/icon_naver.png' alt='네이버'></img></a>
+                    <a href='https://www.facebook.com/tooravel/' target='_blank'><FaFacebook /></a>
+                    <a href='https://www.instagram.com/tooravel/' target='_blank'><FaInstagram /></a>
+                    <a href='https://blog.naver.com/tooravel' target='_blank'><h3>N</h3></a>
                 </List>
                 <List className={classes.footerInfo}>
-                    <Typography className={classes.footerInfoText} >상호명 : 투레벨(Tooravel)  |  대표 : 성주엽</Typography>
+                    <Typography className={classes.footerInfoText} >상호명 : 투레벨(Tooravel)  |  대표 : 노두현</Typography>
                     <Typography className={classes.footerInfoText} >사업자등록번호 : 580-01-00783</Typography>
                     <Typography className={classes.footerInfoText} >통신판매업신고번호 : 제 2017-경기안산-0894 호   |  사업자정보확인</Typography>
                     <Typography className={classes.footerInfoText} >주소 : 서울시 동대문구 망우로12길 49-1 지하1층 B102</Typography>
