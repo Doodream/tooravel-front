@@ -28,7 +28,7 @@ export default function ReviewComment({ userName, userImage, date, rating, comme
                         </Box>
                     </Box>
                     <Box>
-                        <Typography>{comment.substring(1, comment.length - 2)}</Typography>
+                        <Typography>{comment}</Typography>
                     </Box>
                 </CardContent>
             </Card>

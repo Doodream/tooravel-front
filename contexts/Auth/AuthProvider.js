@@ -12,8 +12,6 @@ const AuthProvider = ({ children, localStorage }) => {
     const router = useRouter();
     const homeRedirect = () => router.push('/')
     const saveUserInfo = res => {
-        console.log(res)
-
         if (!res.loginSuccess) {
             throw new Error("아이디나 비밀번호가 맞지 않습니다.");
         }
@@ -29,11 +27,10 @@ const AuthProvider = ({ children, localStorage }) => {
     }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
 
     const kakaoLogin = ({ profile }) => {
-        console.log(profile);
-        const data = {
+        //console.log(profile);
+        Fetch.post('/api/login/kakao/', {
             email: profile.kakao_account.email,
-        }
-        Fetch.post('/api/login/kakao/', data).then(saveUserInfo).then(homeRedirect);
+        }).then(saveUserInfo).then(homeRedirect);
     }
     const logout = () => {
         alert('로그아웃 되었습니다.')
@@ -56,9 +53,18 @@ const AuthProvider = ({ children, localStorage }) => {
         res.success ? router.push('/account/login') : null;
     });
 
-    // const kakaoSignUp = ({ profile }) => {
-    //     console.log(profile)
-    // }
+    const uploadReview = (data) => {
+        console.log(data);
+        Fetch.post('/api/upload/review', {
+            'name': data.userName,
+            'image': data.userImage,
+            'date': data.date,
+            'rating': data.rating,
+            'comment': data.comment,
+        }).then(res => {
+            alert(res.message)
+        }).catch(err => alert(err));
+    }
 
     const settingAccount = ({ email, name, gender, nationality, image }) => Fetch.post('/api/account/setting', {
         'email': email,
@@ -76,6 +82,7 @@ const AuthProvider = ({ children, localStorage }) => {
         logout,
         signUp,
         kakaoSignUp,
+        uploadReview,
         settingAccount,
         authUser: prevAuthUser,
         isAuthenticated: 'token' in prevAuthUser,

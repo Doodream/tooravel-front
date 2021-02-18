@@ -144,7 +144,16 @@ export default function PageProduct() {
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
     const [cart, setCart] = useState(JSON.parse(window.localStorage.getItem('cart')) || []);
-    const { isAuthenticated } = React.useContext(AuthContext);
+    const { isAuthenticated, authUser, uploadReview } = React.useContext(AuthContext);
+
+    const getReviews = () => {
+        return Fetch.post('/api/download/reviews').then(res => {
+            //console.log(res);
+            setReviews(res);
+        }).catch(err => {
+            alert(err);
+        })
+    }
 
     var count = 0;
 
@@ -220,6 +229,10 @@ export default function PageProduct() {
 
     }, [])
 
+    useEffect(() => {
+        getReviews();
+    }, [reviews])
+
     const removeToCart = (index) => {
         if (cart.length === 1) {
             setCart([]);
@@ -261,16 +274,23 @@ export default function PageProduct() {
 
     const addReview = data => {
         //userName, userImage를 context에서 
+        if (!isAuthenticated) {
+            alert("로그인을 해주세요.😄");
+            return
+        }
 
-        setReviews(reviews.concat({
-            userName: '노두현',
-            userImage: 'https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg',
+        var newReview = {
+            userName: authUser.name,
+            userImage: authUser.image,
             date: date(),
             rating: rating,
-            comment: JSON.stringify(data.comment),
-        }))
+            comment: data.comment,
+        }
+
+        uploadReview(newReview);
         reset();
         setRating(0)
+
     }
 
     const date = () => {
@@ -464,11 +484,12 @@ export default function PageProduct() {
                         <Box className={classes.productDivider}></Box>
                         <Typography className={classes.productUserReviewTitle} variant='h3'>후기 {reviews.length}개</Typography>
                         {
-                            reviews.map((review) => {
+                            reviews.map((review, index) => {
                                 return (
                                     <ReviewComment
-                                        userName={review.userName}
-                                        userImage={review.userImage}
+                                        key={index}
+                                        userName={review.name}
+                                        userImage={review.image}
                                         date={review.date}
                                         rating={review.rating}
                                         comment={review.comment}
