@@ -143,7 +143,7 @@ export default function PageProduct() {
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
-    const [cart, setCart] = useState(JSON.parse(window.localStorage.getItem('cart')));
+    const [cart, setCart] = useState(JSON.parse(window.localStorage.getItem('cart')) || []);
     const { isAuthenticated } = React.useContext(AuthContext);
 
     var count = 0;
