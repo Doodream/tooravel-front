@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -13,6 +15,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
     "axios": "^0.21.1",
+    "gh-pages": "^3.1.0",
     "next": "^10.0.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
@@ -26,5 +29,6 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.12.0"
-  }
+  },
+  "homepage": "http://Doodream.github.io/tooravel.com/tooravel_front"
 }
