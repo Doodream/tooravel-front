@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, List, ListItem, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
 import Link from 'next/link';
 import Page from '../../../../components/Layout/Page'
@@ -15,19 +15,26 @@ export default function SettingAccount() {
 
 
     const BASE_URL = "http://localhost:4000";
-    const { settingAccount, authUser, logout } = React.useContext(AuthContext);
+    const { settingAccount, logout } = React.useContext(AuthContext);
     const classes = useStyles();
-    const [gender, setGender] = useState(authUser.gender || '');
-    const [name, setName] = useState(authUser.name);
-    const [nationality, setNationality] = useState(authUser.nationality || '');
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('user')));
+    const [gender, setGender] = useState(user.gender || '');
+    const [name, setName] = useState(user.name);
+    const [nationality, setNationality] = useState(user.nationality || '');
     const [userUploadedImage, setUserUploadedImage] = useState(
         {
             fileName: "",
-            filePath: authUser.image
+            filePath: user.image
         }
     )
+
     const [userImage, setUserImage] = useState("https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg");
     const { register, handleSubmit } = useForm();
+
+    useEffect(() => {
+        setUser(JSON.parse(window.localStorage.getItem('user')));
+    }, [window.localStorage.getItem('user')]);
+
     const imageUpload = (e) => {
         setUserImage(e.target.files[0]);
         // 서버의 upload API 호출
@@ -48,7 +55,7 @@ export default function SettingAccount() {
         });
 
         var newUserInfo = {
-            ...authUser,
+            ...user,
             name: data.name,
             gender: gender,
             nationality: nationality,
@@ -57,12 +64,12 @@ export default function SettingAccount() {
         //console.log(JSON.stringify(newUserInfo));
         settingAccount(newUserInfo);
 
-
     }
 
     const genderChange = (e) => {
         setGender(e.target.value)
     };
+
     const nationalityChange = (e) => {
         setNationality(e.target.value)
     };
@@ -79,14 +86,14 @@ export default function SettingAccount() {
         }
 
         var newUserInfo = {
-            ...authUser,
+            ...user,
             name: name,
             gender: gender,
             nationality: nationality,
             image: userUploadedImage.filePath,
         }
-        //console.log(JSON.stringify(newUserInfo));
         settingAccount(newUserInfo);
+        window.localStorage.setItem('user', JSON.stringify(newUserInfo));
     }
 
 
@@ -110,7 +117,7 @@ export default function SettingAccount() {
                             <ListItem className={classes.settingAccountListDivider}></ListItem>
                             <ListItem className={classes.settingAccountUserImage}>
 
-                                <label htmlFor='img_file'><img src={userUploadedImage.filePath ? userUploadedImage.filePath : authUser.image} alt="계정 이미지"></img></label>
+                                <label htmlFor='img_file'><img src={userUploadedImage.filePath ? userUploadedImage.filePath : user.image} alt="계정 이미지"></img></label>
                                 <input
                                     id='img_file'
                                     ref={register}
@@ -131,7 +138,7 @@ export default function SettingAccount() {
                                 <p>이메일</p>
                                 <TextField
                                     variant='outlined'
-                                    value={authUser.email}
+                                    value={user.email}
                                     type='email'
                                 />
                             </ListItem>

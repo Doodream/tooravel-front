@@ -41,6 +41,7 @@ const AuthProvider = ({ children, localStorage }) => {
     const signUp = ({ email, password }) => Fetch.post('/api/signup/', {
         'email': email,
         'password': password,
+        'image': 'https://lh3.googleusercontent.com/proxy/bHKea4QHqjImDZrvbdH18BrZNDwgsiv_MMw5kRjJivFax3-gzUE_VWPwhuHAiEoaLo3Qt0lVO2sQY9BDw745tuPNSxyKwiI4zezG4RuphUv1IXziDNXE-cC7HdmVpN5x4ZFle5PTp94lu3HGP704Jv5kRfybTZIu1lSgHnsROMHRS4wNbyJcDEb870DVTc2bgThdJLKSaZK2llSCvu6NCCXbW8H1liQoxAjbunL4OZmLJ8Cu_IeXHoi7umZRT_78lsMCxNjN4vY3f7CvjoOHEYpjNtM_AMnEQBGkLmrHQXq3hgjAu1rVVQlCN9CrdrQm5shapRNS9KobygWpnmmrXqd4hbmFHLs7LA'
     }).then(res => router.push('/account/login'));
 
     const kakaoSignUp = ({ profile }) => Fetch.post('/api/signUp/', {

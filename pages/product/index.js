@@ -140,6 +140,7 @@ export default function PageProduct() {
     const classes = useStyles();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
+    const [isHiddenReview, setIsHiddenReview] = useState(false);
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
@@ -484,7 +485,18 @@ export default function PageProduct() {
                         <Box className={classes.productDivider}></Box>
                         <Typography className={classes.productUserReviewTitle} variant='h3'>후기 {reviews.length}개</Typography>
                         {
-                            reviews.map((review, index) => {
+                            isHiddenReview ? reviews.map((review, index) => {
+                                return (
+                                    <ReviewComment
+                                        key={index}
+                                        userName={review.name}
+                                        userImage={review.image}
+                                        date={review.date}
+                                        rating={review.rating}
+                                        comment={review.comment}
+                                    />
+                                )
+                            }) : reviews.slice(0, 3).map((review, index) => {
                                 return (
                                     <ReviewComment
                                         key={index}
@@ -498,7 +510,9 @@ export default function PageProduct() {
                             })
                         }
                         <Box className={classes.productViewMoreButton}>
-                            <Button><KeyboardArrowDownIcon /> 더보기</Button>
+                            <Button onClick={() => {
+                                isHiddenReview ? setIsHiddenReview(false) : setIsHiddenReview(true);
+                            }}><KeyboardArrowDownIcon /> 더보기</Button>
                         </Box>
                         <form
                             onSubmit={handleSubmit(addReview)}
