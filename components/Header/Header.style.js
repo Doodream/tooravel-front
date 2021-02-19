@@ -9,7 +9,7 @@ const HeaderStyle = {
         justifyContent: "space-between",
         alignItems: 'center',
         background: 'white',
-        zIndex: 100,
+        zIndex: 300,
     },
     headerLogo: {
         display: 'flex',
