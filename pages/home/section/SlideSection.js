@@ -9,9 +9,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 const useStyles = makeStyles(styles);
 const images = [
-    'https://static.boredpanda.com/blog/wp-content/uploads/2019/01/5-5c52344bd6620__880.jpg',
-    'https://static.boredpanda.com/blog/wp-content/uploads/2019/01/10-Photos-That-Will-Make-You-Look-Up-At-The-Sky-More-Often-5c52379f09921__880.jpg',
-    'https://i.pinimg.com/564x/f3/35/2e/f3352e0460586ca2c948c76c0a015f02.jpg',
+    'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbupwxt%2FbtqX0pOG9Lv%2FsBprZTmpeq9OCxiBKZ4rL1%2Fimg.png',
+    'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FulV2L%2FbtqXZIAVGjZ%2FUrtKogocp1Kp75BRm1MB51%2Fimg.png',
+    'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcION4x%2FbtqXY09EG4d%2FydUtN6I44oWoJRMQq4lry0%2Fimg.png',
+    'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FNDxkU%2FbtqXSnL1CeI%2F0Kfr8kYSfrlkTkIyWqlEh1%2Fimg.png',
 ];
 
 export default function SlideSection() {

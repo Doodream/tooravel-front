@@ -12,7 +12,7 @@ export default function SlideSection() {
     return (
         <Box className={classes.rentBanner}>
             <Box className={classes.rentBannerImage}>
-                <img src="https://static.boredpanda.com/blog/wp-content/uploads/2019/01/7-5c523457c0543__880.jpg" alt="배너이미지"></img>
+                <img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk0Um0%2FbtqXSoEgLCJ%2FE4btOJGRFZQEk5jnD2y4K1%2Fimg.png' alt="배너이미지"></img>
             </Box>
             <Box className={classes.rentBannerTitle}>
                 <Typography variant='h5'>하루 대여료 최저가 5900원</Typography>

@@ -9,15 +9,15 @@ import axios from 'axios';
 const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
 
 const tipVideosId = [
-    'J3XTohm5Lbg',
-    'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
-    'J3XTohm5Lbg',
-    'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
-    'J3XTohm5Lbg',
-    'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
+    '7o6mGQ2uY2Y',
+    'D2PN_cg-1Nk',
+    'dtbyK9Wg2fk',
+    'fvMBNZxKIyU',
+    '-mLKAuX0fdU',
+    '4Elm751vDG4',
+    'Prt-G4cPIn4',
+    '5kUu97Vkwj4',
+    'k8O9d_XqNlk',
 ];
 const useStyles = makeStyles(styles);
 

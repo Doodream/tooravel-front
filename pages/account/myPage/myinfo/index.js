@@ -14,7 +14,8 @@ const useStyles = makeStyles(styles);
 export default function SettingAccount() {
 
 
-    const BASE_URL = "http://localhost:4000";
+    const [baseUrl, setBaseUrl] = useState(process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'http://Doodream.github.io/tooravel.com/tooravel_front');
+
     const { settingAccount, logout } = React.useContext(AuthContext);
     const classes = useStyles();
     const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('user')));
@@ -48,7 +49,7 @@ export default function SettingAccount() {
             const { fileName } = res;
             setUserUploadedImage({
                 fileName: res.fileName,
-                filePath: `${BASE_URL}/img/${fileName}`
+                filePath: `${baseUrl}/img/${fileName}`
             })
         }).catch(err => {
             console.error(err);

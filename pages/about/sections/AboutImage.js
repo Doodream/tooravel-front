@@ -11,7 +11,7 @@ export default function AboutImage() {
     return (
         <Box>
             <Box className={classes.imageSection}>
-                <img className='backImage' src='https://t1.daumcdn.net/cfile/tistory/131A95204B36CDC76B' alt='배경이미지'></img>
+                <img className='backImage' src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FK08Q4%2FbtqX0oWyWk4%2Fhz1HCgaKMJtYvA46m7QyAK%2Fimg.png' alt='배경이미지'></img>
             </Box>
         </Box>
     )

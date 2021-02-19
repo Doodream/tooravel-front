@@ -13,13 +13,13 @@ const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
 const tipVideosId = [
     'J3XTohm5Lbg',
     'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
-    'J3XTohm5Lbg',
-    'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
-    'J3XTohm5Lbg',
-    'pGx8ySVp4aA',
-    'J3XTohm5Lbg',
+    'chctyK4Re_U',
+    'AskBo4tznxQ',
+    'r7qDyZ24YQw',
+    'to0aSzdugQo',
+    'Vy5U3BW06sY',
+    'Tuy_4T96pxI',
+    '95Mz6-Lqess',
 ];
 let count = 0;
 
