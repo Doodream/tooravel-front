@@ -31,7 +31,7 @@ const Fetch = {
                 obj['fullUrl'] = 'http://localhost:4000' + url;
             }
             else if (process.env.NODE_ENV === 'production') {
-                obj['fullUrl'] = 'http://3.35.207.184' + url;
+                obj['fullUrl'] = 'http://Doodream.github.io/tooravel.com/tooravel_front' + url;
             }
             else {
                 new Error('process.env.NODE_ENV is not on development or production')

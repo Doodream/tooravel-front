@@ -136,8 +136,8 @@ export default function PageProduct() {
     // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
     // const playListID = 'PLXF3I__fEhlkpXQOktSk7j_ndEBCDaRXE';
 
-    const { register, handleSubmit, reset } = useForm();
     const classes = useStyles();
+    const { register, handleSubmit, reset } = useForm();
     const [rating, setRating] = useState(0);
     const [isHiddenQA, setIsHiddenQA] = useState(false);
     const [isHiddenReview, setIsHiddenReview] = useState(false);
@@ -173,6 +173,8 @@ export default function PageProduct() {
     const getVideoInfo = (videoId) => {
         return axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
     }
+
+
 
     useEffect(() => {
         // var data = null;
