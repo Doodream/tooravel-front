@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from '@material-ui/core';
 import { ListItem } from '@material-ui/core';
 
-import styles from './AboutContact.style.js';
+import styles from '../../../src/views/about/sections/AboutContact.style.js';
 
 const useStyles = makeStyles(styles);
 

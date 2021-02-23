@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './TouRentRule.style.js';
+import styles from '../../../src/views/tou/sections/TouRentRule.style.js';
 
 const useStyles = makeStyles(styles);
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Box, List, ListItem, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
 import Link from 'next/link';
-import Page from '../../../../components/Layout/Page'
+import Page from '../../../../src/components/Layout/Page'
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './SettingAccount.style.js';
+import styles from '../../../../src/views/account/myPage/myinfo/SettingAccount.style.js';
 import AuthContext from '../../../../contexts/Auth/AuthContext';
 import { useForm } from 'react-hook-form';
-import { Fetch } from '../../../../utils/Fetch';
+import { Fetch } from '../../../../src/utils/Fetch';
 import { RestoreRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles(styles);

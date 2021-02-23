@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import styles from './AddToCart.style.js';
+import styles from '../../../src/views/product/components/AddToCart.style.js';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';

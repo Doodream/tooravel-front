@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter, useRouter } from "next/router";
 
 import AuthContext from './AuthContext.js';
-import { Fetch } from '../../utils/Fetch.js';
+import { Fetch } from '../../src/utils/Fetch.js';
 import { FormatTextdirectionLToRSharp } from "@material-ui/icons";
 
 const copyObject = obj => ({ ...obj, ...JSON.parse(JSON.stringify(obj)) })

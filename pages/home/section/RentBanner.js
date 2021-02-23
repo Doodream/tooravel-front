@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Box, Typography, Button } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './RentBanner.style.js';
+import styles from '../../../src/views/home/section/RentBanner.style.js';
 
 const useStyles = makeStyles(styles);
 

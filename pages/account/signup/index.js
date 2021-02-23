@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { Box, Button, Divider, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Page from '../../../components/Layout/Page';
+import Page from '../../../src/components/Layout/Page';
 
 import { useForm } from 'react-hook-form';
 import AuthContext from '../../../contexts/Auth/AuthContext';
 import KaKaoLogin from 'react-kakao-login';
 import { FaComment } from 'react-icons/fa';
 
-import styles from '../login/Login.style.js';
+import styles from '../../../src/views/account/login/Login.style.js';
 import { resetWarningCache } from 'prop-types';
 
 const useStyles = makeStyles(styles);

@@ -3,10 +3,10 @@ import { Box, List, Typography, ListItem } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import { getVideoInfo } from "../index.js";
 
-import Page from '../../../components/Layout/Page';
+import Page from '../../../src/components/Layout/Page';
 
-import styles from './PageProductTip.style.js';
-import VideoCard from '../../../components/VideoCard/VideoCard';
+import styles from '../../../src/views/product/gopro-tips/PageProductTip.style.js';
+import VideoCard from '../../../src/components/VideoCard/VideoCard';
 import axios from 'axios';
 const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
 

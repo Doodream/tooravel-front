@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import HeaderLogin from '../Header/HeaderLogin'
-import AuthContext from '../../contexts/Auth/AuthContext';
+import AuthContext from '../../../contexts/Auth/AuthContext';
 import Head from 'next/head';
 
 

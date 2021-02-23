@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, List, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import Page from '../../../components/Layout/Page';
+import Page from '../../../src/components/Layout/Page';
 
-import styles from './PageVideoClip.style.js';
-import VideoCard from '../../../components/VideoCard/VideoCard';
+import styles from '../../../src/views/product/gopro-videos/PageVideoClip.style.js';
+import VideoCard from '../../../src/components/VideoCard/VideoCard';
 import axios from 'axios';
 const KEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
 

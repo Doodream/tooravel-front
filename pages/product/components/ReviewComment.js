@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Card, CardContent } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Rating from '@material-ui/lab/Rating';
-import styles from './ReviewComment.style.js';
+import styles from '../../../src/views/product/components/ReviewComment.style.js';
 
 const useStyles = makeStyles(styles);
 

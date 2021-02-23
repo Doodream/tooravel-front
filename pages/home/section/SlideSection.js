@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './SlideSection.style.js';
+import styles from '../../../src/views/home/section/SlideSection.style.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

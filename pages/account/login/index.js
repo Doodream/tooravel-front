@@ -7,9 +7,9 @@ import AuthContext from '../../../contexts/Auth/AuthContext'
 import KaKaoLogin from 'react-kakao-login'
 import { FaComment } from 'react-icons/fa';
 
-import Page from '../../../components/Layout/Page';
+import Page from '../../../src/components/Layout/Page';
 
-import styles from './Login.style.js'
+import styles from '../../../src/views/account/login/Login.style.js';
 
 const useStyles = makeStyles(styles);
 

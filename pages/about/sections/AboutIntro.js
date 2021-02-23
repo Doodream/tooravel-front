@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, List } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './AboutIntro.style.js';
+import styles from '../../../src/views/about/sections/AboutIntro.style.js';
 import { Typography } from '@material-ui/core';
 import { ListItem } from '@material-ui/core';
 

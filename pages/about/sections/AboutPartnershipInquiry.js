@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, List, TextField, Button } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './AboutPartnershipInquiry.style.js';
+import styles from '../../../src/views/about/sections/AboutPartnershipInquiry.style.js';
 import { Typography } from '@material-ui/core';
 import { ListItem } from '@material-ui/core';
 

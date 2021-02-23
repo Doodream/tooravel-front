@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import PowerSettingsNewOutlinedIcon from '@material-ui/icons/PowerSettingsNewOutlined';
-import AuthContext from '../../contexts/Auth/AuthContext'
+import AuthContext from '../../../contexts/Auth/AuthContext'
+
 
 import styles from './Header.style.js';
 
@@ -50,7 +51,7 @@ export default function HeaderLogin() {
                 <Grow in={ishoverList}>
                     <List className={classes.headerList}>
                         <ListItem button>
-                            <Link href='/account/mypage/myinfo'>
+                            <Link href='/account/myPage/myinfo'>
                                 <a>
                                     <PermIdentityOutlinedIcon />
                                     <Typography variant='h5'>내 정보</Typography>

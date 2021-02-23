@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Box, List, ListItem } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
-import styles from './TouMenu.style.js';
+import styles from '../../../src/views/tou/sections/TouMenu.style.js';
 
 const useStyles = makeStyles(styles);
 

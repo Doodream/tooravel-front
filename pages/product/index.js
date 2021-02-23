@@ -3,10 +3,10 @@ import AuthContext from '../../contexts/Auth/AuthContext';
 
 import Link from 'next/link';
 
-import Page from '../../components/Layout/Page';
+import Page from '../../src/components/Layout/Page';
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from './PageProduct.style.js';
+import styles from '../../src/views/product/PageProduct.style.js';
 import { Container, Box, Typography, Button, TextField, Card, CardContent, CardActions } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
@@ -14,9 +14,9 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LinkIcon from '@material-ui/icons/Link';
-import VideoCard from '../../components/VideoCard/VideoCard';
+import VideoCard from '../../src/components/VideoCard/VideoCard';
 import axios from 'axios';
-import { Fetch } from '../../utils/Fetch';
+import { Fetch } from '../../src/utils/Fetch';
 
 import ReviewComment from './components/ReviewComment';
 import { get, useForm } from 'react-hook-form';
