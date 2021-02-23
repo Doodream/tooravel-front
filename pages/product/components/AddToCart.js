@@ -12,7 +12,10 @@ const useStyles = makeStyles(styles);
 export default function AddToCart({ image, title, price, quantity, removeToCart }) {
     const classes = useStyles();
     const [count, setCount] = React.useState(quantity);
-    var newCart = JSON.parse(window.localStorage.getItem('cart'));
+    var newCart = null;
+    if (typeof window !== "undefined") {
+        newCart = JSON.parse(window.localStorage.getItem('cart'));
+    }
     var index = newCart.findIndex(item => item.title === title)
 
     React.useEffect(() => {

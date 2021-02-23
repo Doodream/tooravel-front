@@ -144,7 +144,10 @@ export default function PageProduct() {
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
-    const [cart, setCart] = useState(JSON.parse(window.localStorage.getItem('cart')) || []);
+    if (typeof window !== "undefined") {
+        setCart(JSON.parse(window.localStorage.getItem('cart')))
+    }
+    const [cart, setCart] = useState([]);
     const { isAuthenticated, authUser, uploadReview } = React.useContext(AuthContext);
 
     const getReviews = () => {

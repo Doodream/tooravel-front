@@ -18,7 +18,10 @@ export default function SettingAccount() {
 
     const { settingAccount, logout } = React.useContext(AuthContext);
     const classes = useStyles();
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('user')));
+    if (typeof window !== "undefined") {
+        setUser(JSON.parse(window.localStorage.getItem('user')));
+    }
+    const [user, setUser] = useState([]);
     const [gender, setGender] = useState(user.gender || '');
     const [name, setName] = useState(user.name);
     const [nationality, setNationality] = useState(user.nationality || '');
