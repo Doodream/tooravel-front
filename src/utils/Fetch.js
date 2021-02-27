@@ -31,7 +31,7 @@ const Fetch = {
                 obj['fullUrl'] = 'http://localhost:4000' + url;
             }
             else if (process.env.NODE_ENV === 'production') {
-                obj['fullUrl'] = 'https://tooravel-front-g4u49v5jb-doodream.vercel.app' + url;
+                obj['fullUrl'] = 'https://tooravel-front.vercel.app/' + url;
             }
             else {
                 new Error('process.env.NODE_ENV is not on development or production')
