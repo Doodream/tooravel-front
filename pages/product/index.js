@@ -131,10 +131,7 @@ const clipVideosId = [
 ];
 
 
-export default function PageProduct() {
-    // const youtubeAPIKEY = 'AIzaSyABIHpDoCRz-SxK7mCI54mqqSKvF9wvP4Y';
-    // const channelID = 'UCzz_5jK7-anlaNCjjQE67zQ';
-    // const playListID = 'PLXF3I__fEhlkpXQOktSk7j_ndEBCDaRXE';
+export default function PageProduct(localStorage) {
 
     const classes = useStyles();
     const { register, handleSubmit, reset } = useForm();
@@ -144,12 +141,10 @@ export default function PageProduct() {
     const [reviews, setReviews] = useState([]);
     const [tipVideosInfo, setTipVideosInfo] = useState([]);
     const [clipVideosInfo, setClipVideosInfo] = useState([]);
-    if (typeof window !== "undefined") {
-        setCart(JSON.parse(window.localStorage.getItem('cart')))
-    }
-    const [cart, setCart] = useState([]);
-    const { isAuthenticated, authUser, uploadReview } = React.useContext(AuthContext);
 
+    const [cart, setCart] = useState(typeof window !== "undefined" ? JSON.parse(window.localStorage.getItem('cart')) : null);
+
+    const { isAuthenticated, authUser, uploadReview } = React.useContext(AuthContext);
     const getReviews = () => {
         return Fetch.post('/api/download/reviews').then(res => {
             //console.log(res);
@@ -176,7 +171,6 @@ export default function PageProduct() {
     const getVideoInfo = (videoId) => {
         return axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${KEY}&part=snippet,statistics&fields=items(id,snippet(channelId,channelTitle,title,publishedAt,thumbnails(high)),statistics(viewCount))`);
     }
-
 
 
     useEffect(() => {
@@ -560,28 +554,35 @@ export default function PageProduct() {
                         <Box className={classes.productDivider}></Box>
                         <div className={classes.productCart}>
                             {
-                                cart.length !== 0 ?
-                                    cart.map((product, index) => {
-                                        return <AddToCart
-                                            key={index}
-                                            image={product.image}
-                                            title={product.title}
-                                            price={product.price}
-                                            quantity={product.quantity}
-                                            removeToCart={removeToCart}
-                                        />
-                                    }) :
+
+                                cart === null ?
                                     <Box className={classes.productCartTag}>
                                         <ShoppingCartIcon />
                                         <span > 장바구니가 비어있습니다.</span>
                                     </Box>
+                                    :
+                                    cart.length !== 0 ?
+                                        cart.map((product, index) => {
+                                            return <AddToCart
+                                                key={index}
+                                                image={product.image}
+                                                title={product.title}
+                                                price={product.price}
+                                                quantity={product.quantity}
+                                                removeToCart={removeToCart}
+                                            />
+                                        }) :
+                                        <Box className={classes.productCartTag}>
+                                            <ShoppingCartIcon />
+                                            <span > 장바구니가 비어있습니다.</span>
+                                        </Box>
 
                             }
                         </div>
                         <Box className={classes.productDivider}></Box>
                         <CardActions className={classes.productPayment}>
                             <Box className={classes.productPaymentPrice}>
-                                <p>{getTotalPrice()}원</p>
+                                <p>{cart === null ? 0 : getTotalPrice()}원</p>
                             </Box>
                             <Button
                                 onClick={() => {

@@ -18,10 +18,7 @@ export default function SettingAccount() {
 
     const { settingAccount, logout } = React.useContext(AuthContext);
     const classes = useStyles();
-    if (typeof window !== "undefined") {
-        setUser(JSON.parse(window.localStorage.getItem('user')));
-    }
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(typeof window !== "undefined" ? JSON.parse(window.localStorage.getItem('user')) : []);
     const [gender, setGender] = useState(user.gender || '');
     const [name, setName] = useState(user.name);
     const [nationality, setNationality] = useState(user.nationality || '');
@@ -34,10 +31,6 @@ export default function SettingAccount() {
 
     const [userImage, setUserImage] = useState("https://www.flaticon.com/svg/static/icons/svg/1221/1221751.svg");
     const { register, handleSubmit } = useForm();
-
-    useEffect(() => {
-        setUser(JSON.parse(window.localStorage.getItem('user')));
-    }, [window.localStorage.getItem('user')]);
 
     const imageUpload = (e) => {
         setUserImage(e.target.files[0]);
