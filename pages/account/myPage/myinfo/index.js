@@ -14,7 +14,7 @@ const useStyles = makeStyles(styles);
 export default function SettingAccount() {
 
 
-    const [baseUrl, setBaseUrl] = useState(process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://tooravel-front.vercel.app/');
+    const [baseUrl, setBaseUrl] = useState(process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'http://3.36.54.219:4000/');
 
     const { settingAccount, logout } = React.useContext(AuthContext);
     const classes = useStyles();
