@@ -24,6 +24,7 @@ const AuthProvider = ({ children, localStorage }) => {
     const login = ({ email, password }) => Fetch.post('/api/login/', {
         'email': email,
         'password': password,
+        'image': 'https://w7.pngwing.com/pngs/971/990/png-transparent-computer-icons-login-person-user-pessoa-smiley-desktop-wallpaper-address-icon.png'
     }).then(saveUserInfo).then(homeRedirect).catch(err => alert(err));
 
     const kakaoLogin = ({ profile }) => {
