@@ -28,10 +28,10 @@ const Fetch = {
             obj['external'] = false;
 
             if (process.env.NODE_ENV === 'development') {
-                obj['fullUrl'] = 'https://tooravel.be' + url;
+                obj['fullUrl'] = 'http://localhost:8080' + url;
             }
             else if (process.env.NODE_ENV === 'production') {
-                obj['fullUrl'] = 'https://tooravel.be/' + url;
+                obj['fullUrl'] = 'https://tooravel.be' + url;
             }
             else {
                 new Error('process.env.NODE_ENV is not on development or production')
